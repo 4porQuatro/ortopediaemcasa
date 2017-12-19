@@ -1,0 +1,39 @@
+/*==============================================
+TABS
+================================================*/
+
+.tabs{
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+
+    &__unit{
+        display: inline-block;
+        color: $text-color;
+        padding: 5px 15px;
+        font-weight: 400;
+        transition: color .4s;
+
+        &:hover{
+            color: $primary-color;
+            text-decoration: none;
+            transition: color .4s;
+        }
+
+        &.active{
+            color: $primary-color;
+            border: 2px solid $primary-color;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    }
+
+    &__unit + &__unit{
+        margin-left: 25px;
+
+        @media screen and (max-width: 768px){
+            margin-left: 0px;
+        }
+    }
+}

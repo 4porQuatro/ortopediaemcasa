@@ -1,0 +1,27 @@
+/*===========================================
+BUTTONS
+============================================*/
+
+.button-primary{
+    @include button-mixin($primary-color);
+}
+
+.button-secondary{
+    @include button-mixin($secondary-color);
+}
+
+.button-primary--border{
+    @include button-border-mixin($secondary-color);
+}
+
+.button-text{
+    display: inline-block;
+    vertical-align: middle;
+    height: 23px;
+}
+
+.button-text--footer{
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+}

@@ -1,0 +1,49 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700");
+
+//Ionicons
+@import "node_modules/ionicons/dist/scss/ionicons";
+
+//Aos
+@import "node_modules/aos/src/sass/aos.scss";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Variables
+@import "variables";
+
+//Functions
+@import "functions";
+
+//Mixins
+@import "mixins";
+
+// Base
+@import "base";
+
+//Components
+@import "components/slideshow/slideshow";
+@import "components/texts";
+@import "components/buttons";
+@import "components/links";
+@import "components/forms";
+@import "components/editable";
+@import "components/tabs";
+@import "components/modal";
+@import "components/filters";
+@import "components/animate/animate";
+
+//Partials
+@import "partials/nav";
+@import "partials/footer";
+@import "partials/banner";
+@import "partials/intro";
+@import "partials/services";
+@import "partials/products";
+@import "partials/team";
+@import "partials/contacts";
+
+//Bootstap_Reset
+@import "reset";

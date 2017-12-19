@@ -1,0 +1,14 @@
+/*========================================
+Animation Stylings
+==========================================*/
+.rotated{
+    transform: rotate(-90deg);
+    transition: transform .1s ease-out;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0 !important;
+}

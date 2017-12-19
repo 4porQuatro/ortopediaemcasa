@@ -1,0 +1,75 @@
+/*=======================================
+EDITABLE CLASSES
+=======================================*/
+
+
+.editable{
+    width: 100%;
+    max-width: 946px;
+    margin: 0 auto;
+
+    h1{
+        color: $primary-color;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        width: 100%;
+        color: $text-color;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 40px;
+    }
+
+    p{
+        color: $text-color;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    ul li{
+        color: $text-color;
+        text-align: left;
+    }
+}
+
+.editable-objective{
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 70px;
+
+    &:nth-child(even){
+        background-color: #f2f2f2;
+    }
+
+    h1{
+        font-size: 15px;
+        font-weight: 700;
+        color: $primary-color;
+        margin: 0px;
+    }
+
+    h2{
+        color: $text-color;
+        margin-top: -15px;
+        margin-bottom: 30px;
+    }
+
+    p{
+        color: $text-color;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    ul{
+        margin: 0px;
+        padding-left: 20px;
+    }
+
+    li{
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,15 @@
+/*=====================================
+LINKS
+=======================================*/
+
+.link-default{
+    @include link-mixin($text-color);
+}
+
+.link-primary{
+    @include link-mixin($primary-color);
+}
+
+.link-secondary{
+    @include link-mixin($secondary-color);
+}

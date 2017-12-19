@@ -1,0 +1,182 @@
+/*==============================================
+GENERAL FORMS
+===============================================*/
+
+.form-container{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 120px;
+
+    @media screen and (max-width: 768px){
+        margin: 0px;
+        padding: 15px;
+        height: 100%;
+    }
+}
+
+.module-inscription{
+    margin-top: 50px;
+}
+
+.form-wrapper{
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+
+.form-title{
+    text-align: center;
+    font-size: 18px;
+}
+
+.form-subtitle{
+    text-align: center;
+    color: #222;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.forms-container{
+    margin-top: 90px;
+}
+
+.form-group .col-xs-12{
+    text-align: center;
+}
+
+.form-padding{
+    padding: 20px !important;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+    min-height: 140px;
+}
+
+.contact-input{
+    width: 100%;
+    border:0;
+    opacity: .8;
+    padding: 15px 10px;
+    transition: opacity .2s ease-out;
+    font-size: 16px;
+    font-family: 'Amiri', serif;
+    padding-left: 15px;
+    background-color: #f0f2f7;
+    text-align: center;
+
+    @media screen and (max-width: 992px){
+        margin-bottom: 10px;
+    }
+
+    &:focus{
+        opacity: 1;
+        transition: opacity .2s ease-out;
+    }
+}
+
+.form-button{
+    max-width: 160px;
+    font-size: 18px;
+    border: 2px solid $primary-color;
+    border-radius: 25px;
+    padding: 10px 25px;
+    cursor: pointer;
+    color: $primary-color;
+    transition: all .2s ease-in-out; 
+    float: right;
+    background-color: transparent;
+    transition: all .2s ease-in-out;
+
+    &:hover{
+        color: #fff;
+        background-color: $primary-color;
+        transition: all .2s ease-in-out;
+    }
+
+    &:after{
+        content: "\f376";
+        display: inline-block;
+        font-family: 'Ionicons';
+        font-size: 22px;
+        font-weight: 700;
+        vertical-align: middle;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+}
+
+.form-bottom-container{
+    margin-top: 20px;
+
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.form-submit{
+    color: $terciary-color;
+    background-color: transparent;
+
+    .zmdi{
+        margin-left: 20px;
+    }
+
+}
+
+.form-bottom-text{
+    font-style: italic;
+    float: left;
+  
+}
+
+
+
+/*=================================================
+CheckBox Styling
+==================================================*/
+
+.checkbox-label{
+    text-align: left;
+    color: $primary-color;
+    float: left;
+    font-style: italic;
+}
+
+.checkbox-container{
+    display: block;
+    margin-top: 10px;
+
+    &:after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+.checkbox-container-text{
+    margin-right: 20px;
+    float: left;
+}
+
+.checkbox-container-box{
+    float: right;
+}
+
+.checkbox-text{
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: $primary-color;
+    font-weight: 700;
+}
+
+.checkbox-box{
+    float: left;
+    color: $primary-color;
+    font-weight: 700;
+}
