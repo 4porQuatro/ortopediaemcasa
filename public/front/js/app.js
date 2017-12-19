@@ -11376,21 +11376,14 @@ Vue.component('tab', __webpack_require__(50));
 var app = new Vue({
     el: '#app',
 
-    data: {
-        showSchedule: false,
-        showReverse: false
-    },
+    data: {},
 
     created: function created() {
         console.log('hello!!');
     },
 
 
-    methods: {
-        toggleSchedule: function toggleSchedule() {
-            this.showSchedule = !this.showSchedule; //or ^=
-        }
-    }
+    methods: {}
 });
 
 /***/ }),
@@ -37256,10 +37249,6 @@ $.magnificPopup.registerModule(RETINA_NS, {
 /***/ (function(module, exports) {
 
 
-$(document).ready(function () {
-    $('.card').flip();
-    $('.product__link').flip();
-});
 
 /***/ }),
 /* 40 */

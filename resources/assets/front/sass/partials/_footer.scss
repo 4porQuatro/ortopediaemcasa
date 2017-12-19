@@ -1,0 +1,59 @@
+/*========================================
+Footer Stylings
+========================================*/
+
+.footer{
+    background-color: #fff;
+    padding: 25px 0px;
+    width: 100%;
+
+    &__top-nav{
+        width: 100%;
+        padding-bottom: 25px;
+        border-bottom: 1px solid $secondary-text-color;
+
+        &:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    &__top-header{
+        color: $primary-color;
+        font-size: 35px;
+        display: inline-block;
+        
+    }
+
+    &__top-list{
+        list-style: none;
+        float: right;
+        margin-top: 28px;
+    }
+
+    &__top-item{
+        display: inline-block;
+        list-style: none;
+
+        & + & {
+            margin-left: 40px;
+        }
+    }
+
+    &__top-link{
+
+    }
+
+    &__bottom-nav{
+
+    }
+
+    &__menu-list{
+
+    }
+
+    &__partners{
+
+    }
+}

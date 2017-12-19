@@ -1,0 +1,97 @@
+/*==================================================
+Navbar Stylings
+===================================================*/
+
+.navbar{
+    width: 100%;
+    padding: 10px;
+
+
+    &__logo{
+        width: 160px;
+        display: inline-block;
+        vertical-align: middle;
+        
+        img{
+            width: 100%;
+        }
+    }
+
+    &__search{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10%;
+        width: 45%;
+
+        .search-input{
+            height: 35px;
+            width: 70%;
+            padding-left: 10px;
+            border: 1px solid $secondary-text-color;
+        }
+
+        .search-button{
+            height: 35px;
+            width: 20%;
+            background-color: $secondary-text-color;
+            color: $primary-color;
+            font-weight: 700;
+        }
+    }
+
+    &__store{
+       display: inline-block;
+       vertical-align: middle;
+       width: 20%;
+
+       &:after{
+           content:"";
+           display: block;
+           clear: both;
+       }
+    }
+
+    &__account{
+        color: $text-color;
+
+        .zmdi{
+            margin-right: 10px;
+        }
+    }
+
+    &__shopping-bag{
+        color: $primary-color;
+        font-weight: 700;
+        margin-left: 20px;
+        float: right;
+
+        .zmdi{
+            margin-right: 10px;
+        }
+    }
+
+    &__menu{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &__list{
+        list-style: none;
+        display: inline-block;
+    }
+
+    &__item{
+        display: inline-block;
+
+        & + &{
+            margin-left: 20px;
+        }
+    }
+
+    &__link{
+        color: $text-color;
+    }
+
+}

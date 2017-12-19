@@ -36,8 +36,7 @@ const app = new Vue({
     el: '#app',
 
     data: {
-        showSchedule: false,
-        showReverse: false
+
     },
 
     created(){
@@ -45,10 +44,6 @@ const app = new Vue({
     },
 
     methods: {
-
-        toggleSchedule() {
-            this.showSchedule = !this.showSchedule; //or ^=
-        }
 
     }
 });
