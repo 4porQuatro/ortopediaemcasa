@@ -42,7 +42,20 @@
             <!-- End: Footer Menu List -->
 
             <!-- Begin: Footer Partners -->
-            <div class="footer__partners">
+            <div class="footer__partners">  
+                <div class="footer__partners-upper">
+                    <h4 class="footer__partners-title">Método de Pagamento:</h4>
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                </div>
+                <div class="footer__partners-lower">
+                    <h4 class="footer__partners-title">Ambiente Seguro:</h4>
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                </div>
+                <div class="footer__partners-lower">
+                    <h4 class="footer__partners-title">Formas de Entrega:</h4>
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                </div>
                 
             </div>
             <!-- End: Footer Partners -->
@@ -52,3 +65,9 @@
     </footer>
 </div>
 <!-- End: Footer -->
+
+<!-- Begin: Footer Credits -->
+<div class="footer__credits">
+    <p class="footer__credits-text">© 2017-2018 Ortopediaemcasa.pt. Todos os direitos reservados. Desenvolvido por <a href="http://www.4por4.pt ">4por4</a></p>
+</div>
+<!-- End: Footer Credits -->

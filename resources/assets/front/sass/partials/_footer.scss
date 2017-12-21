@@ -42,18 +42,80 @@ Footer Stylings
     }
 
     &__top-link{
-
+        color: $primary-color; 
     }
 
     &__bottom-nav{
+        padding: 20px 0px;
 
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
     }
 
     &__menu-list{
+        list-style: none;
+        padding-left: 0px;
+        float: left;
+        width: 50%;
+    }
+
+    &__menu-item{
+        color: $text-color;
+
+        & + & {
+            margin-top: 10px;
+        }
 
     }
 
-    &__partners{
+    &__menu-link{
+        color: $text-color;
+    }
 
+    &__partners{
+        float: left;
+        width: 50%;
+
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        &-lower{
+            width: 50%;
+            float: left;
+            margin-bottom: 20px; 
+        }
+
+        &-upper{
+            width: 100%;
+            margin-bottom: 20px; 
+        }
+
+        &-title{
+            color: $text-color;
+        }
+
+        &-image{
+            width: 70px;
+            margin-bottom: 20px;
+
+            & + &{
+                margin-left: 20px;
+            }
+        }
+    }
+
+    &__credits{
+        width: 100%;
+        text-align: center;
+
+        &-text{
+            color: $text-color;
+        }
     }
 }

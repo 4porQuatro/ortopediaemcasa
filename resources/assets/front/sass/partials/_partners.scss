@@ -1,0 +1,28 @@
+/*=======================================
+Partners Styling
+========================================*/
+
+.partners{
+    width: 100%;
+    margin-top: 25px;
+
+    &__slideshow{
+        width: 100%;
+        background-color: #fff;
+        padding: 100px 0px;
+        overflow: hidden;
+    }
+
+    &__placeholder{
+        width: 10%;
+        height: 60px;
+        display: inline-block;
+        margin-left: 80px;
+    }
+
+    &__image{
+        width: 100%;
+        height: 100%;
+    }
+}
+

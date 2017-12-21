@@ -27,8 +27,9 @@
             <!-- End: Footer-->
 
         </div>
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGdi7QwIqsN16C3N0J74gtwzGvM4MCJkc"></script>
-        <script src="/front/js/map.js"></script>
+        <script src="/front/js/map.js"></script>    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
         <script src="{{ mix('/front/js/app.js') }}"></script>
 

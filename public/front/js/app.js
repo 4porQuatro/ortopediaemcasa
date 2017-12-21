@@ -37248,7 +37248,28 @@ $.magnificPopup.registerModule(RETINA_NS, {
 /* 39 */
 /***/ (function(module, exports) {
 
+var _this = this;
 
+$(document).ready(function () {
+
+    $(".banner__slideshow").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        waitForAnimate: false,
+        autoplay: true,
+        autoplaySpeed: 5000
+    });
+
+    $('.banner__link').each(function (i) {
+        var $btn = $(_this);
+
+        $btn.on('click', function () {
+            console.log(i);
+            $('.banner__slideshow').slick('goTo', i);
+        });
+    });
+});
 
 /***/ }),
 /* 40 */

@@ -1,6 +1,7 @@
 <!-- Begin: Navigation-Bar -->
+<nav class="navbar">
 <div class="container">
-    <nav class="navbar">
+    
     
         <!-- Begin: Navbar Logo -->
         <div class="navbar__logo">
@@ -41,6 +42,7 @@
         </div>
         <!-- End: Navbar Menu -->
 
-    </nav>
+    
 </div>
+</nav>
 <!-- End: Navigation-Bar -->
