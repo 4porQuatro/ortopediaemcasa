@@ -19,4 +19,14 @@ $(document).ready( () => {
         });
     });
 
+    $('.partners__slideshow').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrow: false,
+        waitForAnimate: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        centerMode: true,
+        centerPadding: '250px'
+    });
 });

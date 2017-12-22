@@ -42,7 +42,13 @@
         </div>
         <!-- End: Navbar Menu -->
 
-    
+        <!-- Begin: Button Responsive Menu -->
+            <button type="button" id="menu-button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <!-- End: Button Responsive Menu -->
 </div>
 </nav>
 <!-- End: Navigation-Bar -->

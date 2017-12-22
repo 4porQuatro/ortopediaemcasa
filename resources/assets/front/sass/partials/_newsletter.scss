@@ -1,0 +1,77 @@
+/*===============================================
+Newsletter Styling
+================================================*/
+
+.newsletter{
+    width: 100%;
+    padding: 60px 100px;
+    background-color: $primary-color;
+
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    &__title-container{
+        width: 50%;
+        float: left;
+    }
+
+    &__title{
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0px;
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    &__subtitle{
+        color: #fff;
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 35px;
+    }
+
+    &__form{
+        width: 50%;
+        float: left;
+
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    &__form-title{
+        width: 100%;
+        text-align: center;
+        color: $secondary-color;
+    }
+
+    &__input{
+        width: 70%;
+        float: left;
+        padding: 10px;
+        border: 1px solid $secondary-color;
+        background-color: $primary-color;
+        color: #fff;
+
+        &::-webkit-input-placeholder {color:#fff;}
+        &::-moz-placeholder          {color:#fff;}
+        &:-moz-placeholder           {color:#fff;}
+        &:-ms-input-placeholder      {color:#fff;}
+    }
+
+    &__button{
+        width: 30%;
+        float: left;
+        color: #fff;
+        background-color: $secondary-color;
+        border: 1px solid $secondary-color;
+        padding: 10px;
+        font-weight: 700;
+    }
+
+}

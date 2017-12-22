@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container">
+        
         <!-- Begin: Banner -->
         @include('front.components.categories-banner', [
             'categories' => $banner_categories
@@ -34,23 +35,34 @@
             <div class="section__container">
                 <h2 class="section__title">Oferecemos uma vasta gama de marcas...</h2>
             </div>
-            <!-- Begin: Partners Banner -->
-            @include('front.components.partners-slideshow', [
-
-            ])
-            <!-- End: Partners Banner -->
+            <div class="partners">
+                <div class="partners__slideshow">
+                    @foreach($partners as $key => $partner)
+                    <!-- Begin: Partners Banner -->
+                        @include('front.components.partner-image', [
+                            'image' => $partner->image
+                        ])
+                    <!-- End: Partners Banner -->
+                    @endforeach
+                </div>
+            </div>
         </div>
         
         <div class="section">
             <div class="features">
                 <h2 class="features__title">Porquê Ortopedia em Casa</h2>
                 <h2 class="features__subtitle">artigos médicos, ortopédicos, de saúde e bem estar</h2>
-                <div class="features__container">
+                <div class="row">
+                    @foreach($features as $key => $feature)
                     <!-- Begin: Features Icon -->
-                    @include('front.components.feature-icon', [
-                        
-                    ])
+                    <div class="col-xs-12 col-md-4">
+                        @include('front.components.feature-icon', [
+                            'icon' => $feature->icon,
+                            'name' => $feature->name
+                        ])
+                    </div>
                     <!-- End: Features Icon -->
+                    @endforeach
                 </div>
             </div>
         </div>

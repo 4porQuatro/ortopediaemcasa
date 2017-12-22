@@ -23,11 +23,12 @@
     public function getBannerCategories(){
       
       $banner_category = new \stdClass;
-    
+      
       $banner_category->title = 'Calçado';
       $banner_category->subtitle = 'Meias Elásticas Juzo';
       $banner_category->image = '/front/images/thumbnails/thumbnail_1.jpg';
       $banner_category->link_path = '/';
+
 
       $banner_categories = [];
 
@@ -61,11 +62,11 @@
       
       $partner = new \stdClass;
 
-      $partner->image = '/front/images/icons/Icones-01.svg';
+      $partner->image = '/front/images/logo/partners/AMD.jpg';
 
       $partners = [];
 
-      for($i = 0; $i < 5; $i++){
+      for($i = 0; $i < 8; $i++){
         $partners[] = $partner;
       }
 
@@ -77,7 +78,7 @@
       $feature = new \stdClass;
 
       $feature->icon = '/front/images/icons/Icones-01.svg';
-      $feature->title = 'produtos a preços competitivos';
+      $feature->name = 'produtos a preços competitivos';
 
       $features = [];
 

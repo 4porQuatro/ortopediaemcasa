@@ -15607,7 +15607,20 @@ Navbar Stylings
   display: inline-block;
   vertical-align: middle;
   margin-left: 10%;
-  width: 45%;
+  width: 55%;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar__search {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .navbar__search {
+    width: 45%;
+    margin-left: 5%;
+  }
 }
 
 .navbar__search .search-input {
@@ -15615,6 +15628,12 @@ Navbar Stylings
   width: 70%;
   padding-left: 10px;
   border: 1px solid #f0f2f7;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar__search .search-input {
+    width: 50%;
+  }
 }
 
 .navbar__search .search-button {
@@ -15625,10 +15644,26 @@ Navbar Stylings
   font-weight: 700;
 }
 
+@media screen and (max-width: 992px) {
+  .navbar__search .search-button {
+    width: 40%;
+  }
+}
+
 .navbar__store {
-  display: inline-block;
-  vertical-align: middle;
+  float: right;
+  margin-top: 17px;
   width: 20%;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar__store {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0px;
+    width: 25%;
+  }
 }
 
 .navbar__store:after {
@@ -15641,6 +15676,13 @@ Navbar Stylings
   color: #7c869a;
 }
 
+@media screen and (max-width: 992px) {
+  .navbar__account {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
 .navbar__account .zmdi {
   margin-right: 10px;
 }
@@ -15650,6 +15692,15 @@ Navbar Stylings
   font-weight: 700;
   margin-left: 20px;
   float: right;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar__shopping-bag {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
 }
 
 .navbar__shopping-bag .zmdi {
@@ -15686,7 +15737,7 @@ Footer Stylings
 
 .footer {
   background-color: #fff;
-  padding: 25px 0px;
+  padding: 25px 100px;
   width: 100%;
 }
 
@@ -15829,7 +15880,7 @@ Banner Styling
 }
 
 .banner__item + .banner__item {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .banner__link {
@@ -15847,11 +15898,70 @@ Banner Styling
   float: left;
   width: 100%;
   height: 550px;
+  position: relative;
 }
 
 .banner__image {
   width: 100%;
   height: 100%;
+}
+
+.banner__filter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(210, 210, 210, 0.5);
+}
+
+.banner__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.banner__title {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 60px;
+  margin-bottom: 0px;
+}
+
+.banner__subtitle {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.banner__button {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 180px;
+  border-radius: 3px;
+  padding: 15px;
+  margin: 0 auto;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.banner__button:hover {
+  color: #fff;
 }
 
 /*====================================================
@@ -15979,10 +16089,12 @@ Mosaic Styling
 }
 
 .product__collumn:nth-of-type(5n + 1) .product-card__price--before {
-  font-size: 14px;
-  color: #7c869a;
+  font-size: 12px;
+  color: #457a7c;
   text-align: right;
   display: inline-block;
+  font-weight: 400;
+  text-decoration: line-through;
 }
 
 .product__collumn:nth-of-type(5n + 1) .product-card__price--promotion {
@@ -16103,10 +16215,12 @@ Mosaic Styling
 }
 
 .product-card__price--before {
-  font-size: 14px;
-  color: #7c869a;
+  font-size: 12px;
+  color: #457a7c;
   text-align: right;
   display: inline-block;
+  font-weight: 400;
+  text-decoration: line-through;
 }
 
 .product-card__price--promotion {
@@ -16227,10 +16341,12 @@ Mosaic Styling
 }
 
 .product-card--small__price--before {
-  font-size: 14px;
-  color: #7c869a;
+  font-size: 12px;
+  color: #457a7c;
   text-align: right;
   display: inline-block;
+  font-weight: 400;
+  text-decoration: line-through;
 }
 
 .product-card--small__price--promotion {
@@ -16304,6 +16420,123 @@ Features Styling
   width: 100%;
   padding: 55px;
   background-color: #fff;
+}
+
+.features__title {
+  color: #48a99e;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+.features__subtitle {
+  color: #48a99e;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0px;
+}
+
+.feature {
+  width: 100%;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.feature__icon {
+  width: 60%;
+}
+
+.feature__name {
+  width: 100%;
+  margin-top: 40px;
+}
+
+/*===============================================
+Newsletter Styling
+================================================*/
+
+.newsletter {
+  width: 100%;
+  padding: 60px 100px;
+  background-color: #48a99e;
+}
+
+.newsletter:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.newsletter__title-container {
+  width: 50%;
+  float: left;
+}
+
+.newsletter__title {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0px;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.newsletter__subtitle {
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 35px;
+}
+
+.newsletter__form {
+  width: 50%;
+  float: left;
+}
+
+.newsletter__form:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.newsletter__form-title {
+  width: 100%;
+  text-align: center;
+  color: #457a7c;
+}
+
+.newsletter__input {
+  width: 70%;
+  float: left;
+  padding: 10px;
+  border: 1px solid #457a7c;
+  background-color: #48a99e;
+  color: #fff;
+}
+
+.newsletter__input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.newsletter__input::-moz-placeholder {
+  color: #fff;
+}
+
+.newsletter__input:-moz-placeholder {
+  color: #fff;
+}
+
+.newsletter__input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.newsletter__button {
+  width: 30%;
+  float: left;
+  color: #fff;
+  background-color: #457a7c;
+  border: 1px solid #457a7c;
+  padding: 10px;
+  font-weight: 700;
 }
 
 /*=========================================
@@ -16635,7 +16868,7 @@ Accordion UI Jquery Resets
 }
 
 .icon-bar {
-  background-color: #fff !important;
+  background-color: #48a99e !important;
 }
 
 .nav .open > a,

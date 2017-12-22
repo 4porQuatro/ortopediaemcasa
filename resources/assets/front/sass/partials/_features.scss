@@ -8,14 +8,33 @@ Features Styling
     background-color: #fff;
 
     &__title{
-        
+        color: $primary-color;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 0px;
     }
 
     &__subtitle{
+        color: $primary-color;
+        text-align: center;
+        font-weight: 400;
+        margin-top: 0px;
+    }
+
+}
+
+.feature{
+    width: 100%;
+    margin-top: 70px;
+    text-align: center;
+
+    &__icon{
+        width: 60%;
 
     }
 
-    &__container{
-
+    &__name{
+        width: 100%;
+        margin-top: 40px;
     }
 }
