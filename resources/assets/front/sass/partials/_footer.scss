@@ -7,6 +7,10 @@ Footer Stylings
     padding: 25px 100px;
     width: 100%;
 
+    @media screen and (max-width: 992px){
+        padding: 25px;
+    }
+
     &__top-nav{
         width: 100%;
         padding-bottom: 25px;
@@ -23,6 +27,11 @@ Footer Stylings
         color: $primary-color;
         font-size: 35px;
         display: inline-block;
+
+        @media screen and (max-width: 992px){
+            display: block;
+            text-align: center;
+        }
         
     }
 
@@ -30,14 +39,33 @@ Footer Stylings
         list-style: none;
         float: right;
         margin-top: 28px;
+
+        @media screen and (max-width: 992px){
+            margin: 0 auto;
+            margin-top: 30px;
+            float: none;
+            display: block;
+            padding-left: 0px;
+            text-align: center;
+
+        }
     }
 
     &__top-item{
         display: inline-block;
         list-style: none;
 
+        @media screen and (max-width: 992px){
+            display: block;
+        }
+
         & + & {
             margin-left: 40px;
+
+            @media screen and (max-width: 992px){
+                margin-left: 0px;
+                margin-top: 10px;
+            }
         }
     }
 
@@ -60,10 +88,19 @@ Footer Stylings
         padding-left: 0px;
         float: left;
         width: 50%;
+
+        @media screen and (max-width: 992px){
+            float: none;
+            width: 100%;
+        }
     }
 
     &__menu-item{
         color: $text-color;
+
+        @media screen and (max-width: 992px){
+            text-align: center;
+        }
 
         & + & {
             margin-top: 10px;
@@ -79,6 +116,13 @@ Footer Stylings
         float: left;
         width: 50%;
 
+        @media screen and (max-width: 992px){
+            float: none;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 80px;
+        }
+
         &:after{
             content: "";
             display: block;
@@ -89,11 +133,21 @@ Footer Stylings
             width: 50%;
             float: left;
             margin-bottom: 20px; 
+
+            @media screen and (max-width: 992px){
+                width: 100%;
+                float: none;
+                text-align: center;
+            }
         }
 
         &-upper{
             width: 100%;
             margin-bottom: 20px; 
+
+            @media screen and (max-width: 992px){
+                text-align: center;
+            }
         }
 
         &-title{

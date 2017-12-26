@@ -54,14 +54,14 @@
                 <h2 class="features__subtitle">artigos médicos, ortopédicos, de saúde e bem estar</h2>
                 <div class="row">
                     @foreach($features as $key => $feature)
-                    <!-- Begin: Features Icon -->
-                    <div class="col-xs-12 col-md-4">
-                        @include('front.components.feature-icon', [
-                            'icon' => $feature->icon,
-                            'name' => $feature->name
-                        ])
-                    </div>
-                    <!-- End: Features Icon -->
+                        <!-- Begin: Features Icon -->
+                        <div class="col-xs-12 col-md-4">
+                            @include('front.components.feature-icon', [
+                                'icon' => $feature->icon,
+                                'name' => $feature->name
+                            ])
+                        </div>
+                        <!-- End: Features Icon -->
                     @endforeach
                 </div>
             </div>

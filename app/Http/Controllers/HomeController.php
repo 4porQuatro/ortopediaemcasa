@@ -45,6 +45,7 @@
       $product = new \stdClass;
 
       $product->category = 'Ortopedia';
+      $product->image = '';
       $product->title = 'Suporte de Ombro Orthia - NOVO';
       $product->price = '€66,17';
       $product->before_price = '€77,85';

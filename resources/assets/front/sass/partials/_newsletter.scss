@@ -16,6 +16,11 @@ Newsletter Styling
     &__title-container{
         width: 50%;
         float: left;
+
+        @media screen and (max-width: 992px){
+            width: 100%;
+            float: none;
+        }
     }
 
     &__title{
@@ -24,6 +29,10 @@ Newsletter Styling
         margin: 0px;
         font-size: 35px;
         font-weight: 700;
+
+        @media screen and (max-width: 992px){
+            text-align: center;
+        }
     }
 
     &__subtitle{
@@ -31,11 +40,21 @@ Newsletter Styling
         text-transform: uppercase;
         margin-top: 10px;
         font-size: 35px;
+
+        @media screen and (max-width: 992px){
+            text-align: center;
+        }
     }
 
     &__form{
         width: 50%;
         float: left;
+
+        @media screen and (max-width: 992px){
+            width: 100%;
+            float: none;
+            margin-top: 20px;
+        }
 
         &:after{
             content: "";

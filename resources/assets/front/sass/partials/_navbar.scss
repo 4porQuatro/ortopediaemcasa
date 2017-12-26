@@ -70,11 +70,19 @@ Navbar Stylings
            width: 25%;
        }
 
+       @media screen and (max-width: 768px){
+           display: none;
+       }
+
+       
+
        &:after{
            content:"";
            display: block;
            clear: both;
        }
+
+
     }
 
     &__account{
@@ -120,13 +128,30 @@ Navbar Stylings
     &__list{
         list-style: none;
         display: inline-block;
+
+        @media screen and (max-width: 768px){
+            display: block;
+            padding-left: 0px;
+            text-align: center;
+        }
     }
 
     &__item{
         display: inline-block;
 
+        @media screen and (max-width: 768px){
+            display:block;
+            padding-left: 0px;
+            text-align: center;
+        }
+
         & + &{
             margin-left: 20px;
+
+            @media screen and (max-width: 768px){
+                margin-left: 0px;
+                margin-top: 20px;
+            }
         }
     }
 
@@ -134,4 +159,112 @@ Navbar Stylings
         color: $text-color;
     }
 
+}
+
+/*=======================================
+Menu Styling
+=======================================*/
+
+@media (max-width: 768px) {
+    
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+
+    .navbar-nav>li {
+        float: none;
+    }
+
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .collapse.in{
+        display:block !important;
+    }
+
+    .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        overflow: hidden;
+        padding-bottom: 0;
+        position: relative;
+    }
+
+    .navbar-collapse.collapse .navbar__menu{
+        display: none;
+    }
+
+    .navbar-collapse.collapse.in .navbar__menu{
+        display: block;
+    }
+
+    .navbar-collapse.collapsing{
+
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        padding-bottom: 200px;
+    }
+
+    .navbar-collapse.collapse.in{
+        height: auto;
+        position: relative;
+        left: 0px;
+        right: 0px;
+        top: 50px;
+        padding-bottom: 200px;
+    }
+}
+
+
+/*=============================================
+Menu Button Animation
+=============================================*/
+
+.navbar-toggle.collapsed{
+    transform: rotate(0deg);
+    transition: transform .2s ease-out;
+}
+
+.navbar-toggle{
+    transform: rotate(90deg);
+    transition: transform .2s ease-out;
+}
+
+/*=============================================
+Menu Button Bootrap Reset
+===============================================*/
+
+.navbar-toggle{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    z-index: 2;
+    margin-top: 0px !important;
+    
+    .icon-bar{
+        background-color: $primary-color !important;
+    }
 }

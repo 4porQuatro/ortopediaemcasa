@@ -12,3 +12,15 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+Route::prefix('products')->group(function(){
+    Route::get('/', 'ProductsController@index');
+    Route::get('/detail', 'ProductsController@show');
+});
+
+Route::get('/about', 'AboutController@index');
+Route::get('/faqs', 'FaqsController@index');
+Route::get('/contacts', 'ContactsController@index');
+Route::get('/politics', 'PoliticsController@index');
+Route::get('/conditions', 'ConditionsController@index');
+Route::get('/search', 'SearchController@index');
