@@ -18,7 +18,8 @@
                 @foreach($products as $product)
                     @include('front.components.product-card--small', [
                         'category' => $product->category,
-                        'title' => $product->title,
+                        'title' => $product->title, 
+                        'image' => $product->image,
                         'price' => $product->price,
                         'before_price' => $product->before_price
                     ])

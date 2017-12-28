@@ -15,7 +15,7 @@
 
                 <!-- Begin: Product Description -->
                 <div class="col-xs-12 col-md-6">
-                    @include('front.components.product-description',[
+                    @include('front.components.product-description', [
                     
                     ])
                 </div>
@@ -52,30 +52,11 @@
             
             <!-- Begin: Product Advise Slideshow -->
             <div class="slideshow-advise">
-            
-               
-                        @include('front.components.product-card--small', [
-                 
-                        ])
-          
-
-                   
-                        @include('front.components.product-card--small', [
-                 
-                        ])
-         
-
-             
-                        @include('front.components.product-card--small', [
-                 
-                        ])
-
-                        @include('front.components.product-card--small', [
-                 
-                        ])
-         
                 
-            
+                @include('front.components.product-card--small', [
+                 
+                ])
+             
             </div>
             <!-- End: Product Advise Slideshow -->
 
