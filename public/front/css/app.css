@@ -14640,6 +14640,34 @@ a:focus {
   margin-left: 8px;
 }
 
+.subsection {
+  width: 100%;
+}
+
+.subsection__title {
+  color: #48a99e;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.subsection__subtitle {
+  margin-top: 0px;
+  color: #48a99e;
+}
+
+.subsection__description.editable {
+  width: 100%;
+  margin-top: 80px;
+  max-width: 100%;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.subsection__description.editable p {
+  color: #7c869a;
+  margin-top: 20px;
+}
+
 .section-description.editable {
   margin: 0 auto;
   margin-top: 30px;
@@ -15188,8 +15216,9 @@ textarea {
   font-size: 16px;
   font-family: 'Amiri', serif;
   padding-left: 15px;
-  background-color: #f0f2f7;
+  background-color: transparent;
   text-align: center;
+  border: 2px solid #fff;
 }
 
 @media screen and (max-width: 992px) {
@@ -15207,15 +15236,14 @@ textarea {
 .form-button {
   max-width: 160px;
   font-size: 18px;
-  border: 2px solid #48a99e;
-  border-radius: 25px;
+  border-radius: 3px;
   padding: 10px 25px;
   cursor: pointer;
   color: #48a99e;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   float: right;
-  background-color: transparent;
+  background-color: #fff;
   transition: all .2s ease-in-out;
 }
 
@@ -15224,17 +15252,6 @@ textarea {
   background-color: #48a99e;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-}
-
-.form-button:after {
-  content: "\F376";
-  display: inline-block;
-  font-family: 'Ionicons';
-  font-size: 22px;
-  font-weight: 700;
-  vertical-align: middle;
-  margin-left: 10px;
-  font-size: 16px;
 }
 
 .form-bottom-container {
@@ -16800,8 +16817,120 @@ Product Slide Stylings
 }
 
 /*=====================================================
-Details Styling
+Product Description Styling
 =======================================================*/
+
+.product__form {
+  margin-top: 80px;
+  width: 100%;
+  border-top: 1px solid #fff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.product__category {
+  color: #48a99e;
+  margin-top: 0px;
+}
+
+.product__description.editable {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.product__description.editable h1 {
+  color: #7c869a;
+  text-align: left;
+}
+
+.product__description.editable h2 {
+  color: #7c869a;
+  text-align: left;
+}
+
+.product__description.editable h3 {
+  color: #7c869a;
+  text-align: left;
+}
+
+.product__description.editable h4 {
+  color: #7c869a;
+  text-align: left;
+}
+
+.product__description.editable p {
+  color: #7c869a;
+  text-align: left;
+}
+
+/*==========================================
+Product Purchase Styling
+===========================================*/
+
+.product__purchase {
+  width: 100%;
+}
+
+.product__purchase--before {
+  display: inline-block;
+  vertical-align: middle;
+  color: #457a7c;
+}
+
+.product__purchase--price {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  color: #48a99e;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.product__purchase--button {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 50px;
+  background-color: #fff;
+  color: #48a99e;
+  border-radius: 3px;
+  padding: 10px 25px;
+}
+
+/*=============================================================
+Product Bottom Nav
+==============================================================*/
+
+.product__bottom-nav {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product__bottom-nav-table {
+  display: table;
+  width: 100%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.product__bottom-nav-cell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  height: 100%;
+  text-align: right;
+}
+
+.product__bottom-nav-cell:first-child {
+  text-align: left;
+}
+
+.product__bottom-nav-link {
+  color: #7c869a;
+  font-size: 16px;
+  font-weight: 700;
+}
 
 /*=======================================
 Partners Styling
@@ -17021,6 +17150,58 @@ Newsletter Styling
 About Styling
 =======================================*/
 
+.about__banner {
+  width: 100%;
+}
+
+.about__placeholder {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.about__filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(60, 156, 142, 0.8);
+  z-index: 2;
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+}
+
+.about__description {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.about__description h1 {
+  color: #7c869a;
+}
+
+.about__description h2 {
+  color: #7c869a;
+}
+
+.about__description h3 {
+  color: #7c869a;
+}
+
+.about__description h4 {
+  color: #7c869a;
+}
+
+.about__description p {
+  color: #7c869a;
+}
+
 /*======================================
 Conditions Styling
 =======================================*/
@@ -17029,9 +17210,88 @@ Conditions Styling
 Contacts Styling
 ==========================================*/
 
-/*=========================================
-Faqs Styling
-=========================================*/
+/*===========================================================
+Contacts icon
+============================================================*/
+
+.contact-icons {
+  margin-top: 250px;
+  padding-top: 80px;
+  border-top: 1px solid #fff;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-icons {
+    padding-top: 30px;
+  }
+}
+
+.contact-icons svg {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  fill: #48a99e;
+  text-align: center;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-icons svg {
+    margin-top: 80px;
+  }
+}
+
+.contact-icons__title {
+  font-weight: 700;
+  text-align: center;
+}
+
+.contact-icons__text {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 26px;
+}
+
+/*==================================================
+FAQS Styling
+===================================================*/
+
+.faqs {
+  margin-top: 60px;
+  width: 100%;
+}
+
+.faqs__wrapper {
+  width: 100%;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.faqs__container {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.faqs__question {
+  color: #48a99e;
+  font-size: 32px;
+}
+
+.faqs__question:hover,
+.faqs__question:focus {
+  color: #48a99e;
+  text-decoration: none;
+}
+
+.faqs__answer {
+  color: #7c869a;
+  margin-top: 30px;
+}
 
 /*========================================
 Politics Stylings

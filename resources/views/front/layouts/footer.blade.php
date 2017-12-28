@@ -7,13 +7,13 @@
             <h2 class="footer__top-header">Ortopedia em Casa</h2>
             <ul class="footer__top-list">
                 <li class="footer__top-item">
-                    <a class="footer__top-link" href="/">Criar Conta</a>
+                    <a class="footer__top-link" href="/signin">Criar Conta</a>
                 </li>
                 <li class="footer__top-item">
-                    <a class="footer__top-link" href="/">Minha Conta</a>
+                    <a class="footer__top-link" href="/account">Minha Conta</a>
                 </li>
                 <li class="footer__top-item">
-                    <a class="footer__top-link" href="/">Condições de Venda</a>
+                    <a class="footer__top-link" href="/conditions">Condições de Venda</a>
                 </li>
             </ul>
         </div>
@@ -24,19 +24,19 @@
             <!-- Begin: Footer Menu List -->
             <ul class="footer__menu-list">
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/">Produtos</a>
+                    <a class="footer__menu-link" href="/products">Produtos</a>
                 </li>
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/">Sobre a Empresa</a>
+                    <a class="footer__menu-link" href="/about">Sobre a Empresa</a>
                 </li>
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/">Contactos</a>
+                    <a class="footer__menu-link" href="/contacts">Contactos</a>
                 </li>
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/">Perguntas Frequentes</a>
+                    <a class="footer__menu-link" href="/faqs">Perguntas Frequentes</a>
                 </li>
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/">Política Privacidade</a>
+                    <a class="footer__menu-link" href="/politics">Política Privacidade</a>
                 </li>
             </ul>
             <!-- End: Footer Menu List -->

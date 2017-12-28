@@ -29,16 +29,16 @@
             <div class="navbar__menu">
                 <ul class="navbar__list">
                     <li class="navbar__item">
-                        <a class="navbar__link" href="/">Produtos</a>
+                        <a class="navbar__link" href="/products">Produtos</a>
                     </li>
                     <li class="navbar__item">
-                        <a class="navbar__link" href="/">Sobre a Empresa</a>
+                        <a class="navbar__link" href="/about">Sobre a Empresa</a>
                     </li>
                     <li class="navbar__item">
-                        <a class="navbar__link" href="/">Perguntas Frequesntes</a>
+                        <a class="navbar__link" href="/faqs">Perguntas Frequesntes</a>
                     </li>
                     <li class="navbar__item">
-                        <a class="navbar__link" href="/">Contactos</a>
+                        <a class="navbar__link" href="/contacts">Contactos</a>
                     </li>
                 </ul>
             </div>

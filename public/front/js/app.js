@@ -37302,6 +37302,51 @@ $(document).ready(function () {
             }
         }]
     });
+
+    $('.product__slide--main').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.product__slide--nav'
+    });
+
+    $('.product__slide--nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.product__slide--main',
+        focusOnSelect: true,
+        arrows: false,
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 3,
+                slideToScroll: 1,
+                infinite: true
+            }
+        }]
+    });
+
+    $('.slideshow-advise').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        fade: false,
+        cssEase: 'linear',
+        nextArrow: '<i class="zmdi zmdi-chevron-right slick-next"></i>',
+        prevArrow: '<i class="zmdi zmdi-chevron-left slick-prev"></i>',
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true
+            }
+        }]
+    });
 });
 
 /***/ }),

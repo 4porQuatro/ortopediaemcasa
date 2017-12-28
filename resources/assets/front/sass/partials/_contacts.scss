@@ -1,3 +1,44 @@
 /*=========================================
 Contacts Styling
 ==========================================*/
+/*===========================================================
+Contacts icon
+============================================================*/
+
+.contact-icons{
+    margin-top: 250px;
+    padding-top: 80px;
+    border-top: 1px solid #fff;
+    width: 100%;
+    margin-bottom: 100px;
+
+    @media screen and (max-width: 768px){
+        padding-top: 30px;
+    }
+
+    svg{
+        width: 100%;
+        max-width: 150px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        fill: $primary-color;
+        text-align: center;
+        display: block;
+
+        @media screen and (max-width: 768px){
+            margin-top: 80px;
+        }
+    }
+
+    &__title{
+        font-weight: 700;
+        text-align: center;
+    }
+
+    &__text{
+        text-align: center;
+        margin-top: 0px;
+        font-size: 26px;
+    }
+
+}

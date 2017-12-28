@@ -567,5 +567,120 @@ Product Slide Stylings
 
 
 /*=====================================================
-Details Styling
+Product Description Styling
 =======================================================*/
+
+.product__form{
+    margin-top: 80px;
+    width: 100%;
+    border-top: 1px solid #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;    
+}
+
+.product__category{
+    color: $primary-color;
+    margin-top: 0px;
+    
+}
+
+.product__description.editable{
+    margin-top: 20px;
+    text-align: left;
+    
+    h1{
+        color: $text-color;
+        text-align: left;
+    }
+
+    h2{
+        color: $text-color;
+        text-align: left;
+    }
+
+    h3{
+        color: $text-color;
+        text-align: left;
+    }
+
+    h4{
+        color: $text-color;
+        text-align: left;
+    }
+
+    p{
+        color: $text-color;
+        text-align: left;
+    }
+
+}
+
+/*==========================================
+Product Purchase Styling
+===========================================*/
+
+.product__purchase{
+    width: 100%;
+
+    &--before{
+        display: inline-block;
+        vertical-align: middle;
+        color: $secondary-color;
+    }
+
+    &--price{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        color: $primary-color;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    &--button{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 50px;
+        background-color: #fff;
+        color: $primary-color;
+        border-radius: 3px;
+        padding: 10px 25px;
+    }
+}
+
+/*=============================================================
+Product Bottom Nav
+==============================================================*/
+
+.product__bottom-nav{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    &-table{
+        display: table;
+        width: 100%;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &-cell{
+        display: table-cell;
+        vertical-align: middle;
+        width: 50%;
+        height: 100%;
+        text-align: right;
+
+        &:first-child{
+            text-align: left;
+        }
+    }
+
+    &-link{
+        color: $text-color;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+}
