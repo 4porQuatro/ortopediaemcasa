@@ -5,14 +5,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+
 
 //External Scripts
-require('./libs/slickApplication.js');
+require('./bootstrap');
+require('./libs/actions.js');
 
 window.Vue = require('vue');
-
 var VueScrollTo = require('vue-scrollto');
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,13 +29,12 @@ Vue.config.productionTip = true;
 Vue.use(VueScrollTo, {duration: 1500});
 
 //Vue Components
-Vue.component('modal', require('./components/Modal.vue'));
-Vue.component('tabs', require('./components/Tabs.vue'));
-Vue.component('tab', require('./components/Tab.vue'));
+//Vue.component('modal', require('./components/Modal.vue'));
+//Vue.component('tabs', require('./components/Tabs.vue'));
+//Vue.component('tab', require('./components/Tab.vue'));
 
 const app = new Vue({
     el: '#app',
-
     data: {
 
     },

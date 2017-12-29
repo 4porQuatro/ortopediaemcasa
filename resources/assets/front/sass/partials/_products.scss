@@ -196,7 +196,7 @@ Mosaic Styling
     &__text{
         width: 50%;
         float: left;
-        padding-left: 15px;
+        padding-left: 0px;
         word-break: break-word;
     }
 
@@ -543,32 +543,56 @@ Product Slide Stylings
     height: 100%;
 }
 
+.advise-container{
+    position: relative;
+    max-width: 1140px;
+    @extend .clearfix;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
 .slideshow-advise{
     margin-top: 170px;
-    padding-bottom: 300px;
-    position: relative;
+
+}
+
+.slideshow-title{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    color: $text-color;
+    margin: 0px;
 }
 
 .slideshow-advise .slick-prev{
     position: absolute;
-    left: 10px;
-    bottom: 10px;
-    font-size: 45px;
-    color: $primary-color;
+    top: 110px;
+    right: 70px;
+    font-size: 35px;
+    color: $secondary-color;
+    cursor: pointer;
 }
 
 .slideshow-advise .slick-next{
     position: absolute;
     right: 10px;
-    bottom: 10px;
-    font-size: 45px;
-    color: $primary-color;
+    top: 110px;
+    font-size: 35px;
+    color: $secondary-color;
+    cursor: pointer;
 }
 
 
 /*=====================================================
 Product Description Styling
 =======================================================*/
+
+.product__title{
+    margin-top: 0px;
+    color: $text-color;
+    font-size: 30px;
+}
 
 .product__form{
     margin-top: 80px;
@@ -581,7 +605,9 @@ Product Description Styling
 .product__category{
     color: $primary-color;
     margin-top: 0px;
-    
+    margin-bottom: 0px;
+    font-size: 24px;
+    display: block;
 }
 
 .product__description.editable{
@@ -619,32 +645,79 @@ Product Description Styling
 Product Purchase Styling
 ===========================================*/
 
+.product__label{
+    display: block;
+    color: $text-color;
+}
+
+.product__select{
+    display: block;
+    color: $text-color;
+    border: 0px;
+    padding: 15px;
+    width: 80%;
+}
+
+.product__input{
+    display: block;
+    color: $text-color;
+    border: 0px;
+    padding: 15px;
+    width: 80%;
+}
+
 .product__purchase{
     width: 100%;
+    @extend .clearfix;
 
     &--before{
-        display: inline-block;
-        vertical-align: middle;
         color: $secondary-color;
+        font-size: 16px;
+        text-decoration: line-through;
+        float: right;
+        margin-top: 20px;
+
+        @media screen and (max-width: 768px){
+            float: none;
+            display: block;
+            margin-left: 0px;
+        }
     }
 
     &--price{
-        display: inline-block;
-        vertical-align: middle;
         margin-left: 10px;
         color: $primary-color;
         font-size: 32px;
         font-weight: 700;
+        float: right;
+
+        @media screen and (max-width: 768px){
+            float: none;
+            display: block;
+            margin-left: 0px;
+            margin-top: 40px;
+        }
     }
 
     &--button{
-        display: inline-block;
-        vertical-align: middle;
         margin-left: 50px;
         background-color: #fff;
         color: $primary-color;
         border-radius: 3px;
         padding: 10px 25px;
+        float: right;
+        margin-top: 5px;
+        font-weight: 700;
+
+        .zmdi{
+            margin-left: 20px;
+        }
+
+        @media screen and (max-width: 768px){
+            float: none;
+            display: block;
+            margin-left: 0px;
+        }
     }
 }
 
@@ -672,6 +745,19 @@ Product Bottom Nav
         height: 100%;
         text-align: right;
 
+        p{
+            margin-bottom: 0px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .zmdi{
+            color: $secondary-color;
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
         &:first-child{
             text-align: left;
         }
@@ -681,6 +767,11 @@ Product Bottom Nav
         color: $text-color;
         font-size: 16px;
         font-weight: 700;
+
+        &__hover{
+            color: $secondary-color;
+        }
     }
 
 }
+

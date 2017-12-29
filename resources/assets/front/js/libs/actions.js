@@ -92,8 +92,8 @@ $(document).ready( () => {
         speed: 500,
         fade: false,
         cssEase: 'linear',
-        nextArrow: '<i class="zmdi zmdi-chevron-right slick-next"></i>',
-        prevArrow: '<i class="zmdi zmdi-chevron-left slick-prev"></i>',
+        nextArrow: '<i class="zmdi zmdi-long-arrow-right slick-next"></i>',
+        prevArrow: '<i class="zmdi zmdi-long-arrow-left slick-prev"></i>',
         responsive: [
             {
                 breakpoint: 992,

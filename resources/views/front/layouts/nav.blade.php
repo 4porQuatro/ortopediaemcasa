@@ -4,9 +4,9 @@
     
     
         <!-- Begin: Navbar Logo -->
-        <div class="navbar__logo">
+        <a class="navbar__logo" href="/">
             <img src="/front/images/logo/logo.png" alt="logo">
-        </div>
+        </a>
         <!-- End: Navbar Logo -->
 
         <!-- Begin: Search Tool -->

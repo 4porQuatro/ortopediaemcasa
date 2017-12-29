@@ -20,9 +20,17 @@
 
         public function show(){
 
-            
+            $products_slide = $this->getProductsSlide();
+            $product_description = $this->getProductDescription();
+            $product_price = $this->getProductPrice();
+            $products_advise = $this->getProductsAdvise();
 
-            return view('front.pages.products.show', []);
+            return view('front.pages.products.show', compact(
+                'products_slide',
+                'product_description',
+                'product_price',
+                'products_advise'
+            ));
         }
 
         public function getMenu(){
@@ -73,7 +81,42 @@
             return $partners;
         }
 
-        public function getAdviseProduct(){
+        public function getProductsSlide(){
+            $product_slide = new \stdClass;
+
+
+            $product_slide->image = "/front/images/products/product_1.jpg";
+            
+            $products_slide = [];
+
+            for($i = 0; $i < 3; $i++){
+                $products_slide[] = $product_slide;    
+            }
+
+            return $products_slide;
+
+        }
+
+        public function getProductDescription(){
+            $product_description = new \stdClass;
+
+            $product_description->category = 'Calçado';
+            $product_description->title = 'Nome do Produto';
+            $product_description->description = '<p>A nova palmilha Plantigel é fabricada com componentes de grau medicinal e essência de eucalipto natural pelas suas propriedades estimulantes e de efeito refrescante, 100% transpirável.</p>';
+
+            return $product_description;
+        }
+
+        public function getProductPrice(){
+            $product_price = new \stdClass;
+
+            $product_price->before = '69,50€';
+            $product_price->new = '77,40€';
+
+            return $product_price;
+        }
+
+        public function getProductsAdvise(){
             
             $product_advise = new \stdClass;
 
@@ -83,7 +126,13 @@
             $product_advise->price = '€66,17';
             $product_advise->before_price = '€77,85';
 
-            return $product_advise;
+            $products_advise = [];
+
+            for($i = 0; $i < 6; $i++ ){
+                $products_advise[] = $product_advise;
+            }
+
+            return $products_advise;
         }
 
   }

@@ -14169,12 +14169,18 @@ button.close {
 }
 
 .clearfix:before,
-.clearfix:after {
+.advise-container:before,
+.product__purchase:before,
+.clearfix:after,
+.advise-container:after,
+.product__purchase:after {
   content: " ";
   display: table;
 }
 
-.clearfix:after {
+.clearfix:after,
+.advise-container:after,
+.product__purchase:after {
   clear: both;
 }
 
@@ -15245,6 +15251,7 @@ textarea {
   float: right;
   background-color: #fff;
   transition: all .2s ease-in-out;
+  font-weight: 700;
 }
 
 .form-button:hover {
@@ -16428,7 +16435,7 @@ Mosaic Styling
 .product-card__text {
   width: 50%;
   float: left;
-  padding-left: 15px;
+  padding-left: 0px;
   word-break: break-word;
 }
 
@@ -16794,31 +16801,53 @@ Product Slide Stylings
   height: 100%;
 }
 
+.advise-container {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
 .slideshow-advise {
   margin-top: 170px;
-  padding-bottom: 300px;
-  position: relative;
+}
+
+.slideshow-title {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  color: #7c869a;
+  margin: 0px;
 }
 
 .slideshow-advise .slick-prev {
   position: absolute;
-  left: 10px;
-  bottom: 10px;
-  font-size: 45px;
-  color: #48a99e;
+  top: 110px;
+  right: 70px;
+  font-size: 35px;
+  color: #457a7c;
+  cursor: pointer;
 }
 
 .slideshow-advise .slick-next {
   position: absolute;
   right: 10px;
-  bottom: 10px;
-  font-size: 45px;
-  color: #48a99e;
+  top: 110px;
+  font-size: 35px;
+  color: #457a7c;
+  cursor: pointer;
 }
 
 /*=====================================================
 Product Description Styling
 =======================================================*/
+
+.product__title {
+  margin-top: 0px;
+  color: #7c869a;
+  font-size: 30px;
+}
 
 .product__form {
   margin-top: 80px;
@@ -16831,6 +16860,9 @@ Product Description Styling
 .product__category {
   color: #48a99e;
   margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 24px;
+  display: block;
 }
 
 .product__description.editable {
@@ -16867,33 +16899,85 @@ Product Description Styling
 Product Purchase Styling
 ===========================================*/
 
+.product__label {
+  display: block;
+  color: #7c869a;
+}
+
+.product__select {
+  display: block;
+  color: #7c869a;
+  border: 0px;
+  padding: 15px;
+  width: 80%;
+}
+
+.product__input {
+  display: block;
+  color: #7c869a;
+  border: 0px;
+  padding: 15px;
+  width: 80%;
+}
+
 .product__purchase {
   width: 100%;
 }
 
 .product__purchase--before {
-  display: inline-block;
-  vertical-align: middle;
   color: #457a7c;
+  font-size: 16px;
+  text-decoration: line-through;
+  float: right;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__purchase--before {
+    float: none;
+    display: block;
+    margin-left: 0px;
+  }
 }
 
 .product__purchase--price {
-  display: inline-block;
-  vertical-align: middle;
   margin-left: 10px;
   color: #48a99e;
   font-size: 32px;
   font-weight: 700;
+  float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .product__purchase--price {
+    float: none;
+    display: block;
+    margin-left: 0px;
+    margin-top: 40px;
+  }
 }
 
 .product__purchase--button {
-  display: inline-block;
-  vertical-align: middle;
   margin-left: 50px;
   background-color: #fff;
   color: #48a99e;
   border-radius: 3px;
   padding: 10px 25px;
+  float: right;
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+.product__purchase--button .zmdi {
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__purchase--button {
+    float: none;
+    display: block;
+    margin-left: 0px;
+  }
 }
 
 /*=============================================================
@@ -16922,6 +17006,19 @@ Product Bottom Nav
   text-align: right;
 }
 
+.product__bottom-nav-cell p {
+  margin-bottom: 0px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.product__bottom-nav-cell .zmdi {
+  color: #457a7c;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .product__bottom-nav-cell:first-child {
   text-align: left;
 }
@@ -16930,6 +17027,10 @@ Product Bottom Nav
   color: #7c869a;
   font-size: 16px;
   font-weight: 700;
+}
+
+.product__bottom-nav-link__hover {
+  color: #457a7c;
 }
 
 /*=======================================
@@ -17230,7 +17331,7 @@ Contacts icon
 
 .contact-icons svg {
   width: 100%;
-  max-width: 150px;
+  max-width: 100px;
   margin: 0 auto;
   margin-bottom: 20px;
   fill: #48a99e;
@@ -17245,14 +17346,16 @@ Contacts icon
 }
 
 .contact-icons__title {
-  font-weight: 700;
   text-align: center;
+  color: #7c869a;
 }
 
 .contact-icons__text {
   text-align: center;
   margin-top: 0px;
   font-size: 26px;
+  font-weight: 700;
+  color: #7c869a;
 }
 
 /*==================================================

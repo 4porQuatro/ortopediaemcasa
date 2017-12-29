@@ -1,9 +1,6 @@
 <form class="form-container">
-
-    <div class="form-group row">
-        <div class="col-xs-12">
-            <input class="contact-input" type="text" name="" value="" placeholder="Nome*">
-        </div>
+    <div class="form-group">
+        <input class="contact-input" type="text" name="" value="" placeholder="Nome*">
     </div>
     <div class="form-group row">
         <div class="col-xs-12 col-md-6">
@@ -24,7 +21,7 @@
         </div>
     </div>
     <div class="form-bottom-container">
-        <button class="form-button" type="submit" name="button">Submeter</button>
+        <button class="form-button" type="submit" name="button">enviar</button>
         <p class="form-bottom-text text-center">*Campos Obrigatórios</p>
     </div>
 </form>

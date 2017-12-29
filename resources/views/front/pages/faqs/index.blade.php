@@ -6,17 +6,12 @@
             <h2 class="subsection__title">Perquntas Frequentes</h2>
             <h2 class="subsection__subtitle">perguntas e respostas para as suas compras online</h2>
             <div class="faqs__wrapper">
-            @include('front.components.faqs', [
-
-            ])
-
-            @include('front.components.faqs', [
-                
-            ])
-
-            @include('front.components.faqs', [
-                
-            ])
+                @foreach($questions as $question)
+                    @include('front.components.faqs', [
+                        'question' => $question->question,
+                        'answer' => $question->answer
+                    ])
+                @endforeach
             </div>
 
         </div>

@@ -18,7 +18,7 @@ Contacts icon
 
     svg{
         width: 100%;
-        max-width: 150px;
+        max-width: 100px;
         margin: 0 auto;
         margin-bottom: 20px;
         fill: $primary-color;
@@ -31,14 +31,16 @@ Contacts icon
     }
 
     &__title{
-        font-weight: 700;
         text-align: center;
+        color: $text-color;
     }
 
     &__text{
         text-align: center;
         margin-top: 0px;
         font-size: 26px;
+        font-weight: 700;
+        color: $text-color;
     }
 
 }
