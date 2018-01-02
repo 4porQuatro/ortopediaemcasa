@@ -81,7 +81,11 @@ a:hover, a:focus{
 }
 
 .section{
-    margin-top: 100px;
+    margin-top: 60px;
+
+    @media screen and (max-width: 768px){
+        margin-top: 40px;
+    }
 
     &__container{
         width: 100%;
@@ -98,17 +102,32 @@ a:hover, a:focus{
         color: $text-color;
         margin: 0px;
         text-align: center;
+        font-size: 36px;
+
+        @media screen and (max-width: 768px){
+            font-size: 28px;
+        }
 
         &--right{
             float: right;
             color: $text-color;
             margin: 0px;
+
+            @media screen and (max-width: 768px){
+                float: none;
+                display: block;
+            }
         }
 
         &--left{
             float: left;
             color: $text-color;
             margin: 0px;
+
+            @media screen and (max-width: 768px){
+                float: none;
+                display: block;
+            }
         }
         
     }
@@ -126,6 +145,12 @@ a:hover, a:focus{
             .zmdi{
                 margin-left: 10px;
             }
+
+            @media screen and (max-width: 768px){
+                float: none;
+                display: block;
+                margin-top: 15px;
+            }
         }
 
         &--left{
@@ -136,6 +161,12 @@ a:hover, a:focus{
 
             .zmdi{
                 margin-left: 8px;
+            }
+
+            @media screen and (max-width: 768px){
+                float: none;
+                display: block;
+                margin-top: 20px;
             }
         }
     }
@@ -148,13 +179,15 @@ a:hover, a:focus{
         color: $primary-color;
         font-weight: 700;
         margin: 0px;
-        font-size: 30px;
+        font-size: 35px;
+        line-height: 1.1em;
     }
 
     &__subtitle{
         margin-top: 0px;
         color: $primary-color;
-        font-size: 26px;
+        font-size: 35px;
+        line-height: 1.1em;
     }
 
     &__description.editable{

@@ -31,6 +31,7 @@ Footer Stylings
         @media screen and (max-width: 992px){
             display: block;
             text-align: center;
+            line-height: 1.2em;
         }
         
     }
@@ -170,6 +171,10 @@ Footer Stylings
 
         &-text{
             color: $text-color;
+        }
+
+        a{
+            color: $primary-color;
         }
     }
 }

@@ -99,6 +99,12 @@ textarea{
     transition: all .2s ease-in-out;
     font-weight: 700;
 
+    @media screen and (max-width: 768px){
+        display: block;
+        float: none;
+        margin-top: 20px;
+    }
+
     &:hover{
         color: #fff;
         background-color: $primary-color;
@@ -130,7 +136,13 @@ textarea{
 .form-bottom-text{
     font-style: italic;
     float: left;
-  
+    
+    @media screen and (max-width: 768px){
+        float: none;
+        display: block;
+        text-align: left;
+        margin-top: 20px;
+    }
 }
 
 

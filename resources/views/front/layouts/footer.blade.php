@@ -63,11 +63,12 @@
         <!-- End: Footer Bottom Nav -->
 
     </footer>
+    <!-- Begin: Footer Credits -->
+    <div class="footer__credits">
+        <p class="footer__credits-text">© 2017-2018 Ortopediaemcasa.pt. Todos os direitos reservados. Desenvolvido por <a href="http://www.4por4.pt ">4por4</a></p>
+    </div>
+    <!-- End: Footer Credits -->
 </div>
 <!-- End: Footer -->
 
-<!-- Begin: Footer Credits -->
-<div class="footer__credits">
-    <p class="footer__credits-text">© 2017-2018 Ortopediaemcasa.pt. Todos os direitos reservados. Desenvolvido por <a href="http://www.4por4.pt ">4por4</a></p>
-</div>
-<!-- End: Footer Credits -->
+

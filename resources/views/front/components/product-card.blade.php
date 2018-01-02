@@ -1,4 +1,4 @@
-<a class="product-card" href="/">
+<a class="product-card" href="/products/detail">
     <div class="product-card__placeholder">
         <div class="product-card__image" style="background:url('/front/images/products/product_1.jpg') center center no-repeat; background-size: contain;"></div>
     </div>

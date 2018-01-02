@@ -6,10 +6,10 @@
   class ContactsController extends Controller{
 
     public function index(){
-        $contact_info = $this->getInfo();
+        $contacts_info = $this->getInfo();
 
         return view('front.pages.contacts.index', compact(
-          'contact_info'
+          'contacts_info'
         ));
     }
 

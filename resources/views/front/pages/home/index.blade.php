@@ -13,7 +13,7 @@
         <div class="section">
             <div class="section__container">
                 <h2 class="section__title--left">Em destaque</h2>
-                <a class="section__link--right" href="/">ver todos os projetos <i class="zmdi zmdi-arrow-right-top"></i></a>
+                <a class="section__link--right" href="/products">ver todos os produtos <i class="zmdi zmdi-arrow-right-top"></i></a>
             </div>
             <!-- Begin: Products List -->
             <div class="product__list">
@@ -33,7 +33,7 @@
         
         <div class="section">
             <div class="section__container">
-                <h2 class="section__title">Oferecemos uma vasta gama de marcas...</h2>
+                <h1 class="section__title">Oferecemos uma vasta gama de marcas...</h1>
             </div>
             <div class="partners">
                 <div class="partners__slideshow">

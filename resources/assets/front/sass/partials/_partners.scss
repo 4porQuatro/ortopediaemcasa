@@ -11,16 +11,22 @@ Partners Styling
         background-color: #fff;
         padding: 100px 0px;
         overflow: hidden;
+        position: relative;
 
         @media screen and (max-width: 768px){
             padding: 40px;
             position: relative;
         }
+
+        @media screen and (max-width: 475px){
+            padding: 60px 0px;
+
+        }
     }
 
     &__placeholder{
         width: 10%;
-        height: 60px;
+        height: 90px;
         display: inline-block;
         margin-left: 80px;
 
@@ -33,7 +39,7 @@ Partners Styling
             margin-left: 0px;
             margin: 0 auto;
             width: 250px !important;
-            height: 160px;
+            height: 130px;
         }
     }
 
@@ -43,3 +49,40 @@ Partners Styling
     }
 }
 
+.slick-prev--partners{
+    position: absolute;
+    bottom: 5px;
+    left: calc(50% - 45px);
+    top: initial !important;
+    width: 45px;
+    height: 45px;
+    color: $text-color !important;
+    font-size: 38px !important;
+    opacity: .6;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        transition: opacity .3s ease-in-out;
+        opacity: 1;
+    }
+}
+
+.slick-next--partners{
+    position: absolute;
+    bottom: 5px;
+    right: calc(50% - 45px);
+    top: initial !important;
+    width: 45px;
+    height: 45px;
+    color: $text-color !important;
+    font-size: 38px !important;
+    opacity: .6;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        transition: opacity .3s ease-in-out;
+        opacity: 1;
+    }
+}

@@ -37159,34 +37159,40 @@ $(document).ready(function () {
     });
 
     $('.partners__slideshow').slick({
-        slidesToShow: 3,
+        slidesToShow: 5,
         slidesToScroll: 1,
         arrow: false,
         waitForAnimate: false,
         autoplay: true,
         autoplaySpeed: 5000,
         centerMode: true,
-        centerPadding: '280px',
+        nextArrow: '<i class="zmdi zmdi-chevron-right slick-next--partners"></i>',
+        prevArrow: '<i class="zmdi zmdi-chevron-left slick-prev--partners"></i>',
         responsive: [{
             breakpoint: 1200,
             settings: {
                 slidesToScroll: 1,
-                slidesToShow: 3,
-                centerPadding: '220px'
+                slidesToShow: 3
             }
         }, {
             breakpoint: 992,
             settings: {
                 slidesToScroll: 1,
-                slidesToShow: 3,
-                centerPadding: '100px'
+                slidesToShow: 3
             }
         }, {
             breakpoint: 768,
             settings: {
                 slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }, {
+            breakpoint: 475,
+            settings: {
+                slidesToShow: 1,
                 slidesToScroll: 1,
                 centerPadding: '0px'
+
             }
         }]
     });
@@ -37243,6 +37249,25 @@ $(document).ready(function () {
 
         //Hide the other panels
         $(".accordion-content").not($(this).next()).slideUp('slow');
+    });
+
+    $('#accordion-faqs').find('.accordion-toggle').click(function () {
+
+        //Expand or collapse this panel
+        $(this).next().slideToggle('slow');
+
+        //Hide the other panels
+        $(".accordion-content").not($(this).next()).slideUp('slow');
+
+        if ($('.faqs__toggle')) {
+            $(this).toggleClass('closed');
+
+            if ($(this).hasClass('closed')) {
+                $(this).text('Ver resposta');
+            } else {
+                $(this).text('fechar');
+            }
+        }
     });
 });
 

@@ -34,11 +34,26 @@ Banner Styling
     }
 
     &__link{
+        padding-top: 2px;
+        padding-bottom: 2px;
         color: $text-color;
+        font-size: 20px;
+        font-weight: 200;
+        display: block;
+        cursor: pointer;
+        -webkit-transition-property: color, -webkit-transform;
+        transition-property: color, -webkit-transform;
+        transition-property: color, transform;
+        transition-property: color, transform, -webkit-transform;
+        -webkit-transition-duration: .4s;
+        transition-duration: .4s;
 
         &:hover,
         &:focus{
             color: $primary-color;
+            text-decoration: none;
+            -webkit-transform: translateX(25px);
+            transform: translateX(25px);
         }
     }
 

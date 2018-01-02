@@ -6,8 +6,8 @@
     ])
     <div class="container">
         <div class="section first">
-            <h2 class="subsection__title">Perquntas Frequentes</h2>
-            <h2 class="subsection__subtitle">perguntas e respostas para as suas compras online</h2>
+            <h1 class="subsection__title">Perquntas Frequentes</h1>
+            <h1 class="subsection__subtitle">perguntas e respostas para as suas compras online</h1>
             <div class="faqs__wrapper">
                 @foreach($questions as $question)
                     @include('front.components.faqs', [

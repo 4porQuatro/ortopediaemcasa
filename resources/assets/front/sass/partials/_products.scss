@@ -12,6 +12,8 @@ Mosaic Styling
 .product__collumn{
     @extend .col-xs-12, .col-md-4;
     margin-top: 30px;
+    
+
 
     &-list{
         margin-bottom: 80px;
@@ -47,6 +49,7 @@ Mosaic Styling
                 -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
                 transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
                 transition: transform .4s ease-out;
+                border: 1px solid $primary-color;
             }
 
 
@@ -172,6 +175,7 @@ Mosaic Styling
         -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         transition: transform .4s ease-out;
+        border: 1px solid $primary-color;
     }
 
     &:hover,
@@ -181,6 +185,7 @@ Mosaic Styling
         -webkit-transform: scale(1.25, 1.25);
         transform: scale(1.05, 1.05);
         transition: transform .4s ease-out;
+        border: 1px solid $primary-color;
 
         &:after {
             opacity: 1;
