@@ -1,7 +1,13 @@
 @extends('/front/layouts/app')
 
 @section('content')
+    @include('front.components.breadcrumbs', [
+            
+    ])
     <div class="container">
+        @include('front.components.breadcrumbs', [
+            
+        ])
         <div class="section first">
             <h2 class="subsection__title">Perquntas Frequentes</h2>
             <h2 class="subsection__subtitle">perguntas e respostas para as suas compras online</h2>

@@ -1,6 +1,9 @@
 @extends('/front/layouts/app')
 
 @section('content')
+@include('front.components.breadcrumbs', [
+            
+])
 <div class="container">
     <div class="section first">
         <h2 class="subsection__title text-center">Formulário de Contacto</h2>

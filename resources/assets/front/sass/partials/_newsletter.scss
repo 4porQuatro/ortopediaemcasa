@@ -13,6 +13,10 @@ Newsletter Styling
         clear: both;
     }
 
+    @media screen and (max-width: 768px){
+        padding: 60px 20px; 
+    }
+
     &__title-container{
         width: 50%;
         float: left;
@@ -21,6 +25,8 @@ Newsletter Styling
             width: 100%;
             float: none;
         }
+
+    
     }
 
     &__title{
@@ -81,6 +87,10 @@ Newsletter Styling
         &::-moz-placeholder          {color:#fff;}
         &:-moz-placeholder           {color:#fff;}
         &:-ms-input-placeholder      {color:#fff;}
+
+        @media screen and (max-width: 475px){
+            width: 60%;
+        }
     }
 
     &__button{
@@ -91,6 +101,10 @@ Newsletter Styling
         border: 1px solid $secondary-color;
         padding: 10px;
         font-weight: 700;
+
+        @media screen and (max-width: 475px){
+            width:40%;
+        }
     }
 
 }

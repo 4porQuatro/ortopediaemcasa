@@ -37166,7 +37166,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 5000,
         centerMode: true,
-        centerPadding: '250px',
+        centerPadding: '280px',
         responsive: [{
             breakpoint: 1200,
             settings: {
@@ -37186,7 +37186,7 @@ $(document).ready(function () {
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                centerPadding: '10px'
+                centerPadding: '0px'
             }
         }]
     });

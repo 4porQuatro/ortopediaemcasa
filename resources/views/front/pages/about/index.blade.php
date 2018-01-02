@@ -1,6 +1,9 @@
 @extends('/front/layouts/app')
 
 @section('content')
+    @include('front.components.breadcrumbs', [
+            
+    ])
     <div class="container">
         <div class="section first">
             @include('front.components.about-banner', [

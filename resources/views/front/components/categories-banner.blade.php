@@ -7,6 +7,11 @@
         </li>
         @endforeach
     </ul>
+    <select class="category-select" name="" id="">
+        @foreach($categories as $menu_item)
+        <option value="">{{$menu_item->title}}</option>
+        @endforeach
+    </select>
     <div class="banner__slideshow">
         @foreach($categories as $slide)
         <div class="banner__placeholder">

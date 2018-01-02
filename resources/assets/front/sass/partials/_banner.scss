@@ -35,6 +35,11 @@ Banner Styling
 
     &__link{
         color: $text-color;
+
+        &:hover,
+        &:focus{
+            color: $primary-color;
+        }
     }
 
     &__slideshow{
@@ -87,6 +92,9 @@ Banner Styling
         font-size: 60px;
         margin-bottom: 0px;
 
+        @media screen and (max-width: 768px){
+            line-height: 1.2em;
+        }
     }
 
     &__subtitle{
@@ -117,5 +125,19 @@ Banner Styling
         &:hover{
             color: #fff;
         }
+    }
+}
+
+.category-select{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    outline: 0px;
+    color: $text-color;
+
+    @media screen and (min-width: 768px){
+        display: none;
     }
 }

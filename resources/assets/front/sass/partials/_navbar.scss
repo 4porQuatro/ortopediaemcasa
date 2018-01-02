@@ -23,6 +23,7 @@ Navbar Stylings
         vertical-align: middle;
         margin-left: 10%;
         width: 55%;
+        @extend .clearfix;
 
         @media screen and (max-width: 1200px){
             width: 50%;
@@ -33,27 +34,53 @@ Navbar Stylings
             margin-left: 5%;
         }
 
+        @media screen and (max-width: 768px){
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+
         .search-input{
             height: 35px;
             width: 70%;
             padding-left: 10px;
             border: 1px solid $secondary-text-color;
+            float: left;
 
             @media screen and (max-width: 992px){
                 width: 50%;
+            }
+
+            @media screen and (max-width: 768px){
+                width: 80%;
+            }
+
+            @media screen and (max-width: 475px){
+                width: 60%;
             }
         }
 
         .search-button{
             height: 35px;
-            width: 20%;
+            width: 25%;
             background-color: $secondary-text-color;
             color: $primary-color;
             font-weight: 700;
+            float: left;
 
             @media screen and (max-width: 992px){
                 width: 40%;
             }
+
+            @media screen and (max-width: 768px){
+                width: 20%;
+            }
+
+            @media screen and (max-width: 475px){
+                width: 40%;
+            }
+
         }
     }
 
@@ -220,23 +247,19 @@ Menu Styling
     }
 
     .navbar-collapse.collapsing{
-
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: 0px;
-        padding-bottom: 200px;
+        background-color: #fff;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    
     }
 
     .navbar-collapse.collapse.in{
         height: auto;
-        position: relative;
-        left: 0px;
-        right: 0px;
-        top: 50px;
-        padding-bottom: 200px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 }
+
 
 
 /*=============================================

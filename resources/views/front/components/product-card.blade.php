@@ -7,8 +7,10 @@
         <h3 class="product-card__name">{{$title}}</h3>
         <div class="product-card__price">
             <span class="product-card__price--label">a partir de...</span>
-            <span class="product-card__price--before">{{$before_price}}</span>
-            <span class="product-card__price--promotion">{{$price}}</span>
+            <span class="product-card__price--box">
+                <span class="product-card__price--before">{{$before_price}}</span>
+                <span class="product-card__price--promotion">{{$price}}</span>
+            </span>
         </div>
     </div>
 </a>

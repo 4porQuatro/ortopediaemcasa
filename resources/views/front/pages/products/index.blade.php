@@ -1,7 +1,11 @@
 @extends('/front/layouts/app')
 
 @section('content')
+@include('front.components.breadcrumbs', [
+            
+])
 <div class="section first">
+
     <div class="container">
         <div class="row">
             

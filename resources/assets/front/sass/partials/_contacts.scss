@@ -16,29 +16,36 @@ Contacts icon
         padding-top: 30px;
     }
 
+    .contact-icon{
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 0 auto;
+        position: relative;
+        padding-top: 40px;
+    }
+
     svg{
         width: 100%;
-        max-width: 100px;
+        max-width: 50px;
         margin: 0 auto;
         margin-bottom: 20px;
-        fill: $primary-color;
+        fill: $secondary-color;
         text-align: center;
         display: block;
-
-        @media screen and (max-width: 768px){
-            margin-top: 80px;
-        }
     }
 
     &__title{
         text-align: center;
         color: $text-color;
+        font-size: 22px;
     }
 
     &__text{
         text-align: center;
         margin-top: 0px;
-        font-size: 26px;
+        font-size: 22px;
         font-weight: 700;
         color: $text-color;
     }

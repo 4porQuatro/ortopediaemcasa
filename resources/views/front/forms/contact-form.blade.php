@@ -1,23 +1,28 @@
 <form class="form-container">
-    <div class="form-group">
-        <input class="contact-input" type="text" name="" value="" placeholder="Nome*">
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-7">
+            <label class="contact-label" for="">Nome*</label>
+            <input class="contact-input" type="text" name="" value="">
+        </div>
+        <div class="col-xs-12 col-md-5">
+            <label class="contact-label" for="">Contacto</label>
+            <input class="contact-input" type="text" name="" value="" >
+        </div>
     </div>
     <div class="form-group row">
-        <div class="col-xs-12 col-md-6">
-            <input class="contact-input" type="text" name="" value="" placeholder="Email*">
+        <div class="col-xs-12 col-md-7">
+            <label class="contact-label" for="">Assunto*</label>
+            <input class="contact-input" type="text" name="" value="">
         </div>
-        <div class="col-xs-12 col-md-6">
-            <input class="contact-input" type="text" name="" value="" placeholder="Contacto*">
+        <div class="col-xs-12 col-md-5">
+            <label class="contact-label" for="">Email*</label>
+            <input class="contact-input" type="text" name="" value="">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-xs-12">
-            <input class="contact-input" type="text" name="" value="" placeholder="Assunto*">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-xs-12">
-            <textarea class="contact-input" placeholder="Mensagem*"></textarea>
+            <label class="contact-label" for="">Mensagem*</label>
+            <textarea class="contact-input"></textarea>
         </div>
     </div>
     <div class="form-bottom-container">

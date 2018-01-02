@@ -8,7 +8,7 @@ BASE STYLES
 }
 
 *{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1{
@@ -148,11 +148,13 @@ a:hover, a:focus{
         color: $primary-color;
         font-weight: 700;
         margin: 0px;
+        font-size: 30px;
     }
 
     &__subtitle{
         margin-top: 0px;
         color: $primary-color;
+        font-size: 26px;
     }
 
     &__description.editable{
