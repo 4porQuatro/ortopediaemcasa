@@ -41,10 +41,10 @@
                         <a class="navbar__link" href="/contacts">Contactos</a>
                     </li>
                     <li class="navbar__item--responsive">
-                        <a href="navbar__link" href="/"><i class="zmdi zmdi-account"></i>Minha Conta</a>
+                        <a class="navbar__link" href="/"><i class="zmdi zmdi-account"></i>Minha Conta</a>
                     </li>
                     <li class="navbar__item--responsive">
-                        <a href="navbar__link" href="/"><i class="zmdi zmdi-shopping-cart"></i>[ 0 ]</a>
+                        <a class="navbar__link" href="/"><i class="zmdi zmdi-shopping-cart"></i>[ 0 ]</a>
                     </li>
                 </ul>
             </div>

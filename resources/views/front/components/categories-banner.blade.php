@@ -7,7 +7,7 @@
         </li>
         @endforeach
     </ul>
-    <select class="category-select" name="" id="">
+    <select class="category-select" name="category" id="categories">
         @foreach($categories as $menu_item)
         <option value="">{{$menu_item->title}}</option>
         @endforeach

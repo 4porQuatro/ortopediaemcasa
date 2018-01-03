@@ -45,16 +45,16 @@
             <div class="footer__partners">  
                 <div class="footer__partners-upper">
                     <h4 class="footer__partners-title">Método de Pagamento:</h4>
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
                 </div>
                 <div class="footer__partners-lower">
                     <h4 class="footer__partners-title">Ambiente Seguro:</h4>
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
                 </div>
                 <div class="footer__partners-lower">
                     <h4 class="footer__partners-title">Formas de Entrega:</h4>
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg">
+                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
                 </div>
                 
             </div>
