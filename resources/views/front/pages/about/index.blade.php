@@ -1,21 +1,34 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
     @include('front.components.breadcrumbs', [
-            
+
     ])
     <div class="container">
         <div class="section first">
-            @include('front.components.about-banner', [
-                'image' => $about_banner->image,
-                'title' => $about_banner->title,
-                'subtitle' => $about_banner->subtitle
-            ])
-            <div class="about__description editable">
-                <h2>Sobre a empresa</h2>
-                {!! $about_description->text !!}
-            </div>
+            @if($article = $page->articles->shift())
+                @include(
+                    'front.components.about-banner',
+                    [
+                        'image' => $article->getFirstImagePath(),
+                        'title' => $article->title,
+                        'subtitle' => $article->subtitle
+                    ]
+                )
+            @endif
+
+            @if($article = $page->articles->shift())
+                <div class="about__description editable">
+                    <h2>{{ $article->title }}</h2>
+                    {!! $article->content !!}
+                </div>
+            @endif
         </div>
+
         <div class="section">
             <div class="features">
                 <h2 class="features__title">{{$section->title}}</h2>

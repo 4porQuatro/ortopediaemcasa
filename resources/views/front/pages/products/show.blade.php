@@ -1,8 +1,12 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
     @include('front.components.breadcrumbs', [
-            
+
     ])
     <div class="section first">
         <div class="container">
@@ -29,11 +33,11 @@
             </div>
             <form class="product__form">
                 <div class="row">
-                    
+
                     <!-- Begin: Product Options -->
                     <div class="col-xs-12 col-md-6">
                         @include('front.components.product-options',[
-                            
+
                         ])
                     </div>
                     <!-- End: Product Options -->
@@ -55,7 +59,7 @@
 
             ])
             <!-- End: Product Bottom Nav -->
-            
+
             <!-- Begin: Product Advise Slideshow -->
             <div class="advise-container">
                 <h2 class="slideshow-title">Veja também...</h2>
@@ -63,7 +67,7 @@
                     @foreach($products_advise as $product_advise)
                         @include('front.components.product-card--small', [
                             'category' => $product_advise->category,
-                            'title' => $product_advise->title, 
+                            'title' => $product_advise->title,
                             'image' => $product_advise->image,
                             'price' => $product_advise->price,
                             'before_price' => $product_advise->before_price
@@ -82,5 +86,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

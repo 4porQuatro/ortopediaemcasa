@@ -1,0 +1,15 @@
+div.map_marker{cursor:url(Images/pin.png), auto;position:relative}
+
+
+div.map_marker.world{width:961px;height:479px;background:url(Images/world_map.jpg) no-repeat top left}
+
+
+div.map_marker.portugal{width:212px;height:430px;background:url(Images/portugal_map.jpg) no-repeat top left}
+
+
+div.map_marker .map_pin{width:16px;height:28px;background:url(Images/pin.png) no-repeat center;cursor:pointer;position:absolute}
+
+
+
+
+

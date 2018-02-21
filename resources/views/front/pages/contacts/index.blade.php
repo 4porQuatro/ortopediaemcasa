@@ -1,17 +1,25 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
 @include('front.components.breadcrumbs', [
-            
+
 ])
 <div class="container">
     <div class="section first">
-        <h2 class="subsection__title text-center">Formulário de Contacto</h2>
-        <h2 class="subsection__subtitle text-center">Respondemos a todas as suas questões</h2>
+        @if($article = $page->articles->shift())
+            <h1 class="subsection__title text-center">{{ $article->title }}</h1>
+            <h2 class="subsection__subtitle text-center">{{ $article->subtitle }}</h2>
+        @endif
+
         @include('front.forms.contact-form', [])
+
         <div class="contact-icons">
             <div class="row">
-                @foreach($contacts_info as $contact_info)     
+                @foreach($contacts_info as $contact_info)
                     @include('front.components.contact-icon', [
                         'icon' => '',
                         'title' => $contact_info->title,

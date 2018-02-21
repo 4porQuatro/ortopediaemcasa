@@ -1,0 +1,336 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:600,400);
+body{margin:0;padding:0;color:#666;font-family: 'Open Sans', sans-serif;font-size:13px}
+a{text-decoration:none;outline:none}
+b{font-weight:600}
+ul, ol, li{margin:0;padding:0}
+input, textarea{padding:0;border:none}
+textarea{resize:none;overflow:hidden}
+input, textarea{color:#666;font-size:13px;font-family: 'Open Sans', sans-serif;outline:none}
+label{cursor:pointer}
+
+
+/*......................................... BEGIN BUTTONS ..........................................*/
+/*
+*	CREATE RECORD
+*/
+div.record_options_pane{height:40px;overflow:hidden;float:right}
+.record_opt_btn{height:38px;padding:0 15px;line-height:38px;color:#fff;font-size:13px;text-transform:uppercase;background-color:#c5c5c5;border:1px solid #aaa;border-radius:4px;transition:background-color .3s, border-color .3s;display:inline-block;cursor:pointer}
+.record_opt_btn:hover, .record_opt_btn:focus{color:#fff;background-color:#d5d5d5;border-color:#fca200}
+.btn{height:28px;padding:0 6px;margin:10px 0px 5px 0px;background:url(../img/Buttons/sprite_btns.png) repeat-x top;border-radius:4px;border:1px solid #ccc;color:#444;font-size:13px;text-shadow:0 1px 0px #fff;cursor:pointer;overflow:hidden}
+.btn:hover, .btn:disabled{color:#091C48;background-position:bottom;text-shadow:0 1px 0px #ddd;border:1px solid #888}
+.inline_btn{height:38px;padding:0 15px;line-height:38px;margin:0;font-size:11px;text-transform:uppercase;background-color:#eee;border-radius:4px;border:1px solid #ccc;color:#444;font-size:13px;cursor:pointer;display:inline-block;overflow:hidden;transition:background-color .3s, border-color .3s}
+input.inline_btn{height:40px}
+.inline_btn:hover, .inline_btn:focus{border-color:#fca200}
+.inline_btn:hover, .inline_btn:focus, .inline_btn:disabled, .inline_btn.disabled{background-color:#fff}
+.delete_btn{width:15px;height:15px;background:url(../plugins/imgUploader/Assets/img/delete_btn.png) no-repeat top left;display:block;cursor:pointer}
+/*
+*	GEAR
+*/
+input[type="submit"].gear{width:42px;height:25px;background:url(../img/Icons/tools.png) no-repeat top left;border:none;cursor:pointer}
+/*.......................................... END BUTTONS ...........................................*/
+
+
+/*.......................................... BEGIN FORMS ...........................................*/
+form.form_model{padding-top:30px;border-top:1px solid #ddd;border-radius:0 4px 4px 4px;clear:both}
+/* panes */
+form.form_model .form_pane{margin-bottom:15px;background-color:#fff;border-radius:4px;display:none}
+/* table */
+form.form_model table{width:100%;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid #e1e1e1;border-collapse:separate}
+form.form_model table th{padding:0 12px 0 12px;color:#444;text-align:left;white-space:nowrap}
+form.form_model table td{padding:5px 12px;line-height:20px;margin-bottom:5px;vertical-align:top}
+form.form_model table th:first-child, form.form_model table td:first-child{padding-left:0}
+form.form_model > table th:last-child, form.form_model table td:last-child{padding-right:0}
+/* inputs */
+form.form_model input[type="text"], form.form_model input[type="password"]{width:100%;margin-bottom:15px;padding:10px;line-height:18px;border:1px solid #e1e1e1;border-radius:4px;box-sizing:border-box}
+form.form_model .custom_select{height:38px;line-height:38px;border-radius:4px}
+/* submit */
+form.form_model input[type="submit"]{padding:18px 25px;margin:5px 0px;line-height:13px;font-size:13px;text-transform:uppercase;background-color:#999;border-radius:4px;border:1px solid #fff;color:#fff;cursor:pointer;overflow:hidden;transition:background-color .3s}
+form.form_model input[type="submit"]:hover, form.form_model input[type="submit"]:focus{background-color:#fca200}
+form.form_model label{color:#444;font-weight:600}
+/*
+*	INSERT EXPRESSION (TRANSLATIONS)
+*/
+form[name="insert_expression_form"] table{width:100%;margin-bottom:30px;border-collapse:collapse}
+form[name="insert_expression_form"] table th{padding:0 0 10px 0;text-transform:uppercase;text-align:left}
+form[name="insert_expression_form"] textarea{width:98%;padding:10px 1%;border:1px solid #ddd;border-radius:4px}
+form[name="insert_expression_form"] .custom_select{height:38px;line-height:38px;border-radius:4px}
+/*
+*	EXPRESSIONS(TRANSLATIONS)
+*/
+form[name="edit_translations_form"] table{width:100%;table-layout:fixed}
+form[name="edit_translations_form"] table textarea{width:100%;height:72px;padding:10px 15px;line-height:18px;display:block;box-sizing:border-box}
+form[name="edit_translations_form"] span.save_shortcut_btn{height:94px;padding:0 15px;line-height:94px;text-align:center;display:block;position:relative;cursor:pointer;-webkit-transition:background-color .3s;moz-transition:background-color .3s;transition:background-color .3s}
+form[name="edit_translations_form"] span.save_shortcut_btn:hover{background-color:#ccc}
+form[name="edit_translations_form"] a.delete_record{height:94px;line-height:94px;color:#fff;background-color:#c40000;display:block;transition:background-color .3s}
+form[name="edit_translations_form"] a.delete_record:hover{background-color:#ccc}
+/*
+*	SELECT
+*/
+div.custom_select{height:34px;padding:0 28px 0 8px;line-height:34px;color:#666;font-size:13px;text-align:left;border:1px solid #ddd;cursor:pointer}
+/* displayer */
+div.custom_select div{height:100%;padding-right:20px;white-space:nowrap;position:relative;overflow:hidden}
+/* button */
+div.custom_select span{width:0;height:0;margin:auto;border-top:6px solid #666;border-right:6px solid transparent;border-left:6px solid transparent;display:block;position:absolute;top:0;right:10px;bottom:0}
+div.custom_select:not(.disabled):hover{color:#cdcdcd;border-color:#cdcdcd}
+div.custom_select:not(.disabled):hover span{opacity:.8}
+/* disabled */
+div.custom_select.disabled{opacity:.7}
+/*
+*	CHECKBOX
+*/
+div.custom_checkbox{width:14px;height:14px;margin-bottom:-4px;background-color:white;border:1px solid #c5c5c5;display:inline-block;position:relative}
+div.custom_checkbox > span{width:6px;height:6px;margin:auto;background-color:transparent;position:absolute;top:0;right:0;bottom:0;left:0}
+div.custom_checkbox > span.current{background-color:#c1c1c1}
+div.custom_checkbox input{width:14px;height:14px;opacity:0;margin:0!important;cursor:pointer;position:absolute;top:0;left:0;z-index:2;display:block}
+/* disabled */
+div.custom_checkbox.disabled{border-style:dotted;opacity:.7}
+div.custom_checkbox.disabled, div.custom_checkbox.disabled input{cursor:default}
+div.custom_checkbox.disabled + label{opacity:.7;cursor:default}
+/*
+*	RADIO BUTTON
+*/
+div.custom_radio{width:14px;height:14px;margin-bottom:-4px;border:1px solid #c5c5c5;border-radius:8px;display:inline-block;position:relative}
+div.custom_radio > span{width:8px;height:8px;margin:auto;background-color:transparent;border-radius:4px;position:absolute;top:0;right:0;bottom:0;left:0}
+div.custom_radio > span.current{background-color:#c1c1c1}
+div.custom_radio input{width:100%;height:100%;opacity:0;margin:0px;padding:0px;cursor:pointer;position:absolute;top:0;left:0;z-index:2}
+/* disabled */
+div.custom_radio.disabled{border-style:dotted;opacity:.7}
+div.custom_radio.disabled, div.custom_radio.disabled input{cursor:default}
+div.custom_radio.disabled + label{opacity:.7;cursor:default}
+/*........................................... END FORMS ............................................*/
+
+
+/*.......................................... BEGIN LAYOUT ..........................................*/
+div#data_container{margin-left:250px;padding:20px 40px}
+/* headers */
+div#data_container h2{height:40px;margin:0 0 40px 0;line-height:40px;color:#888;font-size:24px;font-weight:400;text-transform:uppercase;overflow:hidden}
+div#data_container h3{height:30px;margin:0 0 30px 0;line-height:30px;color:#ffba00;font-size:18px;font-weight:400;text-transform:uppercase;overflow:hidden}
+div#data_container h2 + h3{margin-top:-20px}
+div#data_container h3 + p{margin-top:-20px}
+/* cols */
+div.left_col{width:250px;height:100%;padding:20px;border-right:1px solid #fff;position:absolute;left:0;overflow:hidden}
+div.right_col{width:auto;height:100%;padding:20px;border-left:1px solid #CCC;position:absolute;left:291px;overflow:hidden}
+div.white_board{margin-bottom:15px;padding:10px;border:1px solid #DDD;border-radius:4px;background-color:#fff;overflow:hidden}
+div.white_board table p{margin:0}
+/*
+*	RECORDS LIST
+*/
+/* search & filters */
+div.records_pane div.input_wrapper{padding:8px 10px;border:1px solid #e1e1e1}
+div.records_pane div.input_wrapper input{width:100%;border:none;display:block}
+div.records_pane > table{width:100%;margin-top:4px;border-collapse:collapse;table-layout:fixed}
+div.records_pane > table td{padding:0 4px}
+div.records_pane > table td:first-child{padding-left:0}
+div.records_pane > table td:last-child{padding-right:0}
+/* data options */
+div.records_pane .list_header{height:30px;margin-bottom:15px;overflow:hidden}
+div.records_pane .list_header .options_pane{height:30px;float:right}
+div.records_pane .list_header .options_pane .sprite{float:left}
+div.records_pane .list_header p.records_display{height:30px;margin:0;line-height:30px;float:left}
+/* results */
+div.records_pane div.results_pane{margin-top:20px;padding-top:20px;border-top:1px solid #e1e1e1}
+/* records list table */
+.records_list{width: 100%; margin-bottom:20px;}
+.records_list th{padding:10px;color:#fff;text-transform:uppercase;background-color:#ccc;border:1px solid #aaa}
+.records_list th.no_style{padding:0;background:none;border:none}
+.records_list tr:nth-child(even) td{background-color:#f6f6f6}
+.records_list tr:nth-child(odd) td{background-color:#fff}
+.records_list tr:hover td{border-color:#ffba00}
+.records_list td{border:1px solid #e1e1e1}
+/* anchors */
+.records_list td a{padding:12px;padding-bottom:8px;line-height:17px;color:#666;display:block}
+.records_list td a:hover{color:#999}
+/* op buttons */
+.records_list td.op{width:1%;padding-right:15px;padding-left:15px;white-space:nowrap}
+.records_list td.op a{padding:0;display:inline-block}
+/* sortable placeholder */
+.records_list .records_list_placeholder{height:41px}
+/* buttons */
+.records_list .sprite.btn24x24{margin:auto}
+/*
+*	PERMISSIONS (SGC USER MODULE)
+*/
+div.permissions_pane{padding:15px;background-color:#fff;border:1px solid #ddd;border-radius:4px}
+div.permissions_pane > ol{margin:0;padding:0;list-style:none}
+div.permissions_pane > ol > li{margin-bottom:30px;line-height:24px;color:#09C;font-weight:bold}
+div.permissions_pane > ol > li ol{margin:0 0 0 20px;padding:0;list-style:none}
+div.permissions_pane > ol > li ol li{margin:0;padding:0;color:#333;font-weight:normal}
+/* inputs */
+div.permissions_pane input{margin:5px 8px 0 0!important;display:block;float:left}
+/*
+*	TREE LIST
+*/
+ul.tree_list{padding:0;margin:0 0px 0px 25px;list-style:none;background-color:#eff6fa;border-radius:4px}
+ul.tree_list li{padding:0;color:#001f33}
+ul.tree_list li a{font-weight:bold;color:#001f33}
+ul.tree_list li a:hover{color:#fff}
+ul.tree_list li table{margin:0;width:100%}
+ul.tree_list li table tr td{padding:7px}
+ul.tree_list li table tr td img{cursor:pointer}
+span.line_toggler{width:10px;height:10px;padding:0;margin-right:10px;font-size:11px;line-height:10px;text-align:center;font-weight:bold;color:#001f33;border-top:1px solid #007cc9;border-right:1px solid #007cc9;border-bottom:1px solid #000c14;border-left:1px solid #000c14;display:inline-block;cursor:pointer}
+
+/*
+ *	RELATED RECORDS
+ */
+ul.related{list-style:none}
+ul.related li{width:40%;padding-right:5%;margin-bottom:10px;float:left}
+ul.related li:not(:nth-child(2n)){margin-right:10%;}
+
+/*
+ *	BACKGROUNDS
+ */
+.orange_bg{background-color:#ffba00!important}
+/*........................................... END LAYOUT ...........................................*/
+
+
+/*.......................................... BEGIN MENUS ...........................................*/
+/*
+ *	SECTION MENU
+ */
+ul.section_menu{height:50px;margin-bottom:40px;list-style:none;border-bottom:1px solid #ddd}
+ul.section_menu li{height:49px;border-top:1px solid #ddd;border-left:1px solid #ddd;float:left}
+ul.section_menu li:last-child{border-right:1px solid #ddd;}
+ul.section_menu li a{height:49px;padding:0 15px;line-height:50px;color:#aaa;text-transform:uppercase;background-color:#eee;display:block;transition:background-color .3s}
+ul.section_menu li a:hover, ul.section_menu li a:focus, ul.section_menu li a.active{background-color:#fff}
+
+/*
+ *	STEPS MENU
+ */
+ul.steps_menu{height:50px;margin-bottom:40px;padding-left:20px;list-style:none}
+ul.steps_menu li{height:50px;margin-right:2px;float:left;position:relative}
+ul.steps_menu li a{height:50px;padding:0 35px 0 15px;line-height:50px;color:#fff;text-transform:uppercase;background-color:#ddd;display:block;position:relative;}
+ul.steps_menu li a:before{width:20px;height:50px;content:'';background:url(../img/steps_menu.png) no-repeat top left;position:absolute;top:0;left:-20px}
+ul.steps_menu li:last-child a:after{width:20px;height:50px;content:'';background:url(../img/steps_menu.png) no-repeat bottom left;position:absolute;top:0;right:0}
+ul.steps_menu li a:hover, ul.steps_menu li a:focus, ul.steps_menu li a.active{color:#aaa;background-color:#eee}
+ul.steps_menu li a:hover:before, ul.steps_menu li a:focus:before, ul.steps_menu li a.active:before{background-position:0 -50px}
+
+/*
+ *	FORM MENU
+ */
+ul#form_menu{height:36px;margin:0;padding:0;list-style:none}
+ul#form_menu li{height:36px;margin:0 -1px -1px 0;padding:0 14px;line-height:36px;color:#999;font-size:13px;text-transform:uppercase;background-color:#eee;border-top:1px solid #DDD;border-right:1px solid #DDD;border-bottom:1px solid #fff;border-left:1px solid #ddd;border-radius:4px 4px 0px 0px;float:left;cursor:pointer;transition:all .2s}
+ul#form_menu li:hover, ul#form_menu li.current_item{margin-top:0;color:#333;background-color:#fff}
+/*........................................... END MENUS ............................................*/
+
+
+/*.......................................... BEGIN RULERS ..........................................*/
+hr.clear{height:0;clear:both;border:none}
+hr.hline{height:1px;margin:40px 0;background-color:#fff;border-width:1px 0px 0px 0px;border-style:solid;border-color:#ccc}
+/*........................................... END RULERS ...........................................*/
+
+
+/*.......................................... BEGIN SPRITE ..........................................*/
+.sprite{background-image:url(../img/sprite.png);background-repeat:no-repeat;display:block}
+.sprite.btn24x24{width:24px;height:24px;cursor:pointer;opacity:.8}
+.sprite.btn24x24:hover{opacity:1}
+.sprite.btn24x24.edit_record{background-position:0 0}
+.sprite.btn24x24.delete_record{background-position:-24px 0}
+.sprite.btn24x24.magnifier{background-position:-48px 0}
+.sprite.btn24x24.records{background-position:0 -24px}
+.sprite.btn24x24.talk_balloon{background-position:-24px -24px}
+.sprite.btn24x24.user_talk_balloon{background-position:-48px -24px}
+/* power button */
+.sprite.power_btn{width:22px;height:22px;background-position:-72px -22px}
+.sprite.power_btn:hover{background-position:-72px 0}
+/* data buttons */
+.sprite.database{width:37px;height:30px;cursor:pointer}
+.sprite.database.upload{background-position:-94px 0}
+.sprite.database.download{background-position:-131px 0}
+/*........................................... END SPRITE ...........................................*/
+
+
+/*.......................................... BEGIN TABLES ..........................................*/
+table.items_list{margin-bottom:50px!important;border:none!important;border-collapse:collapse!important}
+table.items_list th{padding:15px 10px!important;font-size:15px;border-bottom:1px dotted #999}
+/* lines colors */
+table.items_list tbody tr:nth-child(odd) td{background-color:#f3f3f3}
+table.items_list tbody td{padding:10px!important;border-bottom:1px dotted #999}
+/* last line */
+table.items_list tfoot td{padding:20px 10px!important;line-height:22px;color:#000;border-bottom:1px solid #ccc}
+table.items_list tfoot td big{margin-top:15px;font-size:16px;display:inline-block}
+table.items_list tfoot td:first-child{text-align:right}
+table.items_list tfoot td:last-child{text-align:left}
+
+/**
+ *	Tabular data
+ */
+.tab_data{
+	width: 100%;
+}
+.tab_data th,
+.tab_data td{
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+	line-height: 24px !important;
+	vertical-align: top;
+}
+.tab_data th{
+	width: 1%;
+	padding-right: 10px;
+	text-align: left;
+	white-space: nowrap;
+}
+.tab_data td{
+	padding-left: 10px;
+}
+/*........................................... END TABLES ...........................................*/
+
+
+/*......................................... BEGIN TEMPLATE .........................................*/
+/*
+ *	SIDE BAR
+ */
+div#side_bar{width:250px;min-height:100%;margin:0;color:#f5f5f5;text-transform:uppercase;background-color:#c5c5c5;border-right:1px solid #bbb;position:fixed;top:0;left:0;z-index:2}
+div#side_bar header{background-color:#bbb;border-bottom:1px solid #b1b1b1}
+/* top bar */
+div#side_bar header div.top{height:22px;padding:20px 20px 10px 20px}
+div#side_bar header div.top h1{width:93px;height:22px;margin:0;float:left}
+div#side_bar header div.top h1 a{width:93px;height:22px;text-indent:-2000em;background:url(../img/sgc_logo.png) no-repeat top left;display:block;overflow:hidden}
+div#side_bar header div.top a.logout_btn{text-indent:-2000em;display:block;float:right;overflow:hidden}
+/* bottom bar */
+div#side_bar header div.bottom{height:34px;padding:0 20px}
+div#side_bar header div.bottom .username_pane{width:150px;height:34px;line-height:34px;color:#888;float:left;overflow:hidden}
+/* form */
+div#side_bar form{margin-left:170px}
+div#side_bar form .custom_select{padding-right:20px;padding-left:0;color:#888;background-color:transparent;border:none;cursor:pointer}
+div#side_bar form .custom_select select option{color:#888}
+div#side_bar form .custom_select span{border-top-color:#888;right:0}
+div#side_bar form .custom_select:hover{color:#fff!important}
+div#side_bar form .custom_select:hover span{border-top-color:#fff}
+div#side_bar form a{color:#fff}
+div#side_bar form a:hover{color:#666}
+
+/*
+ * MENU
+ */
+div#menu_wrapper{overflow:hidden}
+div.menu_pane > ul.menu{margin:0;padding:0;list-style:none}
+div.menu_pane > ul.menu > li{margin:0;padding:0;border-bottom:1px solid #b1b1b1}
+div.menu_pane > ul.menu > li > span{padding:0 20px;line-height:44px;color:#fff;font-size:14px;text-transform:uppercase;background-color:#c5c5c5;cursor:pointer;display:block;transition:background-color .3s;position:relative}
+div.menu_pane > ul.menu > li:hover > span{color:#888;background-color:#fff}
+div.menu_pane > ul.menu > li.active > span{color:#fff;background-color:#c5c5c5}
+div.menu_pane > ul.menu > li.active > span:after{width:6px;height:100%;content:'';background-color:#ffba00;display:block;position:absolute;top:0;left:0;transition:background-color .3s}
+div.menu_pane > ul.menu > li.active:hover > span:after{background-color:#fff}
+div.menu_pane > ul.menu > li.active > ul{display:block}
+/* submenu */
+div.menu_pane > ul.menu > li > ul{padding:0;list-style:none;border-top:1px solid #b1b1b1;display:none}
+div.menu_pane > ul.menu > li > ul li{margin:0}
+div.menu_pane > ul.menu > li > ul li a{line-height:22px;padding:8px 20px;color:#888;font-size:13px;background-color:#f5f5f5;display:block;cursor:pointer;transition:background-color .3s}
+div.menu_pane > ul.menu > li > ul li:hover a, div.menu_pane > ul.menu > li > ul li.active a{background-color:#fff}
+
+/*
+ * CREDITS
+ */
+div#side_bar div.credits{width:100%;height:18px;padding:10px 0;line-height:18px;color:#fff;font-size:10px;text-align:center;background-color:#bbb;position:absolute;bottom:0;left:0}
+div#side_bar div.credits a{color:#666}
+div#side_bar div.credits a:hover{color:#fff}
+/*.......................................... END TEMPLATE ..........................................*/
+
+/*........................................... BEGIN TEXT ...........................................*/
+a{color:#444;cursor:pointer}
+a:hover{color:#777}
+p.info, p.success, p.error{margin:0 0 20px 0;padding:15px;color:#fff;border-radius:6px}
+p.info{background-color:#008be4}
+p.success{background-color:#00b119}
+p.error{background-color:#c40000}
+/*............................................ END TEXT ............................................*/

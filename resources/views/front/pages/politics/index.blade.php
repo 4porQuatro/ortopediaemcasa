@@ -1,8 +1,12 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
     @include('front.components.breadcrumbs', [
-            
+
     ])
     <div class="container">
 

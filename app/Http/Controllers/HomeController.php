@@ -1,29 +1,37 @@
 <?php
-  namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-  use Illuminate\Http\Request;
+use App\Models\Pages\Page;
+use Illuminate\Http\Request;
 
-  class HomeController extends Controller{
 
-    public function index(){
+class HomeController extends Controller{
+
+    public function index()
+    {
+        $page = Page::find(1);
 
         $banner_categories = $this->getBannerCategories();
         $products = $this->getProducts();
         $partners = $this->getPartners();
         $features = $this->getFeatures();
 
-        return view('front.pages.home.index', compact(
-          'banner_categories',
-          'products',
-          'partners',
-          'features'
-        ));
+        return view(
+            'front.pages.home.index',
+            compact(
+                'page',
+                'banner_categories',
+                'products',
+                'partners',
+                'features'
+            )
+        );
     }
 
     public function getBannerCategories(){
-      
+
       $banner_category = new \stdClass;
-      
+
       $banner_category->title = 'Calçado';
       $banner_category->subtitle = 'Meias Elásticas Juzo';
       $banner_category->image = '/front/images/thumbnails/thumbnail_1.jpg';
@@ -37,7 +45,7 @@
       }
 
       return $banner_categories;
-      
+
     }
 
     public function getProducts(){
@@ -60,7 +68,7 @@
     }
 
     public function getPartners(){
-      
+
       $partner = new \stdClass;
 
       $partner->image = '/front/images/logo/partners/AMD.jpg';
@@ -89,6 +97,4 @@
 
       return $features;
     }
-
-  }
-?>
+}

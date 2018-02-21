@@ -1,15 +1,19 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
 
     <div class="container">
-        
+
         <!-- Begin: Banner -->
         @include('front.components.categories-banner', [
             'categories' => $banner_categories
         ])
         <!-- End: Banner -->
-        
+
         <div class="section">
             <div class="section__container">
                 <h2 class="section__title--left">Em destaque</h2>
@@ -30,7 +34,7 @@
             </div>
             <!-- End: Products List -->
         </div>
-        
+
         <div class="section">
             <div class="section__container">
                 <h1 class="section__title">Oferecemos uma vasta gama de marcas...</h1>
@@ -47,7 +51,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="features">
                 <h2 class="features__title">Porquê Ortopedia em Casa</h2>

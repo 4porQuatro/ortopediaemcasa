@@ -1,13 +1,14 @@
 <?php
-  namespace App\Http\Controllers;
 
-  use Illuminate\Http\Request;
+namespace App\Http\Controllers;
 
-  class ConditionsController extends Controller{
+use Illuminate\Http\Request;
 
-    public function index(){
+class ConditionsController extends Controller
+{
+    public function index()
+    {
         return view('front.pages.conditions.index', []);
     }
 
-  }
-?>
+}

@@ -1,32 +1,25 @@
 <?php
-  namespace App\Http\Controllers;
 
-  use Illuminate\Http\Request;
+namespace App\Http\Controllers;
 
-  class FaqsController extends Controller{
+use App\Models\Pages\Page;
+use App\Models\Faq;
+use Illuminate\Http\Request;
 
-    public function index(){
-        $questions = $this->getQuestion();
+class FaqsController extends Controller
+{
+    public function index()
+    {
+        $page = Page::find(4);
 
-        return view('front.pages.faqs.index', compact(
-          'questions'
-        ));
+        $faqs = Faq::all();
+
+        return view(
+            'front.pages.faqs.index',
+            compact(
+                'page',
+                'faqs'
+            )
+        );
     }
-
-    public function getQuestion(){
-        $question = new \stdClass;
-
-        $question->question = 'Questão';
-        $question->answer = '<p>Resposta</p>';
-
-        $questions = [];
-
-        for($i = 0; $i < 4; $i++){
-          $questions[] = $question;
-        }
-
-        return $questions;
-    }
-
-  }
-?>
+}

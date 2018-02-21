@@ -1,0 +1,55 @@
+/*
+
+*	SELECT
+
+*/
+
+div.custom_select{height:34px;padding:0 28px 0 8px;line-height:34px;color:#666;font-size:13px;text-align:left;border:1px solid #ddd;cursor:pointer}
+
+/* displayer */
+
+div.custom_select div{height:100%;padding-right:20px;white-space:nowrap;position:relative;overflow:hidden}
+
+/* button */
+
+div.custom_select span{width:0;height:0;margin:auto;border-top:6px solid #666;border-right:6px solid transparent;border-left:6px solid transparent;display:block;position:absolute;top:0;right:10px;bottom:0}
+
+div.custom_select:hover{color:#cdcdcd;border-color:#cdcdcd}
+
+div.custom_select:hover span{opacity:.8}
+
+
+
+/*
+
+*	CHECKBOX
+
+*/
+
+div.custom_checkbox{width:14px;height:14px;margin-bottom:-4px;background-color:white;border:1px solid #c5c5c5;display:inline-block;position:relative}
+
+div.custom_checkbox > span{width:6px;height:6px;margin:auto;background-color:transparent;position:absolute;top:0;right:0;bottom:0;left:0}
+
+div.custom_checkbox > span.current{background-color:#c1c1c1}
+
+div.custom_checkbox input{width:14px;height:14px;opacity:0;margin:0!important;cursor:pointer;position:absolute;top:0;left:0;z-index:2;display:block}
+
+
+
+/*
+
+*	RADIO BUTTON
+
+*/
+
+div.custom_radio{width:14px;height:14px;margin-bottom:-4px;border:1px solid #c5c5c5;border-radius:8px;display:inline-block;position:relative}
+
+div.custom_radio > span{width:8px;height:8px;margin:auto;background-color:transparent;border-radius:4px;position:absolute;top:0;right:0;bottom:0;left:0}
+
+div.custom_radio > span.current{background-color:#c1c1c1}
+
+div.custom_radio input{width:100%;height:100%;opacity:0;margin:0px;padding:0px;cursor:pointer;position:absolute;top:0;left:0;z-index:2}
+
+/* label */
+
+label.custom{height:30px;line-height:30px;text-transform:uppercase;display:block;float:left}

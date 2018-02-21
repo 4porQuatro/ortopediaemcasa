@@ -1,18 +1,22 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
 @include('front.components.breadcrumbs', [
-            
+
 ])
 <div class="section first">
 
     <div class="container">
         <div class="row">
-            
+
             <!-- Begin: Side Menu -->
             <div class="col-xs-12 col-md-4">
                 @include('front.components.side-menu', [
-                    
+
                 ])
             </div>
             <!-- End: Side Menu -->
@@ -22,7 +26,7 @@
                 @foreach($products as $product)
                     @include('front.components.product-card--small', [
                         'category' => $product->category,
-                        'title' => $product->title, 
+                        'title' => $product->title,
                         'image' => $product->image,
                         'price' => $product->price,
                         'before_price' => $product->before_price

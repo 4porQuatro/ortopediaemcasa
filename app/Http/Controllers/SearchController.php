@@ -35,7 +35,7 @@
     }
 
     public function getPartners(){
-      
+
       $partner = new \stdClass;
 
       $partner->image = '/front/images/logo/partners/AMD.jpg';
@@ -50,4 +50,3 @@
     }
 
   }
-?>

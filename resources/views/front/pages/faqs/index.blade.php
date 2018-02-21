@@ -1,20 +1,31 @@
-@extends('/front/layouts/app')
+@extends('front.layouts.app')
+
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
 
 @section('content')
     @include('front.components.breadcrumbs', [
-            
+
     ])
     <div class="container">
         <div class="section first">
-            <h1 class="subsection__title">Perquntas Frequentes</h1>
-            <h1 class="subsection__subtitle">perguntas e respostas para as suas compras online</h1>
+            @if($article = $page->articles->shift())
+                <h1 class="subsection__title">{{ $article->title }}</h1>
+                <h2 class="subsection__subtitle">{{ $article->subtitle }}</h2>
+            @endif
+
             <div class="faqs__wrapper">
-                @foreach($questions as $question)
-                    @include('front.components.faqs', [
-                        'question' => $question->question,
-                        'answer' => $question->answer
-                    ])
-                @endforeach
+                @if(!$faqs->count())
+                    @include('front.partials.no-records-found')
+                @else
+                    @foreach($faqs as $faq)
+                        @include('front.components.faqs', [
+                            'question' => $faq->title,
+                            'answer' => $faq->content
+                        ])
+                    @endforeach
+                @endif
             </div>
 
         </div>

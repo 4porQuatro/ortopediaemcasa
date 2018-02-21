@@ -1,0 +1,149 @@
+ul.sortable_videos {
+    margin: 0px;
+    padding: 0px;
+    list-style: none
+}
+
+ul.sortable_videos li {
+    width: 200px;
+    height: 144px;
+    margin: 2px 2px 40px 2px;
+    padding: 10px;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    cursor: move;
+    float: left
+}
+
+ul.sortable_videos li div.pane {
+    background-color: #eee;
+    border: 3px solid #fff
+}
+
+ul.sortable_videos li div.pane div.header {
+    padding: 10px;
+    background-color: #ddd
+}
+
+ul.sortable_videos li div.pane div.header div.text_input {
+    height: 18px;
+    line-height: 18px;
+    margin-right: 20px;
+    overflow: hidden
+}
+
+ul.sortable_videos li div.pane div.header span.delete_video_btn {
+    width: 9px;
+    height: 9px;
+    margin-top: 4px;
+    background: url(../img/delete_btn.png) no-repeat top left;
+    cursor: pointer;
+    display: block;
+    float: right
+}
+
+ul.sortable_videos li div.pane div.inputs_pane {
+    padding: 9px
+}
+
+
+/* inputs */
+
+ul.sortable_videos li div.pane div.input_wrapper {
+    margin-bottom: 6px;
+    padding: 7px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+
+ul.sortable_videos li div.pane div.input_wrapper input {
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    line-height: 18px;
+    background: none;
+    border: none
+}
+
+ul.sortable_videos li select {
+    width: 100%;
+    height: 34px;
+    margin: 0;
+    padding: 3px;
+    border-color: #ddd;
+    border-radius: 0
+}
+
+ul.sortable_videos input, ul.sortable_videos select {
+    outline: none
+}
+
+
+/* download button */
+
+ul.sortable_videos a.dup_download_btn {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #bbb;
+    border: 1px solid #aaa;
+    outline: none;
+    display: block;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    transition: background-color .3s
+}
+
+ul.sortable_videos a.dup_download_btn:hover, ul.sortable_videos a.dup_download_btn:focus {
+    background-color: #ccc;
+}
+
+ul.sortable_videos li.placeholder {
+    background-color: #fbfbfb !important;
+    border: 1px dashed #ccc !important
+}
+
+
+/* placeholder */
+
+div.video_placeholder {
+    width: 200px;
+    height: 144px;
+    margin: 2px 2px 40px 2px;
+    padding: 10px;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    position: relative;
+    float: left
+}
+
+div.video_placeholder input[type=file] {
+    width: 220px;
+    height: 144px;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    cursor: pointer
+}
+
+div.video_placeholder div.button {
+    width: 194px;
+    height: 98px;
+    padding: 20px 0px;
+    line-height: 32px;
+    font-size: 20px;
+    text-align: center;
+    color: #888;
+    border: 3px dotted #ccc;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1
+}

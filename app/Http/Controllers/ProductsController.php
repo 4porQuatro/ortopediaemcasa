@@ -1,21 +1,28 @@
 <?php
   namespace App\Http\Controllers;
 
+  use App\Models\Pages\Page;
   use Illuminate\Http\Request;
 
   class ProductsController extends Controller{
 
-        public function index(){
+        public function index()
+        {
+            $page = Page::find(2);
 
             $menus = $this->getMenu();
             $products = $this->getProducts();
             $partners = $this->getPartners();
 
-            return view('front.pages.products.index', compact(
-                'menus',
-                'products',
-                'partners'
-            ));
+            return view(
+                'front.pages.products.index',
+                compact(
+                    'page',
+                    'menus',
+                    'products',
+                    'partners'
+                )
+            );
         }
 
         public function show(){
@@ -63,7 +70,7 @@
             for($i = 0; $i < 8; $i++){
               $products[] = $product;
             }
-      
+
             return $products;
         }
 
@@ -71,13 +78,13 @@
             $partner = new \stdClass;
 
             $partner->image = '/front/images/logo/partners/AMD.jpg';
-      
+
             $partners = [];
-      
+
             for($i = 0; $i < 8; $i++){
               $partners[] = $partner;
             }
-      
+
             return $partners;
         }
 
@@ -86,11 +93,11 @@
 
 
             $product_slide->image = "/front/images/products/product_1.jpg";
-            
+
             $products_slide = [];
 
             for($i = 0; $i < 3; $i++){
-                $products_slide[] = $product_slide;    
+                $products_slide[] = $product_slide;
             }
 
             return $products_slide;
@@ -117,7 +124,7 @@
         }
 
         public function getProductsAdvise(){
-            
+
             $product_advise = new \stdClass;
 
             $product_advise->category = 'Ortopedia';
@@ -136,4 +143,3 @@
         }
 
   }
-?>
