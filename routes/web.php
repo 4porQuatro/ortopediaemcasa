@@ -11,18 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
 
 Route::prefix('products')->group(function(){
-    Route::get('/', 'ProductsController@index');
     Route::get('/detail', 'ProductsController@show');
 });
-
-Route::get('/about', 'AboutController@index');
-Route::get('/faqs', 'FaqsController@index');
-Route::get('/contacts', 'ContactsController@index');
-Route::get('/politics', 'PoliticsController@index');
-Route::get('/conditions', 'ConditionsController@index');
 Route::get('/search', 'SearchController@index');
 
 
@@ -82,9 +74,8 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
 
     Route::get(trans('routes.faqs'), 'FaqsController@index');
 
-    Route::get(trans('routes.shipping-and-returns'), 'ShippingInfoController@index');
+    Route::get(trans('routes.sale-conditions'), 'ConditionsController@index');
     Route::get(trans('routes.privacy-policy'), 'PoliciesInfoController@index');
-    Route::get(trans('routes.terms-and-conditions'), 'TermsInfoController@index');
 
 
 
@@ -106,12 +97,6 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
     Route::get(trans('routes.user-favourites'), 'PrivateArea\UserFavouritesController@index');
     Route::get(trans('routes.user-profile'), 'PrivateArea\UserController@edit');
     Route::get(trans('routes.user-password'), 'PrivateArea\UserPasswordController@edit');
-
-
-    /*
-     * Products xml (Google Shopping)
-     */
-    Route::get('products.xml', 'GoogleShoppingController@xml');
 
 
     /*
@@ -198,6 +183,7 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
 
     /* newsletter */
     Route::post('subscribe-newsletter', 'Newsletter\SubscriptionController@store');
+    Route::post('contact-request', '\App\Packages\ContactForm\ContactFormController@request');
 
     /* private area */
     Route::prefix('user')->group(function () {

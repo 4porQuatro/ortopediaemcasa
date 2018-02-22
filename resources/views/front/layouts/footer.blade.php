@@ -13,7 +13,7 @@
                     <a class="footer__top-link" href="/account">@lang('app.my-account')</a>
                 </li>
                 <li class="footer__top-item">
-                    <a class="footer__top-link" href="/conditions">@lang('app.selling-conditions')</a>
+                    <a class="footer__top-link" href="{{ urli18n('sale-conditions') }}">@lang('app.sale-conditions')</a>
                 </li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
                     <a class="footer__menu-link" href="{{ urli18n('faqs') }}">@lang('app.faqs')</a>
                 </li>
                 <li class="footer__menu-item">
-                    <a class="footer__menu-link" href="/politics">Política Privacidade</a>
+                    <a class="footer__menu-link" href="{{ urli18n('privacy-policy') }}">@lang('app.privacy-policy')</a>
                 </li>
             </ul>
             <!-- End: Footer Menu List -->

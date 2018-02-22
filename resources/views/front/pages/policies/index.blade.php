@@ -4,6 +4,10 @@
     @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
 @endsection
 
+@section('meta')
+    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+@endsection
+
 @section('content')
     @include(
         'front.components.breadcrumbs',

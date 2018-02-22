@@ -20,7 +20,6 @@ class SubscriptionRequest extends AppFormRequest
      */
     public function rules()
     {
-        /* register rules */
         return [
             'email' => 'required|email|unique:newsletter_subscribers'
         ];

@@ -14,7 +14,7 @@ class SubscriptionController extends Controller
 {
     public function store(SubscriptionRequest $request)
     {
-//        Subscriber::create($request->all());
+        // Subscriber::create($request->all());
 
         // send notification
         if(env('APP_ENV') != 'local')

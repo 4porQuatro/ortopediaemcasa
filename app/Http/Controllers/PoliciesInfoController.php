@@ -6,18 +6,17 @@ use App\Models\Pages\Page;
 use Illuminate\Http\Request;
 
 
-class ConditionsController extends Controller
+class PoliciesInfoController extends Controller
 {
     public function index()
     {
-        $page = Page::find(7);
+        $page = Page::find(6);
 
         return view(
-            'front.pages.conditions.index',
+            'front.pages.policies.index',
             compact(
                 'page'
             )
         );
     }
-
 }

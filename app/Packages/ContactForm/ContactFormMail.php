@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail\Newsletter;
+namespace App\Packages\ContactForm;
 
 use App\Models\EmailMessage;
 use Illuminate\Bus\Queueable;
@@ -8,9 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use App\Http\Requests\Newsletter\SubscriptionRequest;
-
-class SubscriptionMail extends Mailable
+class ContactFormMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -18,23 +16,25 @@ class SubscriptionMail extends Mailable
     public $email_message;
 
     /**
-     * SubscriptionMail constructor.
-     *
-     * @param SubscriptionRequest $request
+     * ContactMail constructor.
+     * @param ContactFormRequest $request
      */
-    public function __construct(SubscriptionRequest $request)
+    public function __construct(ContactFormRequest $request)
     {
+        $this->values['name'] = $request->name;
+        $this->values['phone'] = $request->phone;
         $this->values['email'] = $request->email;
+        $this->values['subject'] = $request->subject;
+        $this->values['message'] = $request->message;
     }
 
     /**
-     * Build the message.
-     *
+     * Build the message
      * @return $this
      */
     public function build()
     {
-        $this->email_message = EmailMessage::where('ref', 'newsletter.admin')->first();
+        $this->email_message = EmailMessage::where('ref', 'contact.admin')->first();
 
         foreach($this->email_message->receivers as $receiver)
         {
