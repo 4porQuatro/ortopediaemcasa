@@ -9,19 +9,23 @@
         <!-- End: Navbar Logo -->
 
         <!-- Begin: Search Tool -->
-        <form class="navbar__search">
+        <form action="{{ url('search') }}" method="GET" class="navbar__search">
             <input class="search-input" placeholder="inserir termo...">
             <button class="search-button">@lang('app.search')</button>
         </form>
         <!-- End: Search Tool -->
 
+        <!-- Begin: Navbar Store -->
+        <div class="navbar__store">
+            @if(auth()->check())
+                <a class="navbar__account" href="{{ urli18n('user-welcome') }}"><i class="zmdi zmdi-account"></i> @lang('app.my-account')</a>
+            @else
+                <a class="navbar__account" href="{{ urli18n('login') }}"><i class="zmdi zmdi-account"></i> @lang('app.login')</a>
+            @endif
 
-            <!-- Begin: Navbar Store -->
-            <div class="navbar__store">
-                <a class="navbar__account" href="/"><i class="zmdi zmdi-account"></i>@lang('app.my-account')</a>
-                <a class="navbar__shopping-bag" href="/"><i class="zmdi zmdi-shopping-cart"></i>[ 0 ]</a>
-            </div>
-            <!-- End: Navbar Store -->
+            <a class="navbar__shopping-bag" href="{{ urli18n('checkout') }}"><i class="zmdi zmdi-shopping-cart"></i>[ {{ Cart::instance('items')->count() }} ]</a>
+        </div>
+        <!-- End: Navbar Store -->
 
         <div class="collapse navbar-collapse" id="myNavbar">
             <!-- Begin: Navbar Menu -->

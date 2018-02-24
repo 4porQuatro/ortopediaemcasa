@@ -95,7 +95,7 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
     Route::get(trans('routes.user-welcome'), 'PrivateArea\UserWelcomeController@index');
     Route::get(trans('routes.user-orders'), 'PrivateArea\UserOrdersController@index');
     Route::get(trans('routes.user-favourites'), 'PrivateArea\UserFavouritesController@index');
-    Route::get(trans('routes.user-profile'), 'PrivateArea\UserController@edit');
+    Route::get(trans('routes.user-profile'), 'PrivateArea\UserProfileController@edit');
     Route::get(trans('routes.user-password'), 'PrivateArea\UserPasswordController@edit');
 
 

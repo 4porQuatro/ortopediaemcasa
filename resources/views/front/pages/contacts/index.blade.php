@@ -5,37 +5,48 @@
 @endsection
 
 @section('content')
-@include('front.components.breadcrumbs', [
+    @include(
+        'front.components.breadcrumbs',
+        [
+            'crumbs' => [
+                $page->title => ''
+            ]
+        ]
+    )
 
-])
-<div class="container">
-    <div class="section first">
-        @if($article = $page->articles->shift())
-            <h1 class="subsection__title text-center">{{ $article->title }}</h1>
-            <h2 class="subsection__subtitle text-center">{{ $article->subtitle }}</h2>
-        @endif
+    <div class="container">
+        <div class="section first">
+            @if($article = $page->articles->shift())
+                @include(
+                    'front.components.page-header',
+                    [
+                        'text_center' => true,
+                        'title' => $article->title,
+                        'subtitle' => $article->subtitle
+                    ]
+                )
+            @endif
 
-        @include('front.forms.contact-form', [])
+            {!! Form::open(['action' => "\App\Packages\ContactForm\ContactFormController@request", 'class' => "form-container"]) !!}
+                @include('front.forms.contact-form')
+            {!! Form::close() !!}
 
-        <div class="contact-icons">
-            <div class="row">
-                @foreach($contacts_info as $contact_info)
-                    @include('front.components.contact-icon', [
-                        'icon' => '',
-                        'title' => $contact_info->title,
-                        'text' => $contact_info->text
-                    ])
-                @endforeach
+            <div class="contact-icons">
+                <div class="row">
+                    @foreach($contacts_info as $contact_info)
+                        @include('front.components.contact-icon', [
+                            'icon' => '',
+                            'title' => $contact_info->title,
+                            'text' => $contact_info->text
+                        ])
+                    @endforeach
+                </div>
             </div>
         </div>
+        <div class="section">
+            <!-- Begin: Newsletter Form -->
+            @include('front.components.newsletter')
+            <!-- End: Newsletter Form -->
+        </div>
     </div>
-    <div class="section">
-        <!-- Begin: Newsletter Form -->
-        @include('front.components.newsletter', [
-
-        ])
-        <!-- End: Newsletter Form -->
-    </div>
-</div>
-
 @endsection

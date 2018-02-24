@@ -5,9 +5,15 @@
 @endsection
 
 @section('content')
-    @include('front.components.breadcrumbs', [
+    @include(
+        'front.components.breadcrumbs',
+        [
+            'crumbs' => [
+                $page->title => ''
+            ]
+        ]
+    )
 
-    ])
     <div class="container">
         <div class="section first">
             @if($article = $page->articles->shift())

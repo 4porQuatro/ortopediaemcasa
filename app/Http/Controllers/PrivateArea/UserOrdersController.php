@@ -25,14 +25,14 @@ class UserOrdersController extends Controller
      */
     public function index()
     {
-        $page = Page::find(10);
+        $page = Page::find(12);
 
         $user = User::with('orders.paymentReference')->where('id', auth()->user()->id)->first();
 
         $payment_methods = PaymentMethod::all();
 
         return view(
-            'pages.user-orders.index',
+            'front.pages.private-area.orders',
             compact(
                 'page',
                 'user',

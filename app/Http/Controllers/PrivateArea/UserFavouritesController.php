@@ -24,12 +24,12 @@ class UserFavouritesController extends Controller
      */
     public function index()
     {
-        $page = Page::find(11);
+        $page = Page::find(13);
 
         $user = \Auth::user();
 
         return view(
-            'pages.user-favourites.index',
+            'front.pages.private-area.favorites',
             compact(
                 'page',
                 'user'

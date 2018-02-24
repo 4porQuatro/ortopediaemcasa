@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\NavbarComposer;
 use App\Http\ViewComposers\FooterComposer;
 use App\Http\ViewComposers\SocialNetworksComposer;
+use App\Http\ViewComposers\UserMenuComposer;
 
 use Carbon\Carbon;
 
@@ -33,6 +34,11 @@ class ComposerServiceProvider extends ServiceProvider
         // Using class based composers...
         View::composer(
             'partials.social-networks', SocialNetworksComposer::class
+        );
+
+        // Using class based composers...
+        View::composer(
+            'front.pages.private-area.partials.user-menu', UserMenuComposer::class
         );
     }
 

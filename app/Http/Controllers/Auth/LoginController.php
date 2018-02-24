@@ -60,12 +60,12 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        $page = Page::where('id', 14)->with('articles')->first();
+        $page = Page::where('id', 8)->with('articles')->first();
 
         $countries = Country::pluck('name', 'id');
 
         return view(
-            'auth.login',
+            'front.auth.login',
             compact(
                 'page',
                 'countries'

@@ -24,10 +24,10 @@ class UserWelcomeController extends Controller
      */
     public function index()
     {
-        $page = Page::find(9);
+        $page = Page::find(11);
 
         return view(
-            'pages.user.index',
+            'front.pages.private-area.index',
             compact(
                 'page'
             )

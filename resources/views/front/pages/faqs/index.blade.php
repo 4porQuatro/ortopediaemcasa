@@ -5,14 +5,25 @@
 @endsection
 
 @section('content')
-    @include('front.components.breadcrumbs', [
-
-    ])
+    @include(
+        'front.components.breadcrumbs',
+        [
+            'crumbs' => [
+                $page->title => ''
+            ]
+        ]
+    )
+    
     <div class="container">
         <div class="section first">
             @if($article = $page->articles->shift())
-                <h1 class="subsection__title">{{ $article->title }}</h1>
-                <h2 class="subsection__subtitle">{{ $article->subtitle }}</h2>
+                @include(
+                    'front.components.page-header',
+                    [
+                        'title' => $article->title,
+                        'subtitle' => $article->subtitle
+                    ]
+                )
             @endif
 
             <div class="faqs__wrapper">

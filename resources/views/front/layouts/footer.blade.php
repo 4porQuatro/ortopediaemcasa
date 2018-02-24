@@ -7,10 +7,11 @@
             <h2 class="footer__top-header">{{ config('app.name') }}</h2>
             <ul class="footer__top-list">
                 <li class="footer__top-item">
-                    <a class="footer__top-link" href="/signin">@lang('app.create-account')</a>
-                </li>
-                <li class="footer__top-item">
-                    <a class="footer__top-link" href="/account">@lang('app.my-account')</a>
+                    @if(auth()->check())
+                        <a class="footer__top" href="{{ urli18n('user-welcome') }}">@lang('app.my-account')</a>
+                    @else
+                        <a class="footer__top" href="{{ urli18n('login') }}">@lang('app.login')</a>
+                    @endif
                 </li>
                 <li class="footer__top-item">
                     <a class="footer__top-link" href="{{ urli18n('sale-conditions') }}">@lang('app.sale-conditions')</a>

@@ -2,35 +2,59 @@
 
 namespace App\Http\Controllers\PrivateArea;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\Page;
+use App\Http\Requests\PrivateArea\UserRequest;
+use App\Models\Pages\Page;
+use App\Models\Geo\Country;
+use App\Models\User;
 
 class UserProfileController extends Controller
 {
-    public function __construct(){
+    /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
         $this->middleware('auth');
     }
-    
-    public function index()
-    {
-        $page = Page::find(17);
 
-        $seo = new \stdClass();
-        $seo->title = $page->title;
-        $seo->description = $page->description;
-        $seo->keywords = $page->keywords;
+    /**
+     * Shows the edit page.
+     *
+     * @return View
+     */
+    public function edit()
+    {
+        $page = Page::find(14);
 
         $user = \Auth::user();
 
+        $countries = Country::pluck('name', 'id');
+
         return view(
-            'pages.private.profile',
+            'front.pages.private-area.edit-profile',
             compact(
                 'page',
-                'seo',
-                'user'
+                'user',
+                'countries'
             )
         );
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  UserRequest  $request
+     * @param  User $user
+     *
+     * @return View
+     */
+    public function update(UserRequest $request, User $user)
+    {
+        $user->update($request->all());
+
+        $request->session()->flash('status', trans('app.data-saved-success'));
+
+        return back();
     }
 }

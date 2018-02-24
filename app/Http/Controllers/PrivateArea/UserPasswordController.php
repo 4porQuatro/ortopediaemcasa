@@ -27,12 +27,12 @@ class UserPasswordController extends Controller
      */
     public function edit()
     {
-        $page = Page::find(13);
+        $page = Page::find(15);
 
         $user = \Auth::user();
 
         return view(
-            'pages.user-pass.index',
+            'front.pages.private-area.change-password',
             compact(
                 'page',
                 'user'

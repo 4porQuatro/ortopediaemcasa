@@ -34,7 +34,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $page = Page::find(17);
+        $page = Page::find(16);
 
         $user = auth()->user();
 
@@ -51,7 +51,7 @@ class CheckoutController extends Controller
         $cart_items = Cart::instance('items')->content();
 
         return view(
-            'pages.cart.index',
+            'front.pages.cart.index',
             compact(
                 'page',
                 'user',
@@ -74,7 +74,7 @@ class CheckoutController extends Controller
             $cart_items = Cart::instance('items')->content();
 
             return view(
-                'partials.cart-table',
+                'front.pages.cart.partials.items',
                 compact(
                     'cart_items'
                 )
@@ -101,7 +101,7 @@ class CheckoutController extends Controller
             $items_weight = Cart::weight();
 
             return view(
-                'partials.checkout-shipping-methods',
+                'front.pages.cart.partials.shipping-methods',
                 compact(
                     'user',
                     'shipping_methods',
@@ -139,7 +139,7 @@ class CheckoutController extends Controller
             $cart_total = Price::output($cart_total);
 
             return view(
-                'partials.cart-summary',
+                'front.pages.cart.partials.summary',
                 compact(
                     'voucher_cart',
                     'items_total',
@@ -162,7 +162,7 @@ class CheckoutController extends Controller
      */
     public function conclude($order_id)
     {
-        $page = Page::find(18);
+        $page = Page::find(17);
 
         $payment_methods = PaymentMethod::all();
 
@@ -180,7 +180,7 @@ class CheckoutController extends Controller
         Cart::globalDestroy();
 
         return view(
-            'pages.cart.conclude',
+            'front.pages.cart.conclude',
             compact(
                 'page',
                 'payment_methods',
