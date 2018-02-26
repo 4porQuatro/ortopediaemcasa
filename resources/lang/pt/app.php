@@ -36,6 +36,7 @@ return [
     'private-area' => "Área reservada",
     'products' => "Produtos",
     'recover-password' => "Recuperar password",
+    'request-success' => "O seu pedido foi enviado com sucesso",
     'sale-conditions' => "Condições de Venda",
     'save' => 'Guardar',
     'search' => "Pesquisar",

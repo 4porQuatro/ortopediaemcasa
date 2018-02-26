@@ -18,14 +18,14 @@ class ContactFormController extends Controller
             Mail::send(new ContactFormMail($request));
         }
 
-        $success_msg = trans('app.subscription-success');
+        $success_msg = trans('app.request-success');
 
         if($request->ajax())
         {
             return response()->json(['success_msg' => $success_msg]);
         }
 
-        $request->session()->flash('newsletter_msg', $success_msg);
+        $request->session()->flash('success_msg', $success_msg);
 
         return back();
     }

@@ -29,7 +29,7 @@ class SubscriptionController extends Controller
             return response()->json(['success_msg' => $success_msg]);
         }
 
-        $request->session()->flash('newsletter_msg', $success_msg);
+        $request->session()->flash('success_msg', $success_msg);
 
         return back();
     }
