@@ -44,20 +44,44 @@
 
             <!-- Begin: Footer Partners -->
             <div class="footer__partners">
-                <div class="footer__partners-upper">
-                    <h4 class="footer__partners-title">Método de Pagamento:</h4>
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
-                </div>
+                @if(!empty($payment_methods))
+                    <div class="footer__partners-upper">
+                        <h4 class="footer__partners-title">@lang('app.payment-methods'):</h4>
+
+                        @foreach($payment_methods as $payment_method)
+                            @php
+                                $images = $payment_method->getImages();
+                                $image = (!empty($images)) ? $images[0] : null;
+                            @endphp
+
+                            @if(!empty($image))
+                                <img class="footer__partners-image" src="{{ $payment_method->getImagesUrl() . '/' . $image->source }}" alt="{{ $image->title }}">
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+
                 <div class="footer__partners-lower">
-                    <h4 class="footer__partners-title">Ambiente Seguro:</h4>
-                    <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
-                </div>
-                <div class="footer__partners-lower">
-                    <h4 class="footer__partners-title">Formas de Entrega:</h4>
+                    <h4 class="footer__partners-title">@lang('app.safe-environment'):</h4>
                     <img class="footer__partners-image" src="/front/images/logo/partners/AMD.jpg" alt="partner">
                 </div>
 
+                @if(!empty($shipping_methods))
+                    <div class="footer__partners-lower">
+                        <h4 class="footer__partners-title">@lang('app.shipping-methods'):</h4>
+
+                        @foreach($shipping_methods as $shipping_method)
+                            @php
+                                $images = $shipping_method->getImages();
+                                $image = (!empty($images)) ? $images[0] : null;
+                            @endphp
+
+                            @if(!empty($image))
+                                <img class="footer__partners-image" src="{{ $shipping_method->getImagesUrl() . '/' . $image->source }}" alt="{{ $image->title }}">
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
             </div>
             <!-- End: Footer Partners -->
 

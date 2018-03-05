@@ -37,22 +37,7 @@
 
         @include('front.partials.features-section')
 
-        <div class="section">
-            <div class="section__container">
-                <h2 class="section__title">Oferecemos uma vasta gama de marcas...</h2>
-            </div>
-            <div class="partners">
-                <div class="partners__slideshow">
-                    @foreach($partners as $key => $partner)
-                    <!-- Begin: Partners Banner -->
-                        @include('front.components.partner-image', [
-                            'image' => $partner->image
-                        ])
-                    <!-- End: Partners Banner -->
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        @include('front.partials.brands-section')
 
         <div class="section">
             <!-- Begin: Newsletter Form -->

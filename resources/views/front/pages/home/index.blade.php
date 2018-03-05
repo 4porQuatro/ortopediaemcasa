@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-
     <div class="container">
-
         <!-- Begin: Banner -->
         @include('front.components.categories-banner', [
             'categories' => $banner_categories
@@ -35,30 +33,13 @@
             <!-- End: Products List -->
         </div>
 
-        <div class="section">
-            <div class="section__container">
-                <h1 class="section__title">Oferecemos uma vasta gama de marcas...</h1>
-            </div>
-            <div class="partners">
-                <div class="partners__slideshow">
-                    @foreach($partners as $key => $partner)
-                    <!-- Begin: Partners Banner -->
-                        @include('front.components.partner-image', [
-                            'image' => $partner->image
-                        ])
-                    <!-- End: Partners Banner -->
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        @include('front.partials.brands-section')
 
         @include('front.partials.features-section')
 
         <div class="section">
             <!-- Begin: Newsletter Form -->
-            @include('front.components.newsletter', [
-
-            ])
+            @include('front.components.newsletter')
             <!-- End: Newsletter Form -->
         </div>
     </div>

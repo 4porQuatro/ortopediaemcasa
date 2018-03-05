@@ -28,13 +28,14 @@
             $mysqli->query("UPDATE " . $table . " SET priority = priority + 1");
 
 			// insert record
-			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, name, description, final_message, active) VALUES(" . $language_id . ", ?, ?, ?, ?);") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, name, description, final_message, active, images) VALUES(" . $language_id . ", ?, ?, ?, ?, ?);") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
-				"sssi",
+				"sssis",
 				$posts['name'],
 				$posts['description'],
 				$posts['final_message'],
-				$posts['active']
+				$posts['active'],
+                $posts['images']
 			);
 			$stmt_insert->execute() or die('<h3>Executing statement...</h3>' . $stmt_insert->error);
 			$stmt_insert->store_result();
@@ -73,6 +74,7 @@
 
 	        <ul id="form_menu">
 	            <li>Geral</li>
+	            <li>Imagens</li>
 	        </ul>
 
 	        <form class="form_model" name="insert_record_form" method="post" action="<?= $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" autocomplete="off">
@@ -109,18 +111,28 @@
 	                </table>
 	            </div>
 
+                <div class="form_pane">
+                    <h3>Imagens</h3>
+
+                    <input type="hidden" name="images" value="<?= $entity->output("images") ?>">
+                </div>
+
 	            <input type="submit" value="Gravar">
 	            <input type="hidden" name="op" value="insert">
 	        </form>
 		</div>
 
 		<?php $template->importScripts(); ?>
+        <script type="text/javascript" src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
+        <script type="text/javascript" src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                CKEDITOR.replaceAll(function( textarea, config ){});
 
-	    <script type="text/javascript" src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
-	    <script type="text/javascript">
-	    $(document).ready(function(){
-	        CKEDITOR.replaceAll(function( textarea, config ){});
-	    });
-	    </script>
+                $('[name*="images"], [name="images"]').imagesUploader({
+                    subfolder: '<?= $table ?>',
+                });
+            });
+        </script>
 	</body>
 </html>

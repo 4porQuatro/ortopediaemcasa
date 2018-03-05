@@ -2,6 +2,8 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Models\Store\PaymentMethod;
+use App\Models\Store\ShippingMethod;
 use Illuminate\View\View;
 
 use App\Models\App\Contact;
@@ -19,9 +21,14 @@ class FooterComposer
     {
         $contact = Contact::first();
 
+        $payment_methods = PaymentMethod::whereNotNull('images')->where('images', '!=', '[]')->get();
+        $shipping_methods = ShippingMethod::whereNotNull('images')->where('images', '!=', '[]')->get();
+
         $view->with(
             compact(
-                'contact'
+                'contact',
+                'payment_methods',
+                'shipping_methods'
             )
         );
     }

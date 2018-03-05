@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\ViewComposers\BrandsComposer;
 use App\Http\ViewComposers\FeaturesComposer;
 use App\Http\ViewComposers\NewsletterComposer;
 use Illuminate\Support\Facades\View;
@@ -38,6 +39,11 @@ class ComposerServiceProvider extends ServiceProvider
         // Using class based composers...
         View::composer(
             'front.partials.features-section', FeaturesComposer::class
+        );
+
+        // Using class based composers...
+        View::composer(
+            'front.partials.brands-section', BrandsComposer::class
         );
 
         // Using class based composers...

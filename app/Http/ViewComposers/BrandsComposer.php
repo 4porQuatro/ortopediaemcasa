@@ -3,10 +3,9 @@
 namespace App\Http\ViewComposers;
 
 use App\Models\Pages\Article;
-use App\Models\Topic;
 use Illuminate\View\View;
 
-class FeaturesComposer
+class BrandsComposer
 {
     /**
      * Bind data to the view.
@@ -17,14 +16,11 @@ class FeaturesComposer
      */
     public function compose(View $view)
     {
-        $article = Article::find(18);
-
-        $features = Topic::where('topics_category_id', 1)->get();
+        $article = Article::find(19);
 
         $view->with(
             compact(
-                'article',
-                'features'
+                'article'
             )
         );
     }
