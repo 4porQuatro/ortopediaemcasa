@@ -43,7 +43,7 @@
                     <!-- End: Page article -->
 
                     <!-- Begin: Edit profile form -->
-                    {!! Form::model($user, ['method' => 'PATCH', 'action' => ['PrivateArea\UserController@update', $user->id], 'autocomplete' => 'off']) !!}
+                    {!! Form::model($user, ['method' => 'PATCH', 'action' => ['PrivateArea\UserProfileController@update', $user->id], 'autocomplete' => 'off']) !!}
                         @include('front.forms.edit-profile', ['btn_name' => trans('app.save')])
                     {!! Form::close() !!}
                 </div>

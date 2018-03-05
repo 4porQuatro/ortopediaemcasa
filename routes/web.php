@@ -187,7 +187,7 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
 
     /* private area */
     Route::prefix('user')->group(function () {
-        Route::patch('update/{user}', 'PrivateArea\UserController@update');
+        Route::patch('update/{user}', 'PrivateArea\UserProfileController@update');
         Route::post('change-password/{user}', 'PrivateArea\UserPasswordController@update');
     });
 });

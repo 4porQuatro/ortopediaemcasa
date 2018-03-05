@@ -67,6 +67,7 @@
 	        $('.records_pane').recordsList({
 	            table: 'app_contacts',
 	            primary_key: 'id',
+                language_id: <?= $_SESSION['sgc_language_id']; ?>,
 				columns: ['name'],
 	            filters_arr: ['active'],
 	            sort_field: 'priority',

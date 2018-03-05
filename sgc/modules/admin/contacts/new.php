@@ -27,7 +27,7 @@
 			$mysqli->query("UPDATE " . $table . " SET priority = priority + 1") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
 
 			// insert record
-			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (name, address_1st_line, address_2nd_line, zip_code, city, country, latitude, longitude, directions, phone, cell_phone, fax, email, working_hours, active, created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, name, address_1st_line, address_2nd_line, zip_code, city, country, latitude, longitude, directions, phone, cell_phone, fax, email, working_hours, active, created_at) VALUES(" . $language_id . ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
 				"ssssssssssssssi",
 				$posts['name'],

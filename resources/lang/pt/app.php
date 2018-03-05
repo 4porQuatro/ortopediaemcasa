@@ -11,6 +11,7 @@ return [
     'country' => "País",
     'contacts' => "Contactos",
     'create-account' => "Criar Conta",
+    'data-saved-success' => "Os seus dados foram gravados com sucesso.",
     'developed-by' => "Desenvolvido por",
     'edit-profile' => "Editar perfil",
     'email' => "E-mail",

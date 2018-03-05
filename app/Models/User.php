@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Mail\Auth\PasswordResetMail;
 use App\Notifications\PasswordReset;
 use App\Packages\Store\StoreUserTrait;
 use Illuminate\Notifications\Notifiable;

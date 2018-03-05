@@ -229,9 +229,9 @@ if ($total_langs) {
                         while ($lines_modules = $result_modules->fetch_object()) {
                     ?>
                     <tr>
-                        <td style="text-align:center"><input type="checkbox" name="module_id[]"
+                        <td style="text-align:center"><input type="checkbox" name="module_id[]" id="module_id_<?= $lines_modules->id ?>"
                                                              value="<?= $lines_modules->id ?>"></td>
-                        <td><?= $lines_modules->title; ?></td>
+                        <td><label for="module_id_<?= $lines_modules->id ?>"><?= $lines_modules->title; ?></label></td>
                     </tr>
                     <?php
                         }

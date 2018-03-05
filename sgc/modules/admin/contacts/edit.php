@@ -10,7 +10,7 @@
 	$pk = "id";
 
 	$entity = entity($mysqli, $table);
-	$entity->mapDBValues($pk, $_GET['edit_hash']);
+    $entity->mapDBValues($pk, $_GET['edit_hash'], $language_id);
 
 	if(!$entity->getDBValue($pk)){
 		header("location: index.php");
@@ -35,7 +35,7 @@
 			$mysqli->autocommit(false);
 
 			// update record
-			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET name = ?, address_1st_line = ?, address_2nd_line = ?, zip_code = ?, city = ?, country = ?, latitude = ?, longitude = ?, directions = ?, phone = ?, cell_phone = ?, fax = ?, email = ?, working_hours = ?, active = ? WHERE " . $pk . " = " . $entity->getDBValue($pk)) or die('<h3>Preparing to update record...</h3>' . $mysqli->error);
+			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET name = ?, address_1st_line = ?, address_2nd_line = ?, zip_code = ?, city = ?, country = ?, latitude = ?, longitude = ?, directions = ?, phone = ?, cell_phone = ?, fax = ?, email = ?, working_hours = ?, active = ? WHERE " . $pk . " = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Preparing to update record...</h3>' . $mysqli->error);
 			$stmt_update->bind_param(
 				"ssssssssssssssi",
 				$posts['name'],
