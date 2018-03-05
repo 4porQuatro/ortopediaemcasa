@@ -1,10 +1,12 @@
 <div class="newsletter">
     <div class="newsletter__title-container">
-        <h2 class="newsletter__title">Junte-se a Nós...</h2>
-        <h2 class="newsletter__subtitle">e ganhe 10% de desconto</h2>
+        @if(!empty($article))
+            <h2 class="newsletter__title">{{ $article->title }}</h2>
+            <h2 class="newsletter__subtitle">{{ $article->subtitle }}</h2>
+        @endif
     </div>
 
-    {!! Form::open(['action' => 'Newsletter\SubscriptionController@store', 'class' => 'newsletter__form', 'autocomplete' => 'off']) !!}
+    {!! Form::open(['action' => 'Newsletter\SubscriptionController@store', 'class' => 'newsletter__form', 'autocomplete' => 'off', 'data-async' => "true"]) !!}
         @if (count($errors->newsletter) > 0)
             <div class="alert alert-danger">
                 <ul>
@@ -23,8 +25,10 @@
 
         <div class="result-displayer"></div>
 
-        <h4 class="newsletter__form-title">Seja o primeiro a receber as melhores ofertas</h4>
-        <input name="email" class="newsletter__input" placeholder="Inserir Email">
-        <button class="newsletter__button" type="submit">submeter</button>
+        @if(!empty($article))
+            <p class="newsletter__form-title"><b>{{ strip_tags($article->content) }}</b></p>
+        @endif
+        <input name="email" class="newsletter__input" placeholder="@lang('type-your-email')">
+        <button class="newsletter__button" type="submit">@lang('app.submit')</button>
     {!! Form::close() !!}
 </div>

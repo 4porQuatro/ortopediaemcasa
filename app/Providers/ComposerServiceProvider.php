@@ -2,15 +2,14 @@
 
 namespace App\Providers;
 
+use App\Http\ViewComposers\FeaturesComposer;
+use App\Http\ViewComposers\NewsletterComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 use App\Http\ViewComposers\NavbarComposer;
 use App\Http\ViewComposers\FooterComposer;
-use App\Http\ViewComposers\SocialNetworksComposer;
 use App\Http\ViewComposers\UserMenuComposer;
-
-use Carbon\Carbon;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -23,17 +22,22 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         View::composer(
-            'layout.nav', NavbarComposer::class
+            'front.layouts.nav', NavbarComposer::class
         );
 
         // Using class based composers...
         View::composer(
-            'layout.footer', FooterComposer::class
+            'front.layouts.footer', FooterComposer::class
         );
 
         // Using class based composers...
         View::composer(
-            'partials.social-networks', SocialNetworksComposer::class
+            'front.components.newsletter', NewsletterComposer::class
+        );
+
+        // Using class based composers...
+        View::composer(
+            'front.partials.features-section', FeaturesComposer::class
         );
 
         // Using class based composers...

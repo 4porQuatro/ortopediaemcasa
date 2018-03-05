@@ -16,8 +16,8 @@
 
         <div class="section">
             <div class="section__container">
-                <h2 class="section__title--left">Em destaque</h2>
-                <a class="section__link--right" href="/products">ver todos os produtos <i class="zmdi zmdi-arrow-right-top"></i></a>
+                <h2 class="section__title--left">@lang('app.highlights')</h2>
+                <a class="section__link--right" href="{{ urli18n('products') }}">@lang('app.see-all-products') <i class="zmdi zmdi-arrow-right-top"></i></a>
             </div>
             <!-- Begin: Products List -->
             <div class="product__list">
@@ -52,24 +52,7 @@
             </div>
         </div>
 
-        <div class="section">
-            <div class="features">
-                <h2 class="features__title">Porquê Ortopedia em Casa</h2>
-                <h2 class="features__subtitle">artigos médicos, ortopédicos, de saúde e bem estar</h2>
-                <div class="row">
-                    @foreach($features as $key => $feature)
-                        <!-- Begin: Features Icon -->
-                        <div class="col-xs-12 col-md-4">
-                            @include('front.components.feature-icon', [
-                                'icon' => $feature->icon,
-                                'name' => $feature->name
-                            ])
-                        </div>
-                        <!-- End: Features Icon -->
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        @include('front.partials.features-section')
 
         <div class="section">
             <!-- Begin: Newsletter Form -->

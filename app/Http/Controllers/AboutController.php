@@ -12,26 +12,15 @@
 
         $partners = $this->getPartners();
         $features = $this->getFeatures();
-        $section = $this->getPartnersSectionHead();
 
         return view(
             'front.pages.about.index',
             compact(
                 'page',
-                'section',
                 'partners',
                 'features'
             )
         );
-    }
-
-    public function getPartnersSectionHead(){
-      $section = new \stdClass;
-
-      $section->title = 'Porquê Ortopedia em Casa';
-      $section->subtitle = 'artigos médicos, ortopédicos, de saúde e bem estar';
-
-      return $section;
     }
 
     public function getPartners(){

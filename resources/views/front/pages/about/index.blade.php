@@ -35,24 +35,7 @@
             @endif
         </div>
 
-        <div class="section">
-            <div class="features">
-                <h2 class="features__title">{{$section->title}}</h2>
-                <h2 class="features__subtitle">{{$section->subtitle}}</h2>
-                <div class="row">
-                    @foreach($features as $key => $feature)
-                        <!-- Begin: Features Icon -->
-                        <div class="col-xs-12 col-md-4">
-                            @include('front.components.feature-icon', [
-                                'icon' => $feature->icon,
-                                'name' => $feature->name
-                            ])
-                        </div>
-                        <!-- End: Features Icon -->
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        @include('front.partials.features-section')
 
         <div class="section">
             <div class="section__container">
@@ -73,9 +56,7 @@
 
         <div class="section">
             <!-- Begin: Newsletter Form -->
-            @include('front.components.newsletter', [
-
-            ])
+            @include('front.components.newsletter')
             <!-- End: Newsletter Form -->
         </div>
     </div>
