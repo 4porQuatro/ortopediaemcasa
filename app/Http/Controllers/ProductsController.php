@@ -1,145 +1,95 @@
 <?php
-  namespace App\Http\Controllers;
 
-  use App\Models\Pages\Page;
-  use Illuminate\Http\Request;
+namespace App\Http\Controllers;
 
-  class ProductsController extends Controller{
+use App\Models\Items\Item;
+use App\Models\Items\ItemsCategory;
+use App\Models\Pages\Page;
+use Illuminate\Http\Request;
 
-        public function index()
+
+class ProductsController extends Controller
+{
+    public function index(Request $request)
+    {
+        $page = Page::find(2);
+
+        $categories = ItemsCategory::all();
+        $menu_html = ItemsCategory::render(
+            $categories,
+            'ul',
+            'li',
+            function($menu_item)
+            {
+                $item_attrs = (!$menu_item->children->count()) ? ' href="' . urli18n('products') . '?cat=' . $menu_item->id . '"' : '';
+
+                $active_class = (request()->get('cat') == $menu_item->id) ? ' class="active"' : '';
+
+                return '<li' . $active_class . '><a' . $item_attrs . '>' . $menu_item->title . '</a>';
+            }
+        );
+
+
+        $needle = $category_filter = '%';
+        if(request()->has('search'))
         {
-            $page = Page::find(2);
-
-            $menus = $this->getMenu();
-            $products = $this->getProducts();
-            $partners = $this->getPartners();
-
-            return view(
-                'front.pages.products.index',
-                compact(
-                    'page',
-                    'menus',
-                    'products',
-                    'partners'
-                )
-            );
+            $needle = filter_var($request->get('search'), FILTER_SANITIZE_STRING);
+        }
+        if(request()->has('cat'))
+        {
+            $category_filter = filter_var($request->get('cat'), FILTER_SANITIZE_STRING);
         }
 
-        public function show(){
+        $products = Item::with('itemsCategory')
+            ->where('items_category_id', 'LIKE', $category_filter)
+            ->where(function($query) use($needle){
+                $query->where('title', 'LIKE', '%' . $needle . '%')
+                    ->orWhereHas('itemsCategory', function($query) use($needle){
+                        $query->where('title', 'LIKE', '%' . $needle . '%');
+                    });
+            })
+            ->paginate(18);
 
-            $products_slide = $this->getProductsSlide();
-            $product_description = $this->getProductDescription();
-            $product_price = $this->getProductPrice();
-            $products_advise = $this->getProductsAdvise();
+        return view(
+            'front.pages.products.index',
+            compact(
+                'page',
+                'menu_html',
+                'products'
+            )
+        );
+    }
 
-            return view('front.pages.products.show', compact(
-                'products_slide',
-                'product_description',
-                'product_price',
-                'products_advise'
-            ));
+    public function show(Request $request)
+    {
+        $product = Item::where('slug', $request->slug)->with('itemsCategory')->with('itemsBrand')->with('relatedItems')->first();
+        if(!$product)
+        {
+            abort(404);
         }
 
-        public function getMenu(){
-            $menu = new \stdClass;
+        return view(
+            'front.pages.products.show',
+            compact(
+                'product'
+            )
+        );
+    }
 
-            $menu->first_level_item = 'Genero de Produto';
-            $menu->second_level_item = 'Tipo de Produto';
-            $menu->third_level_item = ['Produto1', 'Produto2', 'Produto3'];
+    public function getMenu()
+    {
+        $menu = new \stdClass;
 
-            $menus = [];
+        $menu->first_level_item = 'Genero de Produto';
+        $menu->second_level_item = 'Tipo de Produto';
+        $menu->third_level_item = ['Produto1', 'Produto2', 'Produto3'];
 
-            for($i = 0; $i < 3; $i++){
-                $menus[] = $menu;
-            }
+        $menus = [];
 
-            return $menus;
+        for ($i = 0; $i < 3; $i++) {
+            $menus[] = $menu;
         }
 
-        public function getProducts(){
-            $product = new \stdClass;
-
-            $product->category = 'Ortopedia';
-            $product->title = 'Suporte de Ombro Orthia - NOVO';
-            $product->image = '/front/images/products/product_1.jpg';
-            $product->price = '€66,17';
-            $product->before_price = '€77,85';
-
-            $products = [];
-
-            for($i = 0; $i < 8; $i++){
-              $products[] = $product;
-            }
-
-            return $products;
-        }
-
-        public function getPartners(){
-            $partner = new \stdClass;
-
-            $partner->image = '/front/images/logo/partners/AMD.jpg';
-
-            $partners = [];
-
-            for($i = 0; $i < 8; $i++){
-              $partners[] = $partner;
-            }
-
-            return $partners;
-        }
-
-        public function getProductsSlide(){
-            $product_slide = new \stdClass;
-
-
-            $product_slide->image = "/front/images/products/product_1.jpg";
-
-            $products_slide = [];
-
-            for($i = 0; $i < 3; $i++){
-                $products_slide[] = $product_slide;
-            }
-
-            return $products_slide;
-
-        }
-
-        public function getProductDescription(){
-            $product_description = new \stdClass;
-
-            $product_description->category = 'Calçado';
-            $product_description->title = 'Nome do Produto';
-            $product_description->description = '<p>A nova palmilha Plantigel é fabricada com componentes de grau medicinal e essência de eucalipto natural pelas suas propriedades estimulantes e de efeito refrescante, 100% transpirável.</p>';
-
-            return $product_description;
-        }
-
-        public function getProductPrice(){
-            $product_price = new \stdClass;
-
-            $product_price->before = '69,50€';
-            $product_price->new = '77,40€';
-
-            return $product_price;
-        }
-
-        public function getProductsAdvise(){
-
-            $product_advise = new \stdClass;
-
-            $product_advise->category = 'Ortopedia';
-            $product_advise->title = 'Suporte de Ombro Orthia - NOVO';
-            $product_advise->image = '/front/images/products/product_1.jpg';
-            $product_advise->price = '€66,17';
-            $product_advise->before_price = '€77,85';
-
-            $products_advise = [];
-
-            for($i = 0; $i < 6; $i++ ){
-                $products_advise[] = $product_advise;
-            }
-
-            return $products_advise;
-        }
-
-  }
+        return $menus;
+    }
+}

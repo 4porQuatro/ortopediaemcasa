@@ -115,9 +115,9 @@
 	  	</div>
 
 		<?php $template->importScripts(); ?>
-		<script type="text/javascript" src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
-	    <script type="text/javascript" src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-	    <script type="text/javascript">
+		<script src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
+	    <script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
+	    <script>
 	        CKEDITOR.replaceAll(function(textarea, config){});
 
 			$('[name="images"]').imagesUploader({

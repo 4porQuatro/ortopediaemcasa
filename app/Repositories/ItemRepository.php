@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Items\Item;
 use App\Models\Items\Type;
-use App\Models\Items\Category;
+use App\Models\Items\ItemsCategory;
 use App\Models\Items\Size;
 
 class ItemRepository
@@ -64,7 +64,7 @@ class ItemRepository
      */
     public function getHighlightedCategories()
     {
-        return Category::where('highlight', 1)
+        return ItemsCategory::where('highlight', 1)
             ->whereHas('type', function($query){
                 $query->where('active', 1);
             })
@@ -81,11 +81,11 @@ class ItemRepository
      * @param  string $slug
      * @param  Size $size
      *
-     * @return Category
+     * @return ItemsCategory
      */
     public function getCategory($slug, Size $size = null)
     {
-        $builder = Category::where('slug', $slug);
+        $builder = ItemsCategory::where('slug', $slug);
 
         if(!$size)
         {

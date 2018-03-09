@@ -1,4 +1,3 @@
-
 <div class="partners__placeholder">
-    <div class="partners__image" style="background: url('{{$image}}') center center no-repeat; background-size: contain;"></div>
+    <div class="partners__image" style="background: url('{{ $image }}') center center no-repeat; background-size: contain;"></div>
 </div>

@@ -18,7 +18,7 @@
 		<?php
         	if(isset($_GET['insert']) && $_GET['insert'] == "success"){
 		?>
-        <script type="text/javascript">
+        <script>
         $(document).ready(function(){
         	setTimeout(function(){$("p#insert_op").fadeOut(500);}, 3000);
         });
@@ -108,7 +108,7 @@
     </div>
 
     <?php $template->importScripts(); ?>
-	<script type="text/javascript" src="../../../assets/js/jquery.cookies.js"></script>
-	<script type="text/javascript" src="List/controller.js"></script>
+	<script src="../../../assets/js/jquery.cookies.js"></script>
+	<script src="List/controller.js"></script>
 </body>
 </html>

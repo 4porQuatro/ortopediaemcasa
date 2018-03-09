@@ -112,9 +112,9 @@
   	</div>
 
 	<?php $template->importScripts(); ?>
-    <script type="text/javascript" src="../../../assets/plugins/MiniColors/jquery.minicolors.min.js"></script>
-    <script type="text/javascript" src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-    <script type="text/javascript">
+    <script src="../../../assets/plugins/MiniColors/jquery.minicolors.min.js"></script>
+    <script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
+    <script>
         $('#color').minicolors();
 
         $('[name*="images"], [name="images"]').imagesUploader({

@@ -41,6 +41,6 @@
     </div>
 
     <div class="col-xs-6">
-        <button class="btn btn-default" value="send">@lang('app.reset-password')</button>
+        <button class="btn btn-default">@lang('app.reset-password')</button>
     </div>
 </div>

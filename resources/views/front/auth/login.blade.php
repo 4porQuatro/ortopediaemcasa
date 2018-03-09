@@ -5,7 +5,14 @@
 @endsection
 
 @section('content')
-    @include('front.components.breadcrumbs')
+    @include(
+        'front.components.breadcrumbs',
+        [
+            'crumbs' => [
+                $page->title => ''
+            ]
+        ]
+    )
 
     <!-- Begin: Login section -->
     <div class="container">

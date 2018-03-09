@@ -1,5 +1,9 @@
 <div class="product__purchase">
-    <button class="product__purchase--button">adicionar<i class="zmdi zmdi-shopping-cart"></i></button>
-    <h4 class="product__purchase--price">{{$price}}</h4>
-    <h4 class="product__purchase--before">{{$before_price}}</h4>
+    <button class="product__purchase--button">@lang('app.add')<i class="zmdi zmdi-shopping-cart"></i></button>
+
+    <h4 class="product__purchase--price">{{ ($promo_price > 0) ? $promo_price : $price }}€</h4>
+
+    @if($promo_price > 0)
+        <h4 class="product__purchase--before">{{ $price  }}€</h4>
+    @endif
 </div>

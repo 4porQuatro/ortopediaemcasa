@@ -130,7 +130,7 @@
   	</div>
 
 	<?php $template->importScripts(); ?>
-	<script type="text/javascript">
+	<script>
 	function setMapPins()
 	{
 		var $map = $('#map'),

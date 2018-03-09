@@ -13,33 +13,30 @@
 		$errors = "";
 
 		if(!$entity->checkRequiredFields()){
-			$errors .= "<br>Preencha todos os campos obrigatórios.";
+			$errors .= "<br>Preencha os campos de preenchimento obrigatório.";
 		}
 
 		if(empty($errors)){
 			$mysqli->autocommit(false);
 
 			// update priorities
-			$mysqli->query("UPDATE " . $table . " SET priority = priority + 1") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
-
-			// set url rewrite
-			$slug = createSlug($posts['title'], $table, $mysqli);
+			$parent_id_clause = (empty($posts['parent_id'])) ? "IS NULL" : "= " . $posts['parent_id'];
+			$mysqli->query("UPDATE $table SET priority = priority + 1 WHERE parent_id $parent_id_clause") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
 
 			// insert record
-			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, title, slug, type_id, description, keywords, highlight, active, images, created_at) VALUES(" . $language_id . ", ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (title, parent_id, subtitle, highlight, active, description, keywords, images) VALUES(?, ?, ?, ?, ?, ?, ?, ?)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
-				"ssissiis",
+				"sisiisss",
 				$posts['title'],
-				$slug,
-				$posts['type_id'],
-				$posts['description'],
-				$posts['keywords'],
-				$posts['highlight'],
+				$posts['parent_id'],
+				$posts['subtitle'],
+                $posts['highlight'],
 				$posts['active'],
-				$posts['images']
+                $posts['description'],
+                $posts['keywords'],
+                $posts['images']
 			);
-			$stmt_insert->execute() or die('<h3>Executing statement...</h3>' . $stmt_insert->error);
-			$stmt_insert->store_result();
+			$stmt_insert->execute() or die('<h3>Inserting record...</h3>' . $stmt_insert->error);
 
 			/*............................................................................*/
 
@@ -57,60 +54,82 @@
 <?php $template->importStyles(); ?>
 <?php $template->importHeadScripts(); ?>
 </head>
-
 <body>
 	<?php $template->printSideBar($mysqli); ?>
 
     <div id="data_container">
-    	<div class="record_options_pane">
-    		<a class="record_opt_btn" href="index.php">&larr; Cancelar</a>
+        <div class="record_options_pane">
+            <a class="record_opt_btn" href="index.php">&larr; Cancelar</a>
         </div>
 
-    	<h2>Inserir registo</h2>
+    	<h2>Novo registo</h2>
 
         <?php
 			if(isset($errors) && !empty($errors))
-				echo '<p class="error"><b>Foram encontrados os seguintes erros:</b>' . $errors . '</p>';
-		?>
+				echo '<p class="error"><b>Foram detetados os seguintes erros:</b>' . $errors . '</p>';
+        ?>
 
         <ul id="form_menu">
             <li>Geral</li>
             <li>SEO</li>
-			<li>Imagens</li>
+            <li>Imagens</li>
         </ul>
-
         <form class="form_model" name="insert_record_form" method="post" action="<?= $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" autocomplete="off">
             <div class="form_pane">
-				<table>
+                <table>
                     <tr>
                         <th>Título *</th>
-                        <th style="width:25%">Tipo *</th>
+                        <th style="width:200px;">Categoria pai</th>
                     </tr>
                     <tr>
                         <td><input type="text" name="title" maxlength="<?= $entity->maxlen("title") ?>" value="<?= $entity->output("title") ?>"></td>
                         <td>
-                        	<select name="type_id">
+                            <select name="parent_id">
                             	<option value="">Selecione...</option>
                             	<?php
-									$result = $mysqli->query("SELECT * FROM items_types WHERE language_id = " . $language_id . " ORDER BY priority ASC;") or die($mysqli->error);
-									while($rec = $result->fetch_object()){
-										$selected = ($rec->id == $entity->getScopeValue("type_id")) ? ' selected' : '';
+									$rs_menus = $mysqli->query("SELECT * FROM " . $table . " WHERE parent_id IS NULL ORDER BY priority ASC") or die($mysqli->error);
+									if($rs_menus->num_rows){
+										while($menu = $rs_menus->fetch_object()){
+											$selected = ($menu->id == $entity->getScopeValue("parent_id")) ? ' selected' : '';
 								?>
-								<option value="<?= $rec->id; ?>"<?= $selected; ?>><?= $rec->title; ?></option>
+								<option value="<?= $menu->id; ?>"<?= $selected; ?>><?= $menu->title; ?></option>
 								<?php
+											$rs_submenus = $mysqli->query("SELECT * FROM " . $table . " WHERE parent_id = " . $menu->id . " ORDER BY priority ASC") or die($mysqli->error);
+											if($rs_submenus->num_rows){
+												while($submenu = $rs_submenus->fetch_object()){
+													$selected = ($submenu->id == $entity->getScopeValue("parent_id")) ? ' selected' : '';
+								?>
+								<option value="<?= $submenu->id; ?>"<?= $selected; ?>>&nbsp;&nbsp;&nbsp;&nbsp;<?= $submenu->title; ?></option>
+								<?php
+												}
+											}
+										}
 									}
 								?>
                             </select>
                         </td>
                     </tr>
+
+                    <tr>
+                        <th colspan="2">Sub-título *</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" name="subtitle" maxlength="<?= $entity->maxlen("subtitle") ?>" value="<?= $entity->output("subtitle") ?>"></td>
+                    </tr>
                 </table>
 
                 <table>
-					<tr>
-						<td><input type="checkbox" name="highlight" id="highlight" value="1"<?php if($entity->getScopeValue("highlight") == 1) echo ' checked'; ?>> <label for="highlight">Destacar</label></td>
-					</tr>
                     <tr>
-                        <td><input type="checkbox" name="active" id="active" value="1"<?php if($entity->getScopeValue("active") == 1) echo ' checked'; ?>> <label for="active">Ativar</label></td>
+                        <td>
+							<input type="checkbox" name="highlight" id="highlight" value="1"<?php if($entity->getScopeValue("highlight") == 1) echo ' checked'; ?>>
+							<label for="highlight">Destacar</label>
+						</td>
+                    </tr>
+                    <tr>
+                        <td>
+							<input type="checkbox" name="active" id="active" value="1"<?php if($entity->getScopeValue("active") == 1) echo ' checked'; ?>>
+							<label for="active">Publicar</label>
+						</td>
                     </tr>
                 </table>
             </div>
@@ -121,35 +140,36 @@
                         <th>Descrição</th>
                     </tr>
                     <tr>
-                        <td><input type="text" name="description" value="<?= $entity->output("description"); ?>" placeholder="Insira uma breve descrição do registo." maxlength="180"></td>
+                        <td><input type="text" name="description" value="<?= $entity->output("description") ?>" placeholder="Insira uma breve descrição do registo." maxlength="180"></td>
                     </tr>
 
                     <tr>
                         <th>Palavras-chave</th>
                     </tr>
                     <tr>
-                        <td><input type="text" name="keywords" value="<?= $entity->output("keywords"); ?>" placeholder="Insira palavras-chave relacionadas com o registo (ex: kw1,kw2,kw3)." maxlength="180"></td>
+                        <td><input type="text" name="keywords" value="<?= $entity->output("keywords") ?>" placeholder="Insira palavras-chave relacionadas com o registo (ex: kw1,kw2,kw3)." maxlength="180"></td>
                     </tr>
                 </table>
             </div>
 
-			<div class="form_pane">
-				<h3>Imagens</h3>
+            <div class="form_pane">
+                <h3>Imagens</h3>
+                <input type="hidden" name="images" value="<?= $entity->output("images") ?>">
+            </div>
 
-				<input type="hidden" name="images" value="<?= $entity->output("images") ?>">
-			</div>
-
-            <input type="submit" value="Gravar">
+            <input type="submit" value="Guardar">
             <input type="hidden" name="op" value="insert">
         </form>
 	</div>
 
-	<?php $template->importScripts(); ?>
-	<script type="text/javascript" src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-	<script type="text/javascript">
-	$('[name*="images"], [name="images"]').imagesUploader({
-		subfolder: '<?= $table ?>',
-	});
-	</script>
+    <?php $template->importScripts(); ?>
+    <script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[name*="images"]').imagesUploader({
+                subfolder: '<?= $table ?>',
+            });
+        })
+    </script>
 </body>
 </html>

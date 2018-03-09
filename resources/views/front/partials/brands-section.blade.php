@@ -5,15 +5,18 @@
         </div>
     @endif
 
-    <div class="partners">
-        <div class="partners__slideshow">
-            @for($i = 0; $i < 10; $i++)
-                <!-- Begin: Partners Banner -->
-                @include('front.components.partner-image', [
-                    'image' => '/front/images/logo/partners/AMD.jpg'
-                ])
-                <!-- End: Partners Banner -->
-            @endfor
+    @if(!empty($brands))
+        <div class="partners">
+            <div class="partners__slideshow">
+                @foreach($brands as $brand)
+                    @include(
+                        'front.components.partner-image',
+                        [
+                            'image' => $brand->getFirstImagePath()
+                        ]
+                    )
+                @endforeach
+            </div>
         </div>
-    </div>
+    @endif
 </div>

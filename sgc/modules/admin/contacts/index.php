@@ -21,7 +21,7 @@
 	        <?php
 	        	if(isset($_GET['insert']) && $_GET['insert'] == "success"){
 			?>
-	        <script type="text/javascript">
+	        <script>
 			$(document).ready(function(){
 				setTimeout(function(){$("p#insert_op").fadeOut(500);}, 3000);
 			});
@@ -34,7 +34,7 @@
 	        <?php
 	        	if(isset($_GET['edit']) && $_GET['edit'] == "success"){
 			?>
-	        <script type="text/javascript">
+	        <script>
 			$(document).ready(function(){
 				setTimeout(function(){$("p#edit_op").fadeOut(500);}, 3000);
 			});
@@ -60,9 +60,9 @@
 		</div>
 
 		<?php $template->importScripts(); ?>
-	    <script type="text/javascript" src="../../../assets/js/jquery.cookies.js"></script>
-	    <script type="text/javascript" src="../../../assets/plugins/RecordsList/records_list.js"></script>
-	    <script type="text/javascript">
+	    <script src="../../../assets/js/jquery.cookies.js"></script>
+	    <script src="../../../assets/plugins/RecordsList/records_list.js"></script>
+	    <script>
 	    $(document).ready(function(){
 	        $('.records_pane').recordsList({
 	            table: 'app_contacts',

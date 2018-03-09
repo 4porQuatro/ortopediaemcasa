@@ -51,10 +51,10 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        $page = Page::find(16);
+        $page = Page::find(10);
 
         return view(
-            'pages.password-reset.index',
+            'front.pages.password.reset',
             compact(
                 'page',
                 'request',

@@ -1,6 +1,6 @@
-<?php
+<?php
 
-return [
+return [
     'about'                         => "sobre-a-empresa",
     'checkout'                      => "checkout",
     'contacts'                      => "contactos",
@@ -17,4 +17,5 @@ return [
     'user-favourites'               => "utilizador/favoritos",
     'user-profile'                  => "utilizador/perfil",
     'user-password'                 => "utilizador/password",
-];
+];
+

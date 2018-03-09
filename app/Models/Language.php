@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Lib\Model;
-use App\Models\Items\Category;
+use App\Models\Items\ItemsCategory;
 use App\Models\Items\Item;
 
 class Language extends Model
@@ -32,7 +32,7 @@ class Language extends Model
 
     public function itemCategories()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(ItemsCategory::class);
     }
 
     public function items()

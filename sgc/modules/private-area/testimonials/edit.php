@@ -141,8 +141,8 @@
   	</div>
 
 	<?php $template->importScripts(); ?>
-	<script type="text/javascript" src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
-    <script type="text/javascript">
+	<script src="../../../assets/plugins/CKEditor/ckeditor.js"></script>
+    <script>
     $(function(){
 		CKEDITOR.replaceAll(function(textarea, config){});
     });

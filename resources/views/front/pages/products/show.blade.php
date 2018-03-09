@@ -1,31 +1,42 @@
 @extends('front.layouts.app')
 
 @section('meta')
-    @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
+    @include('front.layouts.meta', ['record' => $product, 'image_type' => 'list'])
 @endsection
 
 @section('content')
-    @include('front.components.breadcrumbs', [
+    @include(
+        'front.components.breadcrumbs',
+        [
+            'crumbs' => [
+                trans('app.products') => urli18n('products'),
+                $product->itemsCategory->title => urli18n('products') . '?cat=' . $product->itemsCategory->id,
+                $product->title => ''
+            ]
+        ]
+    )
 
-    ])
     <div class="section first">
         <div class="container">
             <div class="row">
-
                 <!-- Begin: Product Slide -->
                 <div class="col-xs-12 col-md-6">
-                    @include('front.components.product-slide', [
-                        'products' => $products_slide
-                    ])
+                    @include(
+                        'front.components.product-slide',
+                        [
+                            'images_path' => $product->getImagesUrl(),
+                            'images' => $product->getImages('detail')
+                        ]
+                    )
                 </div>
                 <!-- End: Product Slide -->
 
                 <!-- Begin: Product Description -->
                 <div class="col-xs-12 col-md-6">
                     @include('front.components.product-description', [
-                        'category' => $product_description->category,
-                        'title' => $product_description->title,
-                        'description' => $product_description->description
+                        'category' => $product->itemsCategory->title,
+                        'title' => $product->title,
+                        'description' => $product->content
                     ])
                 </div>
                 <!-- End: Product Description -->
@@ -33,21 +44,21 @@
             </div>
             <form class="product__form">
                 <div class="row">
-
                     <!-- Begin: Product Options -->
                     <div class="col-xs-12 col-md-6">
-                        @include('front.components.product-options',[
-
-                        ])
+                        @include('front.components.product-options')
                     </div>
                     <!-- End: Product Options -->
 
                     <!-- Begin: Product Purchase -->
                     <div class="col-xs-12 col-md-6">
-                        @include('front.components.product-purchase', [
-                            'before_price' => $product_price->before,
-                            'price' => $product_price->new
-                        ])
+                        @include(
+                            'front.components.product-purchase',
+                            [
+                                'price' => $product->price,
+                                'promo_price' => $product->promo_price
+                            ]
+                        )
                     </div>
                     <!-- End: Product Purchase -->
 
@@ -55,33 +66,43 @@
             </form>
 
             <!-- Begin: Product Bottom Nav -->
-            @include('front.components.product-bottom-nav', [
-
-            ])
+            @include(
+                'front.components.product-bottom-nav',
+                [
+                    'return_link' => urli18n('products') . '?cat=' . $product->itemsCategory->id,
+                    'facebook_link' => \App\Lib\SocialMedia::shareFacebookUrl(Request::url())
+                ]
+            )
             <!-- End: Product Bottom Nav -->
 
             <!-- Begin: Product Advise Slideshow -->
-            <div class="advise-container">
-                <h2 class="slideshow-title">Veja também...</h2>
-                <div class="slideshow-advise">
-                    @foreach($products_advise as $product_advise)
-                        @include('front.components.product-card--small', [
-                            'category' => $product_advise->category,
-                            'title' => $product_advise->title,
-                            'image' => $product_advise->image,
-                            'price' => $product_advise->price,
-                            'before_price' => $product_advise->before_price
-                        ])
-                    @endforeach
+            @if($product->relatedItems->count())
+                <div class="advise-container">
+                    <h2 class="slideshow-title">@lang('app.see-also')</h2>
+                    <div class="slideshow-advise">
+                        @foreach($product->relatedItems as $product)
+                            <div class="col-xs-12 col-md-6 product">
+                                @include(
+                                    'front.components.product-card--small',
+                                    [
+                                        'link' => urli18n('product', $product->slug),
+                                        'image' => $product->getFirstImagePath('list'),
+                                        'category' => $product->itemsCategory->title,
+                                        'title' => $product->title,
+                                        'price' => $product->price,
+                                        'promo_price' => $product->promo_price
+                                    ]
+                                )
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            @endif
             <!-- End: Product Advise Slideshow -->
 
             <div class="section">
             <!-- Begin: Newsletter Form -->
-                @include('front.components.newsletter', [
-
-                ])
+                @include('front.components.newsletter')
             <!-- End: Newsletter Form -->
             </div>
         </div>

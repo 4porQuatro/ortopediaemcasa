@@ -150,7 +150,7 @@
 
 	<?php $template->importScripts(); ?>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-    <script type="text/javascript">
+    <script>
 	$(document).ready(function(){
 		$('#expires_at').datepicker({dateFormat: 'yy-mm-dd'})
 	});

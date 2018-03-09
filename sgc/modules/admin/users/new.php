@@ -197,7 +197,7 @@
 	        </form>
 		</div>
 		<?php $template->importScripts(); ?>
-	    <script type="text/javascript">
+	    <script>
 	    $(document).ready(function(){
 	        setPermissionsOptions();
 	    });

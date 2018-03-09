@@ -33,10 +33,10 @@ class ForgotPasswordController extends Controller
     }
 
     public function showLinkRequestForm(){
-        $page = Page::find(15);
+        $page = Page::find(9);
 
         return view(
-            'pages.password-recovery.index',
+            'front.pages.password.recovery',
             compact(
                 'page'
             )

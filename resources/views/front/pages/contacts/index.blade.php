@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+
         <div class="section">
             <!-- Begin: Newsletter Form -->
             @include('front.components.newsletter')

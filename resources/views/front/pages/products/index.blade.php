@@ -18,49 +18,50 @@
         <div class="container">
             <div class="row">
                 <!-- Begin: Side Menu -->
-                <div class="col-xs-12 col-md-4">
-                    @include('front.components.side-menu', [
-
-                    ])
+                <div class="col-xs-12 col-md-3 col-xlg-2">
+                    @include(
+                        'front.partials.multiLevelMenu',
+                        [
+                            'html' => $menu_html
+                        ]
+                    )
                 </div>
                 <!-- End: Side Menu -->
 
                 <!-- Begin: Product List -->
-                <div class="col-xs-12 col-md-7 col-md-offset-1" id="updatable">
-                    @foreach($products as $product)
-                        @include('front.components.product-card--small', [
-                            'category' => $product->category,
-                            'title' => $product->title,
-                            'image' => $product->image,
-                            'price' => $product->price,
-                            'before_price' => $product->before_price
-                        ])
-                    @endforeach
+                <div class="col-xs-12 col-md-9 col-xlg-10" id="updatable">
+                    @if(!$products->count())
+                        @include('front.partials.no-records-found')
+                    @else
+                        <div class="row">
+                            @foreach($products as $product)
+                                <div class="col-xs-12 col-md-6 col-lg-4 product">
+                                    @include(
+                                        'front.components.product-card--small',
+                                        [
+                                            'link' => urli18n('product', $product->slug),
+                                            'category' => $product->itemsCategory->title,
+                                            'title' => $product->title,
+                                            'image' => $product->getFirstImagePath('list'),
+                                            'price' => $product->price,
+                                            'promo_price' => $product->promo_price
+                                        ]
+                                    )
+                                </div>
+                            @endforeach
+                        </div>
+
+                        {{ $products->appends(['search' => request('search'), 'cat' => request('cat')])->links() }}
+                    @endif
                 </div>
                 <!-- End: Product List -->
+            </div>
 
-            </div>
-            <div class="section">
-                <div class="section__container">
-                    <h2 class="section__title">Oferecemos uma vasta gama de marcas...</h2>
-                </div>
-                <div class="partners">
-                    <div class="partners__slideshow">
-                        @foreach($partners as $key => $partner)
-                        <!-- Begin: Partners Banner -->
-                            @include('front.components.partner-image', [
-                                'image' => $partner->image
-                            ])
-                        <!-- End: Partners Banner -->
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+            @include('front.partials.brands-section')
+
             <div class="section">
                 <!-- Begin: Newsletter Form -->
-                @include('front.components.newsletter', [
-
-                ])
+                @include('front.components.newsletter')
                 <!-- End: Newsletter Form -->
             </div>
         </div>

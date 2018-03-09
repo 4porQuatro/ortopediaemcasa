@@ -124,8 +124,8 @@
   	</div>
 
 	<?php $template->importScripts(); ?>
-	<script type="text/javascript" src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-	<script type="text/javascript">
+	<script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
+	<script>
 	$('[name*="images"], [name="images"]').imagesUploader({
 		subfolder: '<?= $table ?>',
 	});

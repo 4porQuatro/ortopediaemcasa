@@ -114,7 +114,7 @@
 
 		foreach($arr[$parent] as $id => $val){
 			$selected_attr = ($id == $selected_id) ? 'selected="selected"' : '';
-			echo '<option value="', $id, '" ' . $selected_attr . '>', str_repeat($indent, $level), $val->title, '</option>', PHP_EOL;
+			echo '<option value="', $id, '" ' . $selected_attr . '>', str_repeat($indent, $level), $val, '</option>', PHP_EOL;
 			if(isset($arr[$id])) printTreeOptionsSelection($arr, $id, $level + 1, $selected_id);
 		}
 	}

@@ -28,7 +28,7 @@
         @if(!empty($article))
             <p class="newsletter__form-title"><b>{{ strip_tags($article->content) }}</b></p>
         @endif
-        <input name="email" class="newsletter__input" placeholder="@lang('type-your-email')">
+        <input name="email" class="newsletter__input" placeholder="@lang('app.type-your-email')">
         <button class="newsletter__button" type="submit">@lang('app.submit')</button>
     {!! Form::close() !!}
 </div>

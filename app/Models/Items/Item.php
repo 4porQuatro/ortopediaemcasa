@@ -32,33 +32,24 @@ class Item extends Model implements Buyable
 		return $this->belongsTo(\App\Models\Language::class);
 	}
 
-	/**
-	 *	Get item's category
-	 *
-	 *	@return Category
-	 */
-	public function category()
-	{
-		return $this->belongsTo(Category::class);
-	}
+    /**
+     *	Get brand.
+     *
+     *	@return ItemsBrand
+     */
+    public function itemsBrand()
+    {
+        return $this->belongsTo(ItemsBrand::class);
+    }
 
 	/**
-	 * Get item's sizes
+	 *	Get category.
 	 *
-	 * @return Relation
+	 *	@return ItemsCategory
 	 */
-	public function sizes()
+	public function itemsCategory()
 	{
-		return $this->belongsToMany(Size::class, 'items_stocks', 'item_id', 'size_id')->withPivot('stock');
-	}
-
-	/**
-	 * Get item's colors
-	 * @return Relation
-	 */
-	public function colors()
-	{
-		return $this->belongsToMany(Color::class, 'items_stocks', 'item_id', 'color_id');
+		return $this->belongsTo(ItemsCategory::class);
 	}
 
     /**
@@ -86,7 +77,7 @@ class Item extends Model implements Buyable
 	 *
 	 * @return Collection
 	 */
-	public function related()
+	public function relatedItems()
 	{
 		return $this->belongsToMany(Item::class, 'items_related', 'item_id', 'related_item_id');
 	}

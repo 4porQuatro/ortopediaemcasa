@@ -9,8 +9,8 @@
         <!-- End: Navbar Logo -->
 
         <!-- Begin: Search Tool -->
-        <form action="{{ url('search') }}" method="GET" class="navbar__search">
-            <input class="search-input" placeholder="inserir termo...">
+        <form action="{{ action('ProductsController@index') }}" method="GET" class="navbar__search">
+            {!! Form::text('search', null, ['placeholder' => trans('app.type-your-search'), 'class' => "search-input"]) !!}
             <button class="search-button">@lang('app.search')</button>
         </form>
         <!-- End: Search Tool -->
