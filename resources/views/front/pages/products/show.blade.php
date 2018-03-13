@@ -35,6 +35,7 @@
                 <div class="col-xs-12 col-md-6">
                     @include('front.components.product-description', [
                         'category' => $product->itemsCategory->title,
+                        'brand' => $product->itemsBrand->title,
                         'title' => $product->title,
                         'description' => $product->content
                     ])
