@@ -7,7 +7,7 @@ use App\Lib\Model;
 use App\Traits\LapBootTrait;
 use Illuminate\Database\Eloquent\Collection;
 
-class ItemsCategory extends Model
+class ItemCategory extends Model
 {
 	use LapBootTrait;
 
@@ -32,10 +32,43 @@ class ItemsCategory extends Model
 		return $this->hasMany(Item::class);
 	}
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+	public function itemAttributeTypes()
+    {
+        return $this->hasMany(ItemAttributeType::class);
+    }
 
 
 
+    /**
+     * Finds the node root.
+     *
+     * @return Tree $root
+     */
+    public function root()
+    {
+        $root = (!$this->{static::$parent}) ? $this : static::rootRecursive($this);
 
+        return $root;
+    }
+
+    /**
+     * Recursively finds a node root.
+     *
+     * @param  Tree $node
+     * @return Tree $node
+     */
+    private static function rootRecursive($node)
+    {
+        if ($node->{static::$parent})
+        {
+            $node = static::rootRecursive(static::where('id', $node->{static::$parent})->first());
+        }
+
+        return $node;
+    }
 
     /**
      * Get parent.

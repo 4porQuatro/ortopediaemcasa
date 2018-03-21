@@ -6,7 +6,7 @@
 		exit;
 	}
 
-	$table = "items_colors";
+	$table = "item_attribute_types";
 	$pk = "id";
 
 	$entity = entity($mysqli, $table);
@@ -32,13 +32,12 @@
 			$mysqli->autocommit(false);
 
 			// update record
-			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET title = ?, color = ?, active = ?, images = ? WHERE " . $pk . " = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
+			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET title = ?, item_category_id = ?, active = ? WHERE " . $pk . " = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
 			$stmt_update->bind_param(
-				"ssis",
+				"sii",
 				$posts['title'],
-				$posts['color'],
-				$posts['active'],
-                $posts['images']
+				$posts['item_category_id'],
+				$posts['active']
 			);
 			$stmt_update->execute() or die('<h3>Updating record...</h3>' . $stmt_update->error);
 
@@ -77,7 +76,6 @@
 
         <ul id="form_menu">
             <li>Geral</li>
-            <li>Imagens</li>
         </ul>
 
         <form class="form_model" name="edit_record_form" method="post" action="<?= $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" autocomplete="off">
@@ -85,11 +83,29 @@
                 <table>
                     <tr>
                         <th>Título*</th>
-                        <th style="width:1%">Cor*</th>
                     </tr>
                     <tr>
                         <td><input type="text" name="title" maxlength="<?= $entity->maxlen("title") ?>" value="<?= $entity->output("title") ?>"></td>
-                        <td><input type="text" name="color" id="color" maxlength="<?= $entity->maxlen("color") ?>" value="<?= $entity->output("color") ?>"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Categoria *</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="item_category_id">
+                                <option value="">Selecione...</option>
+                                <?php
+                                    $result = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id is NULL ORDER BY priority") or die($mysqli->error);
+                                    while($rec = $result->fetch_object()){
+                                        $selected = ($rec->id == $entity->getScopeValue("item_category_id")) ? ' selected' : '';
+                                ?>
+                                <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </td>
                     </tr>
                 </table>
 
@@ -100,26 +116,11 @@
                 </table>
             </div>
 
-            <div class="form_pane">
-                <h3>Imagens</h3>
-
-                <input type="hidden" name="images" value="<?= $entity->output("images") ?>">
-            </div>
-
             <input type="submit" value="Gravar">
             <input type="hidden" name="op" value="update">
         </form>
   	</div>
 
 	<?php $template->importScripts(); ?>
-    <script src="../../../assets/plugins/MiniColors/jquery.minicolors.min.js"></script>
-    <script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-    <script>
-        $('#color').minicolors();
-
-        $('[name*="images"], [name="images"]').imagesUploader({
-            subfolder: '<?= $table ?>',
-        });
-	</script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 	$edit_page = "edit.php";
 	$pag_elim = "index.php";
 
-	$table = "items_categories";
+	$table = "item_categories";
 	$pk = "id";
 
 	/*....................................................................................................................*/

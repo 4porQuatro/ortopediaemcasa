@@ -3,7 +3,7 @@
 namespace App\Models\Store;
 
 use App\Lib\Model;
-use App\Models\Items\ItemsCategory;
+use App\Models\Items\ItemCategory;
 
 class Voucher extends Model
 {
@@ -22,7 +22,7 @@ class Voucher extends Model
      */
     public function category()
     {
-        return $this->belongsTo(ItemsCategory::class, 'category_id');
+        return $this->belongsTo(ItemCategory::class, 'category_id');
     }
 
     /**

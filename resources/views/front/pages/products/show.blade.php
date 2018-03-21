@@ -10,7 +10,7 @@
         [
             'crumbs' => [
                 trans('app.products') => urli18n('products'),
-                $product->itemsCategory->title => urli18n('products') . '?cat=' . $product->itemsCategory->id,
+                $product->itemCategory->root()->title . ' - ' . $product->itemCategory->title => urli18n('products') . '?cat=' . $product->itemCategory->id,
                 $product->title => ''
             ]
         ]
@@ -34,15 +34,15 @@
                 <!-- Begin: Product Description -->
                 <div class="col-xs-12 col-md-6">
                     @include('front.components.product-description', [
-                        'category' => $product->itemsCategory->title,
-                        'brand' => $product->itemsBrand,
+                        'category' => $product->itemCategory->title,
+                        'brand' => $product->itemBrand,
                         'title' => $product->title,
                         'description' => $product->content
                     ])
                 </div>
                 <!-- End: Product Description -->
-
             </div>
+
             <form class="product__form">
                 <div class="row">
                     <!-- Begin: Product Options -->
@@ -62,7 +62,6 @@
                         )
                     </div>
                     <!-- End: Product Purchase -->
-
                 </div>
             </form>
 
@@ -70,7 +69,7 @@
             @include(
                 'front.components.product-bottom-nav',
                 [
-                    'return_link' => urli18n('products') . '?cat=' . $product->itemsCategory->id,
+                    'return_link' => urli18n('products') . '?cat=' . $product->itemCategory->id,
                     'facebook_link' => \App\Lib\SocialMedia::shareFacebookUrl(Request::url())
                 ]
             )
@@ -88,7 +87,7 @@
                                     [
                                         'link' => urli18n('product', $product->slug),
                                         'image' => $product->getFirstImagePath('list'),
-                                        'category' => $product->itemsCategory->title,
+                                        'category' => $product->itemCategory->title,
                                         'title' => $product->title,
                                         'price' => $product->price,
                                         'promo_price' => $product->promo_price

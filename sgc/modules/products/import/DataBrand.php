@@ -15,7 +15,7 @@ class DataBrand extends DataModel
 
     public function exists()
     {
-        $rs = $this->mysqli->query("SELECT id FROM items_brands WHERE title = '$this->title'") or die($this->mysqli->error);
+        $rs = $this->mysqli->query("SELECT id FROM item_brands WHERE title = '$this->title'") or die($this->mysqli->error);
 
         if($rs->num_rows)
         {
@@ -32,7 +32,7 @@ class DataBrand extends DataModel
         if(!$this->exists())
         {
             $this->mysqli->query(
-                "INSERT INTO items_brands (title, language_id, created_at, updated_at)
+                "INSERT INTO item_brands (title, language_id, created_at, updated_at)
                 VALUES('$this->title', $this->language_id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
             ) or die('<h4>Inserting brand...</h4>' . $this->mysqli->error);
 

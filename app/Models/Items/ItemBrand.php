@@ -6,7 +6,7 @@ use App\Lib\Model;
 use App\Traits\LapBootTrait;
 
 
-class ItemsBrand extends Model
+class ItemBrand extends Model
 {
     use LapBootTrait;
 

@@ -6,7 +6,7 @@
 		exit;
 	}
 
-	$table = "items_categories";
+	$table = "item_categories";
 	$pk = "id";
 
 	$entity = entity($mysqli, $table);

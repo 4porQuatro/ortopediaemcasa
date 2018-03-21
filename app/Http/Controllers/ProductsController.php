@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Items\Item;
-use App\Models\Items\ItemsBrand;
-use App\Models\Items\ItemsCategory;
+use App\Models\Items\ItemBrand;
+use App\Models\Items\ItemCategory;
 use App\Models\Pages\Page;
 use Illuminate\Http\Request;
 
@@ -15,9 +15,9 @@ class ProductsController extends Controller
     {
         $page = Page::find(2);
 
-        $categories = ItemsCategory::all();
-        $brands = ItemsBrand::all();
-        $menu_html = ItemsCategory::render(
+        $categories = ItemCategory::all();
+        $brands = ItemBrand::all();
+        $menu_html = ItemCategory::render(
             $categories,
             'ul',
             'li',
@@ -46,15 +46,15 @@ class ProductsController extends Controller
             $brand_filter = filter_var($request->get('brand'), FILTER_SANITIZE_STRING);
         }
 
-        $products = Item::with('itemsCategory')
-            ->where('items_category_id', 'LIKE', $category_filter)
-            ->where('items_brand_id', 'LIKE', $brand_filter)
+        $products = Item::with('itemCategory')
+            ->where('item_category_id', 'LIKE', $category_filter)
+            ->where('item_brand_id', 'LIKE', $brand_filter)
             ->where(function($query) use($needle){
                 $query->where('title', 'LIKE', '%' . $needle . '%')
-                    ->orWhereHas('itemsCategory', function($query) use($needle){
+                    ->orWhereHas('itemCategory', function($query) use($needle){
                         $query->where('title', 'LIKE', '%' . $needle . '%');
                     })
-                    ->orWhereHas('itemsBrand', function($query) use($needle){
+                    ->orWhereHas('itemBrand', function($query) use($needle){
                         $query->where('title', 'LIKE', '%' . $needle . '%');
                     });
             })
@@ -73,7 +73,16 @@ class ProductsController extends Controller
 
     public function show(Request $request)
     {
-        $product = Item::where('slug', $request->slug)->with('itemsCategory')->with('itemsBrand')->with('relatedItems')->first();
+        $product = Item::where('slug', $request->slug)
+            ->with(
+                [
+                    'relatedItems',
+                    'itemBrand',
+                    'itemCategory.itemAttributeTypes.itemAttributeValues'
+                ]
+            )
+            ->first();
+
         if(!$product)
         {
             abort(404);

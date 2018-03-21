@@ -51,7 +51,7 @@ class DataItem extends DataModel
         if(!$this->exists())
         {
             $this->mysqli->query(
-                "INSERT INTO items(language_id, reference, title, slug, items_brand_id, items_category_id, content, price, weight, tax_id, created_at, updated_at)
+                "INSERT INTO items(language_id, reference, title, slug, item_brand_id, item_category_id, content, price, weight, tax_id, created_at, updated_at)
                               VALUES($this->language_id, '$this->reference', '$this->title', '$this->slug', $this->brand_id, $this->category_id, '$this->content', $this->price, $this->weight, $this->tax_id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
             ) or die('<h4>Inserting item...</h4>' . $this->mysqli->error);
 

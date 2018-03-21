@@ -1,7 +1,7 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
 
-	$table = "items_colors";
+	$table = "item_attribute_values";
 
 	$entity = entity($mysqli, $table);
 
@@ -23,13 +23,12 @@
 			$mysqli->query("UPDATE " . $table . " SET priority = priority + 1") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
 
 			// insert record
-			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, title, color, active, images, created_at) VALUES(" . $language_id . ", ?, ?, ?, ?, CURRENT_TIMESTAMP)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, title, item_attribute_type_id, active, created_at) VALUES(" . $language_id . ", ?, ?, ?, CURRENT_TIMESTAMP)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
-				"ssis",
+				"sii",
 				$posts['title'],
-				$posts['color'],
-				$posts['active'],
-                $posts['images']
+				$posts['item_attribute_type_id'],
+				$posts['active']
 			);
 			$stmt_insert->execute() or die('<h3>Executing statement...</h3>' . $stmt_insert->error);
 			$stmt_insert->store_result();
@@ -69,7 +68,6 @@
 
         <ul id="form_menu">
             <li>Geral</li>
-            <li>Imagens</li>
         </ul>
 
         <form class="form_model" name="insert_record_form" method="post" action="<?= $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" autocomplete="off">
@@ -77,11 +75,42 @@
                 <table>
                     <tr>
                         <th>Título*</th>
-                        <th style="width:1%">Cor*</th>
                     </tr>
                     <tr>
                         <td><input type="text" name="title" maxlength="<?= $entity->maxlen("title") ?>" value="<?= $entity->output("title") ?>"></td>
-                        <td><input type="text" name="color" id="color" maxlength="<?= $entity->maxlen("color") ?>" value="<?= $entity->output("color") ?>"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Tipo *</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="item_attribute_type_id">
+                                <option value="">Selecione...</option>
+                                <?php
+                                    $rs_categories = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id IS NULL order by priority") or die($mysqli->error);
+                                    if($rs_categories->num_rows)
+                                    {
+                                        while($category = $rs_categories->fetch_object())
+                                        {
+                                ?>
+                                <optgroup label="<?= $category->title ?>">
+                                    <?php
+                                        $result = $mysqli->query("SELECT * FROM item_attribute_types WHERE language_id = " . $language_id . " AND item_category_id = " . $category->id . " ORDER BY priority") or die($mysqli->error);
+                                        while($rec = $result->fetch_object()) {
+                                            $selected = ($rec->id == $entity->getScopeValue("item_attribute_type_id")) ? ' selected' : '';
+                                    ?>
+                                    <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </optgroup>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </td>
                     </tr>
                 </table>
 
@@ -92,26 +121,11 @@
                 </table>
             </div>
 
-            <div class="form_pane">
-                <h3>Imagens</h3>
-
-                <input type="hidden" name="images" value="<?= $entity->output("images") ?>">
-            </div>
-
             <input type="submit" value="Gravar">
             <input type="hidden" name="op" value="insert">
         </form>
 	</div>
 
 	<?php $template->importScripts(); ?>
-    <script src="../../../assets/plugins/MiniColors/jquery.minicolors.min.js"></script>
-    <script src="../../../assets/plugins/ImagesUploader/image_uploader.jquery.js"></script>
-    <script>
-        $('#color').minicolors();
-
-        $('[name*="images"], [name="images"]').imagesUploader({
-            subfolder: '<?= $table ?>',
-        });
-    </script>
 </body>
 </html>

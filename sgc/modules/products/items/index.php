@@ -54,7 +54,7 @@
                             	<option value="%">Todas as categorias</option>
 
                                 <?php
-                                    $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM items_categories WHERE language_id = " . $language_id . " ORDER BY priority");
+                                    $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM item_categories WHERE language_id = " . $language_id . " ORDER BY priority");
 
                                     if($categories_rs->num_rows)
                                     {
@@ -71,7 +71,7 @@
                             <select>
                                 <option value="%">Todas as marcas</option>
                                 <?php
-                                    $result_filters = $mysqli->query("SELECT * FROM items_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
+                                    $result_filters = $mysqli->query("SELECT * FROM item_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
                                     while($filter = $result_filters->fetch_object()){
                                 ?>
                                     <option value="<?= $filter->id ?>"><?= $filter->title ?></option>
@@ -108,7 +108,7 @@
                 table: 'items',
                 primary_key: 'id',
                 language_id: <?= $_SESSION['sgc_language_id']; ?>,
-                filters_arr: ['items_category_id', 'items_brand_id', 'active', 'highlight'],
+                filters_arr: ['item_category_id', 'item_brand_id', 'active', 'highlight'],
                 sort_field: 'priority',
     			sortable: true
             });

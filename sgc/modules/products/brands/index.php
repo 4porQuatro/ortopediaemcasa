@@ -74,7 +74,7 @@
         <script>
         $(document).ready(function(){
             $('.records_pane').recordsList({
-                table: 'items_brands',
+                table: 'item_brands',
                 primary_key: 'id',
                 language_id: <?= $_SESSION['sgc_language_id']; ?>,
                 filters_arr: ['active', 'highlight'],

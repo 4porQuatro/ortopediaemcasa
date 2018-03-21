@@ -131,7 +131,7 @@
 									?>
 									<optgroup label="<?= $rec_type->title ?>">
 										<?php
-	                                        $result = $mysqli->query("SELECT * FROM items_categories WHERE language_id = " . $language_id . " AND type_id = " . $rec_type->id . " ORDER BY priority ASC") or die($mysqli->error);
+	                                        $result = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND type_id = " . $rec_type->id . " ORDER BY priority ASC") or die($mysqli->error);
 	                                        while($rec = $result->fetch_object()){
 	                                            $selected = ($rec->id == $entity->getScopeValue("category_id")) ? ' selected' : '';
 	                                    ?>

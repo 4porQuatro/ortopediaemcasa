@@ -33,7 +33,7 @@
 
 			// insert record
 			$stmt_insert = $mysqli->prepare("
-				INSERT INTO " . $table . " (language_id, reference, title, slug, content, points, items_category_id, items_brand_id, price, promo_price, weight, tax_id, description, keywords, active, highlight, list_images, detail_images, created_at, updated_at)
+				INSERT INTO " . $table . " (language_id, reference, title, slug, content, points, item_category_id, item_brand_id, price, promo_price, weight, tax_id, description, keywords, active, highlight, list_images, detail_images, created_at, updated_at)
 				VALUES(" . $language_id . ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
 			) or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
@@ -43,8 +43,8 @@
 				$slug,
 				$posts['content'],
 				$posts['points'],
-				$posts['items_category_id'],
-                $posts['items_brand_id'],
+				$posts['item_category_id'],
+                $posts['item_brand_id'],
 				$posts['price'],
 				$posts['promo_price'],
 				$posts['weight'],
@@ -136,10 +136,10 @@
                     <tr>
                         <td><input type="text" name="reference" maxlength="<?= $entity->maxlen("reference") ?>" value="<?= $entity->output("reference") ?>"></td>
                         <td>
-                            <select name="items_category_id">
+                            <select name="item_category_id">
                                 <option value="">Selecione...</option>
                                 <?php
-                                $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM items_categories WHERE language_id = " . $language_id . " ORDER BY priority");
+                                $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM item_categories WHERE language_id = " . $language_id . " ORDER BY priority");
 
                                 if($categories_rs->num_rows)
                                 {
@@ -147,18 +147,18 @@
                                         $categories_arr[$category->parent_id][$category->id] = $category->title;
                                     }
 
-                                    printTreeOptionsSelection($categories_arr, NULL, 0, $entity->getScopeValue("items_category_id"));
+                                    printTreeOptionsSelection($categories_arr, NULL, 0, $entity->getScopeValue("item_category_id"));
                                 }
                                 ?>
                             </select>
                         </td>
                         <td>
-                            <select name="items_brand_id">
+                            <select name="item_brand_id">
                                 <option value="">Selecione...</option>
                                 <?php
-                                    $result = $mysqli->query("SELECT * FROM items_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
+                                    $result = $mysqli->query("SELECT * FROM item_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
                                     while($rec = $result->fetch_object()){
-                                        $selected = ($rec->id == $entity->getScopeValue("items_brand_id")) ? ' selected' : '';
+                                        $selected = ($rec->id == $entity->getScopeValue("item_brand_id")) ? ' selected' : '';
                                 ?>
                                     <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
                                 <?php

@@ -14,8 +14,8 @@ use App\Lib\Store\Cart;
 use App\Lib\Store\Price;
 
 use App\Models\Items\Item;
-use App\Models\Items\Size;
-use App\Models\Items\Color;
+use App\Models\Items\ItemAttributeType;
+use App\Models\Items\ItemAttributeValue;
 use App\Models\Store\ShippingMethod;
 use App\Models\Store\Voucher;
 
@@ -35,8 +35,8 @@ class CartController extends Controller
     public function add(AddItemRequest $request)
     {
         $item = Item::find($request->item_id);
-        $color = Color::find($request->color_id);
-        $size = Size::find($request->size_id);
+        $color = ItemAttributeValue::find($request->color_id);
+        $size = ItemAttributeType::find($request->size_id);
         $stock = DB::table('items_stocks')->where('item_id', $item->id)->where('size_id', $size->id)->where('color_id', $color->id)->first();
 
         $cart_item = Cart::instance('items')->add(

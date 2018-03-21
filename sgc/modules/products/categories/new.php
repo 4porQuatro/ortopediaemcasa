@@ -1,7 +1,7 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
 
-	$table = "items_categories";
+	$table = "item_categories";
 
 	$entity = entity($mysqli, $table);
 

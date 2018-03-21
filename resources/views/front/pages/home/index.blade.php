@@ -32,7 +32,7 @@
                                 [
                                     'link' => urli18n('product', $product->slug),
                                     'image' => $product->getFirstImagePath('list'),
-                                    'category' => $product->itemsCategory->title,
+                                    'category' => $product->itemCategory->title,
                                     'title' => $product->title,
                                     'price' => $product->price,
                                     'promo_price' => $product->promo_price

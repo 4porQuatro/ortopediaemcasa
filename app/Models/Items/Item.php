@@ -35,32 +35,22 @@ class Item extends Model implements Buyable
     /**
      *	Get brand.
      *
-     *	@return ItemsBrand
+     *	@return ItemBrand
      */
-    public function itemsBrand()
+    public function itemBrand()
     {
-        return $this->belongsTo(ItemsBrand::class);
+        return $this->belongsTo(ItemBrand::class);
     }
 
 	/**
 	 *	Get category.
 	 *
-	 *	@return ItemsCategory
+	 *	@return ItemCategory
 	 */
-	public function itemsCategory()
+	public function itemCategory()
 	{
-		return $this->belongsTo(ItemsCategory::class);
+		return $this->belongsTo(ItemCategory::class);
 	}
-
-    /**
-     * Get item's stocks.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function stocks()
-    {
-        return $this->hasMany(Stock::class, 'item_id');
-    }
 
 
 	/**

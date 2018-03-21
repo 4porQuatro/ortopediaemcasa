@@ -57,7 +57,7 @@
                                         'front.components.product-card--small',
                                         [
                                             'link' => urli18n('product', $product->slug),
-                                            'category' => $product->itemsCategory->title,
+                                            'category' => $product->itemCategory->title,
                                             'title' => $product->title,
                                             'image' => $product->getFirstImagePath('list'),
                                             'price' => $product->price,

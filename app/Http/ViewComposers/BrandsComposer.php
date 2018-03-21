@@ -2,7 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Models\Items\ItemsBrand;
+use App\Models\Items\ItemBrand;
 use App\Models\Pages\Article;
 use Illuminate\View\View;
 
@@ -19,7 +19,7 @@ class BrandsComposer
     {
         $article = Article::find(19);
 
-        $brands = ItemsBrand::where('highlight', 1)->get();
+        $brands = ItemBrand::where('highlight', 1)->get();
 
         $view->with(
             compact(

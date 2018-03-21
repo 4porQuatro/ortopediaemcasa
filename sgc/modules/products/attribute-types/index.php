@@ -51,7 +51,20 @@
 	        <div class="records_pane">
 	        	<table>
 	            	<tr>
-	                	<td style="width:50%">
+                        <td style="width:50%">
+                            <select>
+                                <option value="%">Todas as categorias</option>
+                                <?php
+                                $result_filters = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id IS NULL ORDER BY priority") or die($mysqli->error);
+                                while($filter = $result_filters->fetch_object()){
+                                    ?>
+                                    <option value="<?= $filter->id ?>"><?= $filter->title ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </td>
+	                	<td>
 	                        <select>
 	                            <option value="%">Estado</option>
 	                            <option value="1">Ativo</option>
@@ -69,10 +82,10 @@
 	    <script>
 	    $(document).ready(function(){
 	        $('.records_pane').recordsList({
-	            table: 'items_colors',
+	            table: 'item_attribute_types',
 	            primary_key: 'id',
 	            language_id: <?= $_SESSION['sgc_language_id']; ?>,
-	            filters_arr: ['active'],
+	            filters_arr: ['item_category_id', 'active'],
 	            sort_field: 'priority',
 				sortable: true
 	        });

@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Items\Item;
 use App\Models\Items\Type;
-use App\Models\Items\ItemsCategory;
-use App\Models\Items\Size;
+use App\Models\Items\ItemCategory;
+use App\Models\Items\ItemAttributeType;
 
 class ItemRepository
 {
@@ -64,7 +64,7 @@ class ItemRepository
      */
     public function getHighlightedCategories()
     {
-        return ItemsCategory::where('highlight', 1)
+        return ItemCategory::where('highlight', 1)
             ->whereHas('type', function($query){
                 $query->where('active', 1);
             })
@@ -79,13 +79,13 @@ class ItemRepository
      * we must only join the items that have that size available.
      *
      * @param  string $slug
-     * @param  Size $size
+     * @param  ItemAttributeType $size
      *
-     * @return ItemsCategory
+     * @return ItemCategory
      */
-    public function getCategory($slug, Size $size = null)
+    public function getCategory($slug, ItemAttributeType $size = null)
     {
-        $builder = ItemsCategory::where('slug', $slug);
+        $builder = ItemCategory::where('slug', $slug);
 
         if(!$size)
         {
