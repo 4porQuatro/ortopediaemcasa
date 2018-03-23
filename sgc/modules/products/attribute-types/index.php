@@ -54,12 +54,17 @@
                         <td style="width:50%">
                             <select>
                                 <option value="%">Todas as categorias</option>
+
                                 <?php
-                                $result_filters = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id IS NULL ORDER BY priority") or die($mysqli->error);
-                                while($filter = $result_filters->fetch_object()){
-                                    ?>
-                                    <option value="<?= $filter->id ?>"><?= $filter->title ?></option>
-                                    <?php
+                                $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM item_categories WHERE language_id = " . $language_id . " ORDER BY priority");
+
+                                if($categories_rs->num_rows)
+                                {
+                                    while($category = $categories_rs->fetch_object()){
+                                        $categories_arr[$category->parent_id][$category->id] = $category->title;
+                                    }
+
+                                    printTreeOptions($categories_arr);
                                 }
                                 ?>
                             </select>

@@ -114,6 +114,7 @@
         <ul id="form_menu">
             <li>Geral</li>
             <li>SEO</li>
+            <li>Relacionados</li>
             <li>Imagens</li>
         </ul>
 

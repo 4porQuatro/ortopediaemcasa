@@ -55,22 +55,11 @@
                             <select>
                                 <option value="%">Todos os tipos</option>
                                 <?php
-                                    $rs_categories = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id IS NULL order by priority") or die($mysqli->error);
-                                    if($rs_categories->num_rows)
-                                    {
-                                        while($category = $rs_categories->fetch_object())
-                                        {
-                                ?>
-                                <optgroup label="<?= $category->title ?>">
-                                    <?php
-                                        $result = $mysqli->query("SELECT * FROM item_attribute_types WHERE language_id = " . $language_id . " AND item_category_id = " . $category->id . " ORDER BY priority") or die($mysqli->error);
+                                    $result = $mysqli->query("SELECT * FROM item_attribute_types WHERE language_id = " . $language_id . " ORDER BY priority") or die($mysqli->error);
+                                    if($result->num_rows){
                                         while($rec = $result->fetch_object()) {
-                                    ?>
-                                    <option value="<?= $rec->id ?>"><?= $rec->title ?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                </optgroup>
+                                ?>
+                                <option value="<?= $rec->id ?>"><?= getTreePath($mysqli, 'item_categories', $rec->item_category_id) ?> <?= $rec->title ?></option>
                                 <?php
                                         }
                                     }

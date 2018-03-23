@@ -88,26 +88,17 @@
                             <select name="item_attribute_type_id">
                                 <option value="">Selecione...</option>
                                 <?php
-                                    $rs_categories = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id IS NULL order by priority") or die($mysqli->error);
-                                    if($rs_categories->num_rows)
+                                $rs_attr_types = $mysqli->query("SELECT * FROM item_attribute_types WHERE language_id = " . $language_id . " order by priority") or die($mysqli->error);
+                                if($rs_attr_types->num_rows)
+                                {
+                                    while($attr_type = $rs_attr_types->fetch_object())
                                     {
-                                        while($category = $rs_categories->fetch_object())
-                                        {
-                                ?>
-                                <optgroup label="<?= $category->title ?>">
-                                    <?php
-                                        $result = $mysqli->query("SELECT * FROM item_attribute_types WHERE language_id = " . $language_id . " AND item_category_id = " . $category->id . " ORDER BY priority") or die($mysqli->error);
-                                        while($rec = $result->fetch_object()) {
-                                            $selected = ($rec->id == $entity->getScopeValue("item_attribute_type_id")) ? ' selected' : '';
-                                    ?>
-                                    <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                </optgroup>
-                                <?php
-                                        }
+                                        $selected = ($attr_type->id == $entity->getScopeValue("item_attribute_type_id")) ? ' selected' : '';
+                                        ?>
+                                        <option value="<?= $attr_type->id ?>"<?= $selected ?>><?= getTreePath($mysqli, 'item_categories', $attr_type->item_category_id) ?> <?= $attr_type->title ?></option>
+                                        <?php
                                     }
+                                }
                                 ?>
                             </select>
                         </td>

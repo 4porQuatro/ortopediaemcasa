@@ -96,13 +96,16 @@
                             <select name="item_category_id">
                                 <option value="">Selecione...</option>
                                 <?php
-                                    $result = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND parent_id is NULL ORDER BY priority") or die($mysqli->error);
-                                    while($rec = $result->fetch_object()){
-                                        $selected = ($rec->id == $entity->getScopeValue("item_category_id")) ? ' selected' : '';
-                                ?>
-                                <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
-                                <?php
+                                $categories_rs = $mysqli->query("SELECT id, parent_id, title FROM item_categories WHERE language_id = " . $language_id . " ORDER BY priority");
+
+                                if($categories_rs->num_rows)
+                                {
+                                    while($category = $categories_rs->fetch_object()){
+                                        $categories_arr[$category->parent_id][$category->id] = $category->title;
                                     }
+
+                                    printTreeOptionsSelection($categories_arr, NULL, 0, $entity->getScopeValue("item_category_id"));
+                                }
                                 ?>
                             </select>
                         </td>
