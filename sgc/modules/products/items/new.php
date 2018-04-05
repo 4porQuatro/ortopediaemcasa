@@ -1,91 +1,85 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
 
-	$table = "items";
-	$pk = "id";
+$table = "items";
 
-	$entity = entity($mysqli, $table);
+$entity = entity($mysqli, $table);
 
-	if(isset($_POST['op']) && $_POST['op'] == "insert"){
-		// map posts
-		$posts = $entity->mapPosts();
+$entity->setQueryFields([
+    's-reference',
+    's-title',
+    's-slug',
+    's-content',
+    'i-points',
+    'i-item_category_id',
+    'i-item_brand_id',
+    'd-price',
+    'd-promo_price',
+    'd-weight',
+    'i-tax_id',
+    's-description',
+    's-keywords',
+    'i-active',
+    'i-highlight',
+    's-list_images',
+    's-detail_images'
+]);
 
-		// validate
-		$errors = "";
+if(isset($_POST['op']) && $_POST['op'] == "insert"){
+    // map posts
+    $posts = $entity->mapPosts();
 
-		if(!$entity->checkRequiredFields()){
-			$errors .= "<br>Preencha todos os campos obrigatórios.";
-		}
-		if(!empty($posts['price']) && !validate()->isFloat($posts['price'])){
-			$errors .= "<br>O preço deve ser um valor decimal.";
-		}
-		if(!empty($posts['weight']) && !validate()->isFloat($posts['weight'])){
-			$errors .= "<br>O peso deve ser um valor decimal.";
-		}
+    // validate
+    $errors = "";
 
-		if(empty($errors)){
-			$mysqli->autocommit(false);
+    if(!$entity->checkRequiredFields()){
+        $errors .= "<br>Preencha todos os campos obrigatórios.";
+    }
 
-			// update priorities
-			$mysqli->query("UPDATE " . $table . " SET priority = priority + 1") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
+    if(empty($errors)){
+        $mysqli->autocommit(false);
 
-			$slug = createSlug($posts['title'], $table, $mysqli);
+        // update priorities
+        $mysqli->query("UPDATE " . $table . " SET priority = priority + 1") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
 
-			// insert record
-			$stmt_insert = $mysqli->prepare("
-				INSERT INTO " . $table . " (language_id, reference, title, slug, content, points, item_category_id, item_brand_id, price, promo_price, weight, tax_id, description, keywords, active, highlight, list_images, detail_images, created_at, updated_at)
-				VALUES(" . $language_id . ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
-			) or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
-			$stmt_insert->bind_param(
-				"ssssiiiddissiiss",
-				$posts['reference'],
-				$posts['title'],
-				$slug,
-				$posts['content'],
-				$posts['points'],
-				$posts['item_category_id'],
-                $posts['item_brand_id'],
-				$posts['price'],
-				$posts['promo_price'],
-				$posts['weight'],
-				$posts['tax_id'],
-				$posts['description'],
-				$posts['keywords'],
-				$posts['active'],
-				$posts['highlight'],
-				$posts['list_images'],
-				$posts['detail_images']
-			);
-			$stmt_insert->execute() or die('<h3>Inserting record...</h3>' . $stmt_insert->error);
+        $entity->posts_arr['slug'] = createSlug($posts['title'], $table, $mysqli);
 
-			$fk_id = $mysqli->insert_id;
+        // insert record
+        $stmt_insert = $mysqli->prepare(
+            "INSERT INTO $table ({$entity->query_fields['names']}, language_id, created_at)
+				VALUES({$entity->query_fields['placeholders']}, $language_id, CURRENT_TIMESTAMP)"
+        ) or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+        $stmt_insert->bind_param($entity->query_fields['types'], ...$entity->getQueryFieldsParams());
+        $stmt_insert->execute() or die('<h3>Executing statement...</h3>' . $stmt_insert->error);
 
-			/*............................................................................*/
+        $fk_id = $mysqli->insert_id;
 
-            /*
-             *	Insert related items
-             */
-            if(isset($_POST['rel_item_id'])){
-                $insert_rel_item_query = "INSERT INTO " . $table . "_related  (item_id, language_id, related_item_id) VALUES (" . $fk_id . ", " . $language_id . ", ?) ON DUPLICATE KEY UPDATE related_item_id = ?";
-                $stmt_insert_rel_item = $mysqli->prepare($insert_rel_item_query) or die('<h3>Preparing to insert related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $mysqli->error);
-                $stmt_insert_rel_item->bind_param("ii", $rel_item_id, $rel_item_id);
+        /*............................................................................*/
 
-                foreach($_POST['rel_item_id'] as $key=>$row_index){
-                    $rel_item_id = $_POST['rel_item_id'][$key];
+        /*
+         *	Insert related items
+         */
+        if(isset($_POST['rel_item_id'])){
+            $insert_rel_item_query = "INSERT INTO " . $table . "_related  (item_id, language_id, related_item_id) VALUES (" . $fk_id . ", " . $language_id . ", ?) ON DUPLICATE KEY UPDATE related_item_id = ?";
+            $stmt_insert_rel_item = $mysqli->prepare($insert_rel_item_query) or die('<h3>Preparing to insert related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $mysqli->error);
+            $stmt_insert_rel_item->bind_param("ii", $rel_item_id, $rel_item_id);
 
-                    if(!empty($rel_item_id)){
-                        $stmt_insert_rel_item->execute() or die('<h3>Inserting related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $stmt_insert_rel_item->error);
-                    }
+            foreach($_POST['rel_item_id'] as $key=>$row_index){
+                $rel_item_id = $_POST['rel_item_id'][$key];
+
+                if(!empty($rel_item_id)){
+                    $stmt_insert_rel_item->execute() or die('<h3>Inserting related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $stmt_insert_rel_item->error);
                 }
             }
+        }
 
-            /*............................................................................*/
+        /*............................................................................*/
 
-			$mysqli->commit();
-			header("location: index.php?insert=success");
-			exit;
-		}
-	}
+        $mysqli->commit();
+        header("location: index.php?insert=success");
+        exit;
+    }
+}
 ?>
 <!DOCTYPE HTML>
 <html>

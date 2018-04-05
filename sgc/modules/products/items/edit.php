@@ -1,100 +1,98 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/scripts/includes.php');
 
-	if(!isset($_GET['edit_hash'])){
-		header("location: index.php");
-		exit;
-	}
+$table = "items";
+$pk = "id";
 
-	$table = "items";
-	$pk = "id";
+if(!isset($_GET['edit_hash'])){
+    header("location: index.php");
+    exit;
+}
 
-	$entity = entity($mysqli, $table);
-	$entity->mapDBValues($pk, $_GET['edit_hash'], $language_id);
+$entity = entity($mysqli, $table);
+$entity->mapDBValues($pk, $_GET['edit_hash'], $language_id);
 
-	if(!$entity->getDBValue($pk)){
-		header("location: index.php");
-		exit;
-	}
+$entity->setQueryFields([
+    's-reference',
+	's-title',
+	's-slug',
+	's-content',
+	'i-points',
+	'i-item_category_id',
+	'i-item_brand_id',
+	'd-price',
+	'd-promo_price',
+	'd-weight',
+	'i-tax_id',
+	's-description',
+	's-keywords',
+	'i-active',
+	'i-highlight',
+	's-list_images',
+	's-detail_images'
+]);
 
-	if(isset($_POST['op']) && $_POST['op'] == "update"){
-		// map posts
-		$posts = $entity->mapPosts();
+if(!$entity->getDBValue($pk)){
+    header("location: index.php");
+    exit;
+}
 
-		// validate
-		$errors = "";
+if(isset($_POST['op']) && $_POST['op'] == "update"){
+    // map posts
+    $posts = $entity->mapPosts();
 
-		if(!$entity->checkRequiredFields()){
-			$errors .= "<br>Preencha todos os campos obrigatórios.";
-		}
-		if(!empty($posts['price']) && !validate()->isFloat($posts['price'])){
-			$errors .= "<br>O preço deve ser um valor decimal.";
-		}
-		if(!empty($posts['weight']) && !validate()->isFloat($posts['weight'])){
-			$errors .= "<br>O peso deve ser um valor decimal.";
-		}
+    // validate
+    $errors = "";
 
-		if(empty($errors)){
-			$mysqli->autocommit(false);
+    if(!$entity->checkRequiredFields()){
+        $errors .= "<br>Preencha todos os campos obrigatórios.";
+    }
 
-			$slug = ($posts['title'] != $entity->getDBValue("title")) ? createSlug($posts['title'], $table, $mysqli) : $entity->getDBValue("slug");
+    if(empty($errors)){
+        $mysqli->autocommit(false);
 
-			// update record
-			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET reference = ?, title = ?, slug = ?, content = ?, points = ?, item_category_id = ?, item_brand_id = ?, price = ?, promo_price = ?, weight = ?, tax_id = ?, description = ?, keywords = ?, active = ?, highlight = ?, list_images = ?, detail_images = ?, updated_at = CURRENT_TIMESTAMP WHERE " . $pk . " = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
-			$stmt_update->bind_param(
-				"ssssiiidddissiiss",
-				$posts['reference'],
-				$posts['title'],
-				$slug,
-				$posts['content'],
-				$posts['points'],
-				$posts['item_category_id'],
-				$posts['item_brand_id'],
-				$posts['price'],
-				$posts['promo_price'],
-				$posts['weight'],
-				$posts['tax_id'],
-				$posts['description'],
-				$posts['keywords'],
-				$posts['active'],
-				$posts['highlight'],
-				$posts['list_images'],
-				$posts['detail_images']
-			);
+        $entity->posts_arr['slug'] = ($posts['title'] != $entity->getDBValue("title")) ? createSlug($posts['title'], $table, $mysqli) : $entity->getDBValue("slug");
 
-			$stmt_update->execute() or die('<h3>Updating record...</h3>' . $stmt_update->error);
+        // update record
+        $stmt_update = $mysqli->prepare(
+            "UPDATE $table SET {$entity->query_fields['names=placeholders']}
+				WHERE language_id = $language_id
+				AND $pk = {$entity->getDBValue($pk)}"
+        ) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
+        $stmt_update->bind_param($entity->query_fields['types'], ...$entity->getQueryFieldsParams());
+        $stmt_update->execute() or die('<h3>Updating record...</h3>' . $stmt_update->error);
 
-			/*............................................................................*/
+        /*............................................................................*/
 
-            /*
-            *	Delete related items
-            */
-            $mysqli->query("DELETE FROM " . $table . "_related WHERE item_id = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Deleting related items...</h3>' . $mysqli->error);
+        /*
+        *	Delete related items
+        */
+        $mysqli->query("DELETE FROM " . $table . "_related WHERE item_id = " . $entity->getDBValue($pk) . " AND language_id = " . $language_id) or die('<h3>Deleting related items...</h3>' . $mysqli->error);
 
-            /*
-             *	Insert related items
-             */
-            if(isset($_POST['rel_item_id'])){
-                $insert_rel_item_query = "INSERT INTO " . $table . "_related  (item_id, language_id, related_item_id) VALUES (" . $entity->getDBValue($pk) . ", " . $language_id . ", ?) ON DUPLICATE KEY UPDATE related_item_id = ?";
-                $stmt_insert_rel_item = $mysqli->prepare($insert_rel_item_query) or die('<h3>Preparing to insert related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $mysqli->error);
-                $stmt_insert_rel_item->bind_param("ii", $rel_item_id, $rel_item_id);
+        /*
+         *	Insert related items
+         */
+        if(isset($_POST['rel_item_id'])){
+            $insert_rel_item_query = "INSERT INTO " . $table . "_related  (item_id, language_id, related_item_id) VALUES (" . $entity->getDBValue($pk) . ", " . $language_id . ", ?) ON DUPLICATE KEY UPDATE related_item_id = ?";
+            $stmt_insert_rel_item = $mysqli->prepare($insert_rel_item_query) or die('<h3>Preparing to insert related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $mysqli->error);
+            $stmt_insert_rel_item->bind_param("ii", $rel_item_id, $rel_item_id);
 
-                foreach($_POST['rel_item_id'] as $key=>$row_index){
-                    $rel_item_id = $_POST['rel_item_id'][$key];
+            foreach($_POST['rel_item_id'] as $key=>$row_index){
+                $rel_item_id = $_POST['rel_item_id'][$key];
 
-                    if(!empty($rel_item_id)){
-                        $stmt_insert_rel_item->execute() or die('<h3>Inserting related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $stmt_insert_rel_item->error);
-                    }
+                if(!empty($rel_item_id)){
+                    $stmt_insert_rel_item->execute() or die('<h3>Inserting related item...</h3>' . '<p>' . $insert_rel_item_query . '</p>' . $stmt_insert_rel_item->error);
                 }
             }
+        }
 
-            /*............................................................................*/
+        /*............................................................................*/
 
-			$mysqli->commit();
-			header("location: index.php?edit=success");
-			exit;
-		}
-	}
+        $mysqli->commit();
+        header("location: index.php?edit=success");
+        exit;
+    }
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -166,13 +164,13 @@
                             <select name="item_brand_id">
                                 <option value="">Selecione...</option>
                                 <?php
-                                $result = $mysqli->query("SELECT * FROM item_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
-                                while($rec = $result->fetch_object()){
-                                    $selected = ($rec->id == $entity->getScopeValue("item_brand_id")) ? ' selected' : '';
-                                    ?>
-                                    <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
-                                    <?php
-                                }
+                                    $result = $mysqli->query("SELECT * FROM item_brands WHERE language_id = " . $language_id . " ORDER BY title") or die($mysqli->error);
+                                    while($rec = $result->fetch_object()){
+                                        $selected = ($rec->id == $entity->getScopeValue("item_brand_id")) ? ' selected' : '';
+                                ?>
+                                <option value="<?= $rec->id ?>"<?= $selected ?>><?= $rec->title ?></option>
+                                <?php
+                                    }
                                 ?>
                             </select>
                         </td>
