@@ -6,18 +6,18 @@ $(document).ready( () => {
         slidesToScroll: 1,
         arrows: false,
         waitForAnimate: false,
-        autoplay: true,
-        autoplaySpeed: 5000,
+        autoplay: false
     });
 
-    $('.banner__link').each((i) => {
-        let $btn = $(this);
 
-        $btn.on('click', () => {
-            console.log(i);
-            $('.banner__slideshow').slick('goTo', i);
-        });
-    });
+    let links = document.querySelectorAll('.banner__item')
+
+    links.forEach( (link, index) => {
+        link.addEventListener('click', function(event){
+            event.preventDefault
+            $('.banner__slideshow').slick('goTo', index)
+        })
+    })
 
     $('.partners__slideshow').slick({
         slidesToShow: 5,
@@ -113,36 +113,42 @@ $(document).ready( () => {
         ]
     });
 
-    $('#accordion').find('.accordion-toggle').click(function(){
+    multiLevelMenu();
 
-        //Expand or collapse this panel
-        $(this).next().slideToggle('slow');
+    $('.product-card__name').dotdotdot()
+})
 
-        //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('slow');
+/**
+ * Muli Level Menu
+ */
+function multiLevelMenu() {
+    $menus = $('.multi-level-menu li > ul');
 
-        
-    });
+    $menus.each(function () {
+        var $menu = $(this),
+            $toggler = $menu.parent().children('a').first(),
+            $anchors = $toggler.children('a');
 
-    $('#accordion-faqs').find('.accordion-toggle').click(function(){
+        // find active items
+        var $active_items = $menu.find('.active');
 
-        //Expand or collapse this panel
-        $(this).next().slideToggle('slow');
+        if ($active_items.length) {
+            $menu.show();
 
-        //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('slow');
-
-        if($('.faqs__toggle')){
-            $(this).toggleClass('closed');
-
-            if($(this).hasClass('closed')){
-                $(this).text('Ver resposta');
-            }else{
-                $(this).text('fechar');
+            if (!$toggler.parent().hasClass('active')) {
+                $toggler.parent().addClass('active');
             }
         }
 
-        
+        $toggler.addClass('toggler');
+
+        $anchors.on('click', function (event) {
+            event.preventDefault();
+        });
+
+        $toggler.on('click', function () {
+            $menu.slideToggle();
+        });
     });
-});
+}
 

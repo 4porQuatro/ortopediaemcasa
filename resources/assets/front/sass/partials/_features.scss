@@ -7,11 +7,16 @@ Features Styling
     padding: 55px;
     background-color: #fff;
 
+    @media screen and (max-width: 768px){
+        padding: 25px;
+    }
+
     &__title{
         color: $primary-color;
         text-align: center;
         font-weight: 700;
         margin-bottom: 0px;
+        font-size: 32px;
     }
 
     &__subtitle{

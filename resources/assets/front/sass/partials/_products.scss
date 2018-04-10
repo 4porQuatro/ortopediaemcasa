@@ -5,6 +5,10 @@ Mosaic Styling
     @extend .row;
 }
 
+.product-logo{
+    width: 80px;
+}
+
 .product--small{
     margin-top: 30px;
 }
@@ -98,6 +102,7 @@ Mosaic Styling
                 font-weight: 600;
                 word-break: break-word;
                 color: $text-color;
+
             }
 
             &__price{
@@ -225,6 +230,8 @@ Mosaic Styling
         font-size: 18px;
         word-break: break-word;
         color: $text-color;
+        max-height: 58px;
+        overflow: hidden;
     }
 
     &__price{
@@ -596,7 +603,8 @@ Product Description Styling
 .product__title{
     margin-top: 0px;
     color: $text-color;
-    font-size: 30px;
+    font-size: 28px;
+    line-height: 1.2em;
 }
 
 .product__form{

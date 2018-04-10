@@ -30,12 +30,5 @@
                 </div>
             @endif
         </div>
-        <div class="section">
-            <!-- Begin: Newsletter Form -->
-            @include('front.components.newsletter', [
-
-            ])
-            <!-- End: Newsletter Form -->
-        </div>
     </div>
 @endsection

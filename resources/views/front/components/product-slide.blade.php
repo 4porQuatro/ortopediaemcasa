@@ -12,7 +12,7 @@
 <div class="product__slide--nav">
     @foreach($images as $image)
     <div class="product__slide--nav-placeholder">
-        <div class="product__image" style="background: url('{{ $images_path . '/' . $image->source}}') center center no-repeat; background-size: cover;"></div>
+        <div class="product__image" style="background: url('{{ $images_path . '/' . $image->source}}') center center no-repeat; background-size: contain;"></div>
     </div>
     @endforeach
 </div>
