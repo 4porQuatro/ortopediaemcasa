@@ -18,8 +18,8 @@
 $_CONFIG = array(
 	// GENERAL SETTINGS
     'disabled' => true,
-    'uploadURL' => "../../../../../public/uploads",
-    'uploadDir' => "",
+    'uploadURL' => "/uploads",
+    'uploadDir' => "../../../../../public/uploads",
     'theme' => "dark",
     'types' => array(
 		// (F)CKEditor types
