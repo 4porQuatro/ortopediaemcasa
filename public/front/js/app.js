@@ -11266,11 +11266,6 @@ var app = new Vue({
     el: '#app',
     data: {},
 
-    created: function created() {
-        console.log('hello!!');
-    },
-
-
     methods: {}
 });
 
@@ -11279,9 +11274,6 @@ var app = new Vue({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 
 window._ = __webpack_require__(13);
 
@@ -11305,10 +11297,6 @@ try {
 
 window.axios = __webpack_require__(16);
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-//Jquery and Jquery Accordion Import
-
-window.$ = window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
 
 window.slick = __webpack_require__(35);
 window.dotdotdot = __webpack_require__(36);
@@ -37136,7 +37124,6 @@ $.magnificPopup.registerModule(RETINA_NS, {
 /* 38 */
 /***/ (function(module, exports) {
 
-var _this = this;
 
 $(document).ready(function () {
 
@@ -37145,16 +37132,15 @@ $(document).ready(function () {
         slidesToScroll: 1,
         arrows: false,
         waitForAnimate: false,
-        autoplay: true,
-        autoplaySpeed: 5000
+        autoplay: false
     });
 
-    $('.banner__link').each(function (i) {
-        var $btn = $(_this);
+    var links = document.querySelectorAll('.banner__item');
 
-        $btn.on('click', function () {
-            console.log(i);
-            $('.banner__slideshow').slick('goTo', i);
+    links.forEach(function (link, index) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault;
+            $('.banner__slideshow').slick('goTo', index);
         });
     });
 
@@ -37242,34 +37228,44 @@ $(document).ready(function () {
         }]
     });
 
-    $('#accordion').find('.accordion-toggle').click(function () {
+    multiLevelMenu();
 
-        //Expand or collapse this panel
-        $(this).next().slideToggle('slow');
+    $('.product-card__name').dotdotdot();
+});
 
-        //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('slow');
-    });
+/**
+ * Muli Level Menu
+ */
+function multiLevelMenu() {
+    $menus = $('.multi-level-menu li > ul');
 
-    $('#accordion-faqs').find('.accordion-toggle').click(function () {
+    $menus.each(function () {
+        var $menu = $(this),
+            $toggler = $menu.parent().children('a').first(),
+            $anchors = $toggler.children('a');
 
-        //Expand or collapse this panel
-        $(this).next().slideToggle('slow');
+        // find active items
+        var $active_items = $menu.find('.active');
 
-        //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('slow');
+        if ($active_items.length) {
+            $menu.show();
 
-        if ($('.faqs__toggle')) {
-            $(this).toggleClass('closed');
-
-            if ($(this).hasClass('closed')) {
-                $(this).text('Ver resposta');
-            } else {
-                $(this).text('fechar');
+            if (!$toggler.parent().hasClass('active')) {
+                $toggler.parent().addClass('active');
             }
         }
+
+        $toggler.addClass('toggler');
+
+        $anchors.on('click', function (event) {
+            event.preventDefault();
+        });
+
+        $toggler.on('click', function () {
+            $menu.slideToggle();
+        });
     });
-});
+}
 
 /***/ }),
 /* 39 */

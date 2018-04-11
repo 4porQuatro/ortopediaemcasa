@@ -30,7 +30,7 @@
                 @if(!$faqs->count())
                     @include('front.partials.no-records-found')
                 @else
-                    @foreach($faqs as $faq)
+                    @foreach($faqs as $key => $faq)
                         @include('front.components.faqs', [
                             'question' => $faq->title,
                             'answer' => $faq->content
@@ -39,13 +39,6 @@
                 @endif
             </div>
 
-        </div>
-        <div class="section">
-            <!-- Begin: Newsletter Form -->
-            @include('front.components.newsletter', [
-
-            ])
-            <!-- End: Newsletter Form -->
         </div>
     </div>
 @endsection

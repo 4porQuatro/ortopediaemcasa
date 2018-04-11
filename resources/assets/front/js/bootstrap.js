@@ -24,11 +24,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 
-//Jquery and Jquery Accordion Import
-import $ from 'jquery';
-window.$ = window.jQuery = $;
-
-
 window.slick = require('slick-carousel');
 window.dotdotdot = require('dotdotdot');
 window.magnificPopup = require('magnific-popup');

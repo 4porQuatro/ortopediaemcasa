@@ -1,7 +1,7 @@
 <div class="section">
     <div class="features">
         @if(!empty($article))
-            <h2 class="features__title">{{ $article->title }}</h2>
+            <h1 class="features__title">{{ $article->title }}</h1>
             <h2 class="features__subtitle">{{ $article->subtitle }}</h2>
         @endif
 

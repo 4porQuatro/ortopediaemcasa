@@ -39,10 +39,6 @@ const app = new Vue({
 
     },
 
-    created(){
-        console.log('hello!!');  
-    },
-
     methods: {
 
     }

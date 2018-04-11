@@ -1,5 +1,12 @@
-<!-- Begin: Footer -->
 <div class="container">
+<div class="section">
+    <!-- Begin: Newsletter Form -->
+        @include('front.components.newsletter')
+    <!-- End: Newsletter Form -->
+</div>
+
+<!-- Begin: Footer -->
+
     <footer class="footer">
 
         <!-- Begin: Footer Top Nav -->
@@ -81,10 +88,11 @@
                 </div>
             </div>
             <!-- End: Footer Partners -->
-        </div>
+
         <!-- End: Footer Bottom Nav -->
 
     </footer>
+</div>
     <!-- Begin: Footer Credits -->
     <div class="footer__credits">
         <p class="footer__credits-text">© 2017-{{ date('Y') }} Ortopediaemcasa.pt. @lang('app.all-rights'). @lang('app.developed-by') <a href="http://www.4por4.pt ">4por4</a></p>

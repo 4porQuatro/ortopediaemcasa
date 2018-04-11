@@ -41,6 +41,7 @@
                     ])
                 </div>
                 <!-- End: Product Description -->
+
             </div>
 
             <form class="product__form">
@@ -100,11 +101,6 @@
             @endif
             <!-- End: Product Advise Slideshow -->
 
-            <div class="section">
-            <!-- Begin: Newsletter Form -->
-                @include('front.components.newsletter')
-            <!-- End: Newsletter Form -->
-            </div>
         </div>
     </div>
 

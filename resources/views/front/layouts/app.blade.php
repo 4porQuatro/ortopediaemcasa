@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="/front/css/libs/lightgallery.css" media="screen">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="{{ mix('/front/css/app.css') }}" media="screen">
-        <link rel="stylesheet" href="{{ asset('/front/css/bootstrap-bigger-container.css') }}">
         @stack('css')
     </head>
 

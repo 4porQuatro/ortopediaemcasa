@@ -117,6 +117,7 @@ Footer Stylings
         float: left;
         width: 50%;
 
+
         @media screen and (max-width: 992px){
             float: none;
             width: 100%;
@@ -153,6 +154,10 @@ Footer Stylings
 
         &-title{
             color: $text-color;
+
+            @media screen and (max-width: 768px){
+                text-align: center;
+            }
         }
 
         &-image{
