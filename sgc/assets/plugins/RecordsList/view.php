@@ -106,18 +106,22 @@
 			}
 
 			echo
-			'	<td class="op"><a class="sprite btn24x24 edit_record" href="' . $edit_page . '?edit_hash=' . md5($lines->$primary_key) . '" title="Editar registo"></a></td>', PHP_EOL;
+			'	<td class="op"><a href="' . $edit_page . '?edit_hash=' . md5($lines->$primary_key) . '" title="Editar registo"><i class="far fa-edit rl-op-btn"></i></a></td>', PHP_EOL;
 
 			if(isset($extra_btns) && sizeof($extra_btns)){
 				foreach($extra_btns as $btn){
 					echo
-				'<td class="op"><a class="' . $btn['class'] . '" href="' . $btn['page'] . '?edit_hash=' . md5($lines->$primary_key) . '" title="' . $btn['title'] . '"></a></td>', PHP_EOL;
+				'<td class="op">
+					<a class="rl-op-btn" href="' . $btn['page'] . '?edit_hash=' . md5($lines->$primary_key) . '" title="' . $btn['title'] . '">
+						<i class="' . $btn['class'] . '"></i>
+					</a>
+				</td>', PHP_EOL;
 				}
 			}
 
 			if(filter_var($removable, FILTER_VALIDATE_BOOLEAN)){
 				echo
-				'<td class="op"><span class="sprite btn24x24 delete_record" data-id="' . $lines->$primary_key . '" title="Eliminar registo"></span></td>', PHP_EOL;
+				'<td class="op"><span class="rl-op-btn rl-op-btn--delete" data-id="' . $lines->$primary_key . '" title="Eliminar registo"><i class="far fa-trash-alt"></i></span></td>', PHP_EOL;
 			}
 
 			echo

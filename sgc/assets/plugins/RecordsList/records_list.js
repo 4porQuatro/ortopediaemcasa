@@ -72,8 +72,10 @@
 			// update elements
 			var updateEls = function(){
 				$list = $results_pane.find('tbody');
-				$delete_btns = $results_pane.find('.sprite.delete_record').on('click', deleteRecord);
+				$delete_btns = $results_pane.find('.rl-op-btn--delete').on('click', deleteRecord);
 				$open_popup_btn = $results_pane.find('.sprite.database.upload').on('click', setPopup);
+
+				console.log($delete_btns.length);
 
 				if(opts.sortable && $list.find('tr').length > 1){
 					var priorities_arr = Array();
@@ -228,6 +230,7 @@
 
 			// delete record
 			var deleteRecord = function(e){
+				console.log(e);
 				if(!confirm("Esta operação eliminará permanentemente o registo!\nDeseja prosseguir?"))
 					return;
 

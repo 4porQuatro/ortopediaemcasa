@@ -112,6 +112,8 @@ div.left_col{width:250px;height:100%;padding:20px;border-right:1px solid #fff;po
 div.right_col{width:auto;height:100%;padding:20px;border-left:1px solid #CCC;position:absolute;left:291px;overflow:hidden}
 div.white_board{margin-bottom:15px;padding:10px;border:1px solid #DDD;border-radius:4px;background-color:#fff;overflow:hidden}
 div.white_board table p{margin:0}
+
+
 /*
 *	RECORDS LIST
 */
@@ -147,6 +149,15 @@ div.records_pane div.results_pane{margin-top:20px;padding-top:20px;border-top:1p
 .records_list .records_list_placeholder{height:41px}
 /* buttons */
 .records_list .sprite.btn24x24{margin:auto}
+.records_list .rl-op-btn{
+	font-size: 19px;
+	color: #333333;
+	cursor: pointer;
+	transition: color .3s;
+}
+.records_list .rl-op-btn:hover{
+	color: #888888;
+}
 /*
 *	PERMISSIONS (SGC USER MODULE)
 */

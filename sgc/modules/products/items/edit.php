@@ -88,6 +88,14 @@ if(isset($_POST['op']) && $_POST['op'] == "update"){
 
         /*............................................................................*/
 
+        // if the item cateory has changed, we must delete the attributes types and values relation
+        if($posts['item_category_id'] != $entity->getDBValue('item_category_id'))
+        {
+            $mysqli->query("DELETE FROM item_item_attribute_value WHERE item_id = " . $entity->getDBValue($pk)) or die($mysqli->error);
+        }
+
+        /*............................................................................*/
+
         $mysqli->commit();
         header("location: index.php?edit=success");
         exit;

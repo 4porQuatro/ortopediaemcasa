@@ -52,6 +52,13 @@ class Item extends Model implements Buyable
 		return $this->belongsTo(ItemCategory::class);
 	}
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+	public function itemAttributeValues()
+    {
+        return $this->belongsToMany(ItemAttributeValue::class);
+    }
 
 	/**
 	 *	Get item's tax

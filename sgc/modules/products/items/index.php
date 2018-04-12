@@ -110,7 +110,14 @@
                 language_id: <?= $_SESSION['sgc_language_id']; ?>,
                 filters_arr: ['item_category_id', 'item_brand_id', 'active', 'highlight'],
                 sort_field: 'priority',
-    			sortable: true
+    			sortable: true,
+                extra_btns: [
+                    {
+                        class: 'fas fa-tasks',
+                        page: 'item-attributes.php',
+                        title: 'Configurar atributos'
+                    }
+                ]
             });
         });
         </script>

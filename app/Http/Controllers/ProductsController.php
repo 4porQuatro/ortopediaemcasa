@@ -78,7 +78,8 @@ class ProductsController extends Controller
                 [
                     'relatedItems',
                     'itemBrand',
-                    'itemCategory.itemAttributeTypes.itemAttributeValues'
+                    'itemCategory.itemAttributeTypes',
+                    'itemAttributeValues'
                 ]
             )
             ->first();
