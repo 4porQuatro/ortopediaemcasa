@@ -82,7 +82,7 @@ if(isset($_POST['op']) && $_POST['op'] == "update") {
                             <input type="checkbox" id="item_attribute_type[<?= $attr_type->id ?>]">
                             <label for="item_attribute_type[<?= $attr_type->id ?>]"><?= $attr_type->title ?></label>
                             <?php
-                                    $rs_attr_values = $mysqli->query("SELECT * FROM item_attribute_values WHERE item_attribute_type_id = " . $attr_type->id) or die($mysqli->error);
+                                    $rs_attr_values = $mysqli->query("SELECT * FROM item_attribute_values WHERE item_attribute_type_id = " . $attr_type->id . " ORDER BY priority") or die($mysqli->error);
                                     if($rs_attr_values->num_rows) {
                             ?>
                             <ol>
