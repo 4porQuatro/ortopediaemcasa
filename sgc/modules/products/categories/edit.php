@@ -47,12 +47,16 @@
 				$mysqli->query("UPDATE $table set priority = (priority + 1) WHERE parent_id " . $parent_id_clause);
 			}
 
+            // generate slug
+            $slug = ($posts['title'] != $entity->getDBValue("title")) ? createSlug($posts['title'], $table, $mysqli) : $entity->getDBValue("slug");
+
 			// update record
-			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET priority = ?, title = ?, parent_id = ?, subtitle = ?, highlight = ?, active = ?, description = ?, keywords = ?, images = ? WHERE " . $pk . " = " . $entity->getDBValue($pk)) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
+			$stmt_update = $mysqli->prepare("UPDATE " . $table . " SET priority = ?, title = ?, slug = ?, parent_id = ?, subtitle = ?, highlight = ?, active = ?, description = ?, keywords = ?, images = ? WHERE " . $pk . " = " . $entity->getDBValue($pk)) or die('<h3>Preparing statement...</h3>' . $mysqli->error);
 			$stmt_update->bind_param(
-				"isisiisss",
+				"issisiisss",
 				$priority,
 				$posts['title'],
+				$slug,
 				$posts['parent_id'],
 				$posts['subtitle'],
 				$posts['highlight'],

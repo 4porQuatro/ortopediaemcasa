@@ -23,11 +23,15 @@
 			$parent_id_clause = (empty($posts['parent_id'])) ? "IS NULL" : "= " . $posts['parent_id'];
 			$mysqli->query("UPDATE $table SET priority = priority + 1 WHERE parent_id $parent_id_clause") or die('<h3>Updating priorities...</h3>' . $mysqli->error);
 
+			// generate slug
+            $slug = createSlug($posts['title'], $table, $mysqli);
+
 			// insert record
-			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (title, parent_id, subtitle, highlight, active, description, keywords, images) VALUES(?, ?, ?, ?, ?, ?, ?, ?)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
+			$stmt_insert = $mysqli->prepare("INSERT INTO " . $table . " (language_id, title, slug, parent_id, subtitle, highlight, active, description, keywords, images) VALUES(" . $language_id . ", ?, ?, ?, ?, ?, ?, ?, ?, ?)") or die('<h3>Preparing to insert record...</h3>' . $mysqli->error);
 			$stmt_insert->bind_param(
-				"sisiisss",
+				"ssisiisss",
 				$posts['title'],
+				$slug,
 				$posts['parent_id'],
 				$posts['subtitle'],
                 $posts['highlight'],
