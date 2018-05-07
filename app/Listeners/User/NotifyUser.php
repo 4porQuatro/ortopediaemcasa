@@ -2,7 +2,6 @@
 
 namespace App\Listeners\User;
 
-use App\Events\Store\OrderPlaced;
 use Illuminate\Auth\Events\Registered;
 
 use App\Mail\Auth\WelcomeUserMail;
@@ -22,8 +21,7 @@ class NotifyUser
     /**
      * Handle the event.
      *
-     * @param  OrderPlaced  $event
-     * @return void
+     * @param Registered $event
      */
     public function handle(Registered $event)
     {

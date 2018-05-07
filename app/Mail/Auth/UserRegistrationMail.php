@@ -36,8 +36,6 @@ class UserRegistrationMail extends Mailable
      */
     public function build()
     {
-        $receivers = [];
-
         foreach($this->email_message->receivers as $receiver)
         {
             $this->to[] = [

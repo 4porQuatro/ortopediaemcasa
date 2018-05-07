@@ -2,7 +2,6 @@
 
 namespace App\Listeners\User;
 
-use App\Events\Store\OrderPlaced;
 use Illuminate\Auth\Events\Registered;
 
 use App\Mail\Auth\UserRegistrationMail;
