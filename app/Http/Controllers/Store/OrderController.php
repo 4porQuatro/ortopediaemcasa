@@ -7,7 +7,6 @@ use App\Http\Requests\Store\OrderRequest;
 
 use App\Lib\Store\Cart;
 
-use App\Models\Items\Stock;
 use App\Models\Store\Order;
 use App\Models\Store\OrderItem;
 use App\Models\Store\ShippingMethod;
@@ -69,11 +68,6 @@ class OrderController extends Controller
             $item->order_id = $order->id;
 
             $item->save();
-
-            // update item stock
-            $stock = Stock::getByForeignKey($cart_item->id, $cart_item->options->size['id'], $cart_item->options->color['id']);
-            $stock->stock -= $item->quantity;
-            $stock->saveOrFail();
 
             // increment earned points
             $points_earned += $cart_item->qty * $cart_item->options->points;

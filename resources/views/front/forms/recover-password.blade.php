@@ -24,7 +24,7 @@
         <span class="tip">* @lang('app.mandatory-fields')</span>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-6 text-right">
         <button class="btn btn-default" type="submit">@lang('app.recover-password')</button>
     </div>
 </div>

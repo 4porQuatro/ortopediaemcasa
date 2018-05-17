@@ -35,33 +35,35 @@ class CartController extends Controller
     public function add(AddItemRequest $request)
     {
         $item = Item::find($request->item_id);
-        $color = ItemAttributeValue::find($request->color_id);
-        $size = ItemAttributeType::find($request->size_id);
-        $stock = DB::table('items_stocks')->where('item_id', $item->id)->where('size_id', $size->id)->where('color_id', $color->id)->first();
+
+        $item_data = [
+            'category' => [
+                'id' => $item->itemCategory->id,
+                'name' => $item->itemCategory->title
+            ],
+            'formatted_price' => Price::output($item->price),
+            'points' => $item->points,
+            'weight' => $item->weight,
+            'image_path' => asset($item->getFirstImagePath('list')),
+            'url' => urli18n('product', $item->slug)
+        ];
+
+        if($request->has('item_attr') ){
+            foreach($request->get('item_attr') as $attribute_type_id => $attribute_value_id){
+                $attribute_type = ItemAttributeType::find($attribute_type_id);
+                $attribute_value = ItemAttributeValue::find($attribute_value_id);
+
+                $item_data['attributes'][] = [
+                    'name' => $attribute_type->title,
+                    'value' => $attribute_value->title
+                ];
+            }
+        }
 
         $cart_item = Cart::instance('items')->add(
             $item,
             $request->quantity,
-            [
-                'stock' => $stock->stock,
-                'category' => [
-                    'id' => $item->category->id,
-                    'name' => $item->category->type->title . ' - ' . $item->category->title
-                ],
-                'formatted_price' => Price::output($item->price),
-                'points' => $item->points,
-                'size' => [
-                    'id' => $size->id,
-                    'name' => $size->title
-                ],
-                'color' => [
-                    'id' => $color->id,
-                    'name' => $color->title
-                ],
-                'weight' => $item->weight,
-                'image_path' => asset($item->getFirstImagePath('list')),
-                'url' => url('product-detail/' . $item->url_rewrite)
-            ]
+            $item_data
         );
 
         $cart_item->setTaxRate($item->tax->percentage);

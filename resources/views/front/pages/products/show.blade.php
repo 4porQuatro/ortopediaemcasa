@@ -44,7 +44,17 @@
 
             </div>
 
-            <form class="product__form">
+            {!! Form::open(['action' => 'Store\CartController@add', 'class' => "product__form", 'id' => 'add-to-cart-form']) !!}
+                @if(count($errors->add_item) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->add_item->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="row">
                     <!-- Begin: Product Options -->
                     <div class="col-xs-12 col-md-6">
@@ -64,7 +74,7 @@
                     </div>
                     <!-- End: Product Purchase -->
                 </div>
-            </form>
+            {!! Form::close() !!}
 
             <!-- Begin: Product Bottom Nav -->
             @include(
@@ -100,8 +110,6 @@
                 </div>
             @endif
             <!-- End: Product Advise Slideshow -->
-
         </div>
     </div>
-
 @endsection

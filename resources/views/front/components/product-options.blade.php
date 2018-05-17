@@ -6,19 +6,25 @@
             @endphp
             @if($item_attr_type_vals->count())
                 <div class="col-xs-12 col-md-6">
-                    <label class="product__label" for="item_attr_{{ $attribute_type->id }}">{{ $attribute_type->title }}</label>
-                    <select class="input-form product__select" name="item_attr_{{ $attribute_type->id }}" id="item_attr_{{ $attribute_type->id }}">
-                        @foreach($item_attr_type_vals as $attribute_value)
-                            <option value="{{ $attribute_value->id }}">{{ $attribute_value->title }}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group">
+                        <label class="product__label" for="item_attr_{{ $attribute_type->id }}">{{ $attribute_type->title }}</label>
+                        <select class="input-form product__select" name="item_attr[{{ $attribute_type->id }}]" id="item_attr_{{ $attribute_type->id }}">
+                            @foreach($item_attr_type_vals as $attribute_value)
+                                <option value="{{ $attribute_value->id }}">{{ $attribute_value->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             @endif
         @endforeach
     @endif
 
     <div class="col-xs-12 col-md-6">
-        <label class="product__label" name="size">Quantidade</label>
-        <input class="product__input" type="number" placeholder="1">   
+        <div class="form-group">
+            {!! Form::label('quantity', trans('app.quantity'), ['class' => "product__label"]) !!}
+            {!! Form::input('number', 'quantity', null, ['class' => "product__input", 'min' => 1]) !!}
+        </div>
     </div>
 </div>
+
+{!! Form::hidden('item_id', $product->id) !!}

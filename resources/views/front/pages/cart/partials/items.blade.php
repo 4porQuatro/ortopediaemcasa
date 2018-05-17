@@ -38,8 +38,9 @@
                             {{ $cart_item->name }}
                         </p>
                         <p>
-                            <b>@lang('app.color'):</b> {{ $cart_item->options->color['name'] }}<br>
-                            <b>@lang('app.size'):</b> {{ $cart_item->options->size['name'] }}
+                            @foreach($cart_item->options->attributes as $attribute)
+                                <b>{{ $attribute['name'] }}:</b> {{ $attribute['value'] }}<br>
+                            @endforeach
                         </p>
                     </td>
                     <td class="text-center">

@@ -133,49 +133,49 @@
 			<section class="section">
 				<div class="container">
 					<div class="payment-info row">
-						<div class="col-sm-5">
-							<!-- Begin: Voucher Input -->
-							<div class="cart-form">
-								<div class="cart-form-table">
-									<div class="form-group">
-										<label for="voucher">@lang('app.voucher')</label>
-										{!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'placeholder' => trans('app.insert-promo-code')]) !!}
-									</div>
+						{{--<div class="col-sm-5">--}}
+							{{--<!-- Begin: Voucher Input -->--}}
+							{{--<div class="cart-form">--}}
+								{{--<div class="cart-form-table">--}}
+									{{--<div class="form-group">--}}
+										{{--<label for="voucher">@lang('app.voucher')</label>--}}
+										{{--{!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'placeholder' => trans('app.insert-promo-code')]) !!}--}}
+									{{--</div>--}}
 
-									<div class="cart-form-btns">
-										{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-plus", 'id' => "add-voucher-btn"]) !!}
-										{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-minus", 'id' => "remove-voucher-btn"]) !!}
-									</div>
-								</div>
+									{{--<div class="cart-form-btns">--}}
+										{{--{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-plus", 'id' => "add-voucher-btn"]) !!}--}}
+										{{--{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-minus", 'id' => "remove-voucher-btn"]) !!}--}}
+									{{--</div>--}}
+								{{--</div>--}}
 
-								<div class="cart-form-results-displayer" id="voucher-results-displayer"></div>
-							</div>
-							<!-- End: Voucher Input -->
+								{{--<div class="cart-form-results-displayer" id="voucher-results-displayer"></div>--}}
+							{{--</div>--}}
+							{{--<!-- End: Voucher Input -->--}}
 
-							<!-- Begin: Points Input -->
-							@if(auth()->check())
-								<div class="cart-form">
-									<div class="cart-form-table">
-										<div class="form-group">
-											<label for="points">@lang('app.points-to-discount')</label>
-											{!! Form::input('number', 'points', $points_spent, ['id' => "points-input", 'class' => 'form-control', 'placeholder' => "Insira os pontos a descontar", 'min' => "0", 'max' => auth()->user()->getAvailablePoints()]) !!}
-										</div>
+							{{--<!-- Begin: Points Input -->--}}
+							{{--@if(auth()->check())--}}
+								{{--<div class="cart-form">--}}
+									{{--<div class="cart-form-table">--}}
+										{{--<div class="form-group">--}}
+											{{--<label for="points">@lang('app.points-to-discount')</label>--}}
+											{{--{!! Form::input('number', 'points', $points_spent, ['id' => "points-input", 'class' => 'form-control', 'placeholder' => "Insira os pontos a descontar", 'min' => "0", 'max' => auth()->user()->getAvailablePoints()]) !!}--}}
+										{{--</div>--}}
 
-										<div class="cart-form-btns">
-											{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-plus", 'id' => "add-points-btn"]) !!}
-											{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-minus", 'id' => "remove-points-btn"]) !!}
-										</div>
-									</div>
+										{{--<div class="cart-form-btns">--}}
+											{{--{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-plus", 'id' => "add-points-btn"]) !!}--}}
+											{{--{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-minus", 'id' => "remove-points-btn"]) !!}--}}
+										{{--</div>--}}
+									{{--</div>--}}
 
-									<p><i><b>Pontos disponíveis:</b> {{ auth()->user()->getAvailablePoints() }}</i></p>
+									{{--<p><i><b>@lang('app.available-points'):</b> {{ auth()->user()->getAvailablePoints() }}</i></p>--}}
 
-									<div class="cart-form-results-displayer" id="points-results-displayer"></div>
-								</div>
-							@endif
-							<!-- End: Points Input -->
-						</div>
+									{{--<div class="cart-form-results-displayer" id="points-results-displayer"></div>--}}
+								{{--</div>--}}
+							{{--@endif--}}
+							{{--<!-- End: Points Input -->--}}
+						{{--</div>--}}
 
-						<div class="cart-summary col-xs-12 col-sm-5 pull-right">
+						<div class="cart-summary col-xs-12">
 							<!-- Begin: Cart summary -->
 							<div id="cart-summary-displayer"></div>
 							<!-- End: Cart summary -->
@@ -189,9 +189,9 @@
 
 					<div class="text-center">
 						@if(auth()->check())
-							<button type="submit" class="btn-squared"><i class="zmdi zmdi-shopping-basket"></i> @lang('app.conclude-purchase')</button>
+							<button type="submit" class="btn btn-default btn-lg"><i class="zmdi zmdi-shopping-basket"></i> @lang('app.conclude-purchase')</button>
 						@else
-							<a class="btn-squared" href="{{ urli18n('login') }}"><i class="zmdi zmdi-account"></i> @lang('app.login')</a>
+							<a class="btn btn-default btn-lg" href="{{ urli18n('login') }}"><i class="zmdi zmdi-account"></i> @lang('app.login')</a>
 						@endif
 					</div>
 				</div>
@@ -201,7 +201,7 @@
 @endsection
 
 @push('scripts')
-	<script src="{{ asset('js/cart.js') }}"></script>
+	<script src="{{ asset('front/js/cart.js') }}"></script>
 	<script>
         initCheckout('{{ url(config('app.locale_prefix')) }}');
 	</script>

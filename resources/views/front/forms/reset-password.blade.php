@@ -40,7 +40,7 @@
         <span class="tip">* @lang('app.mandatory-fields')</span>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-6 text-right">
         <button class="btn btn-default">@lang('app.reset-password')</button>
     </div>
 </div>
