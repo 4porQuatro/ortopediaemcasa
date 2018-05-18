@@ -11,21 +11,32 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="{{ mix('/front/css/app.css') }}" media="screen">
         @stack('css')
+        <style>
+            .thumb{
+                width: 80px;
+                height: 100px;
+                background-color: #ffffff;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                border: 1px solid #dfdfdf;
+            }
+        </style>
     </head>
 
     <body>
         <div id="app">
-            <!-- Begin: Header -->
+            {{-- Begin: Header --}}
             @include('front.layouts.nav')
-            <!-- End: Header -->
+            {{-- End: Header --}}
 
-            <!-- Begin: Content -->
+            {{-- Begin: Content --}}
             @yield('content')
-            <!-- End: Content -->
+            {{-- End: Content --}}
 
-            <!-- Begin: Footer-->
+            {{-- Begin: Footer--}}
             @include('front.layouts.footer')
-            <!-- End: Footer-->
+            {{-- End: Footer--}}
         </div>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGdi7QwIqsN16C3N0J74gtwzGvM4MCJkc"></script>

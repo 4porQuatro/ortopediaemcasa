@@ -25,14 +25,14 @@
             )
 
             <div class="row">
-                <!-- Begin: User menu -->
+                {{-- Begin: User menu --}}
                 <div class="col-sm-3">
                     @include('front.pages.private-area.partials.user-menu')
                 </div>
-                <!-- End: User menu -->
+                {{-- End: User menu --}}
 
                 <div class="col-sm-9">
-                    <!-- Begin: Page article -->
+                    {{-- Begin: Page article --}}
                     @if($article = $page->articles->shift())
                         <div class="editable">
                             <h3>{{ $article->title }}</h3>
@@ -40,7 +40,7 @@
                             {!! $article->content !!}
                         </div>
                     @endif
-                    <!-- End: Page article -->
+                    {{-- End: Page article --}}
 
                     @if(!auth()->user()->items->count())
                         <div class="alert alert-info">
@@ -55,7 +55,7 @@
                                     </th>
                                 </tr>
 
-                                <!-- Begin: Item list -->
+                                {{-- Begin: Item list --}}
                                 @foreach(auth()->user()->items as $item)
                                     <tr>
                                         <td>
@@ -82,7 +82,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <!-- End: Items list -->
+                                {{-- End: Items list --}}
                             </tbody>
                         </table>
                     @endif

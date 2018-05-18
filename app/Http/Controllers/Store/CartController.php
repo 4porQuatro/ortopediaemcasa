@@ -103,9 +103,11 @@ class CartController extends Controller
             return $cart_item->rowId === $row_id;
         });
 
-        if ($item[$row_id]->options->stock >= $qty) {
-            $cart->update($request->row_id, $request->quantity);
-        }
+//        if ($item[$row_id]->options->stock >= $qty) {
+//            $cart->update($request->row_id, $request->quantity);
+//        }
+
+        $cart->update($request->row_id, $request->quantity);
 
         $this->refreshShippingMethods();
         $this->refreshDiscounts();

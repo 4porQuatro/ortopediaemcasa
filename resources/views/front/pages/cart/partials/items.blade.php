@@ -3,7 +3,7 @@
         @lang('app.empty-cart')
     </div>
 @else
-    <table class="cart-table table">
+    <table class="table">
         <thead>
             <tr>
                 <th class="hidden-xs">
@@ -26,22 +26,24 @@
         </thead>
 
         <tbody>
-            <!-- Begin: Item -->
+            {{-- Begin: Item --}}
             @foreach($cart_items as $cart_item)
                 <tr>
                     <td class="min-width-cell hidden-xs">
-                        <div class="cart-table__image" style="background-image:url({{ $cart_item->options->image_path }})"></div>
+                        <div class="thumb" style="background-image:url({{ $cart_item->options->image_path }})"></div>
                     </td>
                     <td>
                         <p>
                             <i>{{ $cart_item->options->category['name'] }}</i><br>
                             {{ $cart_item->name }}
                         </p>
-                        <p>
-                            @foreach($cart_item->options->attributes as $attribute)
-                                <b>{{ $attribute['name'] }}:</b> {{ $attribute['value'] }}<br>
-                            @endforeach
-                        </p>
+                        @if(!empty($cart_item->options->attributes))
+                            <p>
+                                @foreach($cart_item->options->attributes as $attribute)
+                                    <b>{{ $attribute['name'] }}:</b> {{ $attribute['value'] }}<br>
+                                @endforeach
+                            </p>
+                        @endif
                     </td>
                     <td class="text-center">
                         {!! Form::open(['action' => 'Store\CartController@update', 'class' => 'cart-qt-form']) !!}
@@ -58,12 +60,12 @@
                     <td class="min-width-cell text-center">
                         {!! Form::open(['action' => 'Store\CartController@remove', 'class' => 'cart-delete-form']) !!}
                             {!! Form::hidden('row_id', $cart_item->rowId) !!}
-                            {!! Form::button('', ['type' => 'submit', 'class' => 'zmdi zmdi-delete']) !!}
+                            <button class="btn btn-default" type="submit"><i class="zmdi zmdi-delete"></i></button>
                         {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach
-            <!-- End: Item -->
+            {{-- End: Item --}}
         </tbody>
     </table>
 @endif

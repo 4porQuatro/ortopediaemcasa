@@ -15,21 +15,21 @@
         @foreach ($languages as $language)
             {{ app()->setLocale($language->iso) }}
 
-            <!-- Begin: Items -->
+            {{-- Begin: Items --}}
             @if($language->items->count())
                 @foreach($language->items as $item)
                     {!! siteUrl(url($language->slug . '/' . trans('routes.product') . '/' . $item->slug), $item->updated_at, $item->priority) !!}
                 @endforeach
             @endif
-            <!-- End: Items -->
+            {{-- End: Items --}}
 
-            <!-- Begin: Posts -->
+            {{-- Begin: Posts --}}
             @if($language->posts->count())
                 @foreach($language->posts as $post)
                     {!! siteUrl(url($language->slug . '/' . trans('routes.blog') . '/' . $post->slug), $post->updated_at, $post->priority) !!}
                 @endforeach
             @endif
-            <!-- End: Posts -->
+            {{-- End: Posts --}}
         @endforeach
     @endif
 </urlset>

@@ -1,21 +1,21 @@
-<!-- Begin: Navigation-Bar -->
+{{-- Begin: Navigation-Bar --}}
 <nav class="navbar">
     <div class="container">
 
-        <!-- Begin: Navbar Logo -->
+        {{-- Begin: Navbar Logo --}}
         <a class="navbar__logo" href="{{ urli18n() }}">
             <img src="/front/images/logo/logo.png" alt="logo">
         </a>
-        <!-- End: Navbar Logo -->
+        {{-- End: Navbar Logo --}}
 
-        <!-- Begin: Search Tool -->
+        {{-- Begin: Search Tool --}}
         <form action="{{ action('ProductsController@index') }}" method="GET" class="navbar__search">
             {!! Form::text('search', null, ['placeholder' => trans('app.type-your-search'), 'class' => "search-input"]) !!}
             <button class="search-button">@lang('app.search')</button>
         </form>
-        <!-- End: Search Tool -->
+        {{-- End: Search Tool --}}
 
-        <!-- Begin: Navbar Store -->
+        {{-- Begin: Navbar Store --}}
         <div class="navbar__store">
             @if(auth()->check())
                 <a class="navbar__account" href="{{ urli18n('user-welcome') }}"><i class="zmdi zmdi-account"></i> @lang('app.my-account')</a>
@@ -25,10 +25,10 @@
 
             <a class="navbar__shopping-bag" href="{{ urli18n('checkout') }}"><i class="zmdi zmdi-shopping-cart"></i>[ {{ Cart::instance('items')->count() }} ]</a>
         </div>
-        <!-- End: Navbar Store -->
+        {{-- End: Navbar Store --}}
 
         <div class="collapse navbar-collapse" id="myNavbar">
-            <!-- Begin: Navbar Menu -->
+            {{-- Begin: Navbar Menu --}}
             <div class="navbar__menu">
                 <ul class="navbar__list">
                     <li class="navbar__item">
@@ -51,16 +51,16 @@
                     </li>
                 </ul>
             </div>
-            <!-- End: Navbar Menu -->
+            {{-- End: Navbar Menu --}}
         </div>
 
-        <!-- Begin: Button Responsive Menu -->
+        {{-- Begin: Button Responsive Menu --}}
             <button type="button" id="menu-button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <!-- End: Button Responsive Menu -->
+        {{-- End: Button Responsive Menu --}}
     </div>
 </nav>
-<!-- End: Navigation-Bar -->
+{{-- End: Navigation-Bar --}}

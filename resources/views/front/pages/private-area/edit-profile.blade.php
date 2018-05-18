@@ -25,14 +25,14 @@
             )
 
             <div class="row">
-                <!-- Begin: User menu -->
+                {{-- Begin: User menu --}}
                 <div class="col-sm-3">
                     @include('front.pages.private-area.partials.user-menu')
                 </div>
-                <!-- End: User menu -->
+                {{-- End: User menu --}}
 
                 <div class="col-sm-9">
-                    <!-- Begin: Page article -->
+                    {{-- Begin: Page article --}}
                     @if($article = $page->articles->shift())
                         <div class="editable">
                             <h3>{{ $article->title }}</h3>
@@ -40,9 +40,9 @@
                             {!! $article->content !!}
                         </div>
                     @endif
-                    <!-- End: Page article -->
+                    {{-- End: Page article --}}
 
-                    <!-- Begin: Edit profile form -->
+                    {{-- Begin: Edit profile form --}}
                     {!! Form::model($user, ['method' => 'PATCH', 'action' => ['PrivateArea\UserProfileController@update', $user->id], 'autocomplete' => 'off']) !!}
                         @include('front.forms.edit-profile', ['btn_name' => trans('app.save')])
                     {!! Form::close() !!}

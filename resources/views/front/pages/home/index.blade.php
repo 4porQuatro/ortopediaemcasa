@@ -6,16 +6,16 @@
 
 @section('content')
     <div class="container">
-        <!-- Begin: Banner -->
+        {{-- Begin: Banner --}}
         @include(
             'front.components.categories-banner',
             [
                 'slides' => $banner_categories
             ]
         )
-        <!-- End: Banner -->
+        {{-- End: Banner --}}
 
-        <!-- Begin: Products section -->
+        {{-- Begin: Products section --}}
         @if(!empty($products))
             <div class="section">
                 <div class="section__container">
@@ -23,7 +23,7 @@
                     <a class="section__link--right" href="{{ urli18n('products') }}">@lang('app.see-all-products') <i class="zmdi zmdi-arrow-right-top"></i></a>
                 </div>
 
-                <!-- Begin: Products List -->
+                {{-- Begin: Products List --}}
                 <div class="product__list">
                     @foreach($products as $product)
                         <div class="product__collumn">
@@ -41,10 +41,10 @@
                         </div>
                     @endforeach
                 </div>
-                <!-- End: Products List -->
+                {{-- End: Products List --}}
             </div>
         @endif
-        <!-- End: Products section -->
+        {{-- End: Products section --}}
 
         @include('front.partials.brands-section')
 

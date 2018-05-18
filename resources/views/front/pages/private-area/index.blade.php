@@ -25,11 +25,11 @@
             )
 
             <div class="row">
-                <!-- Begin: User menu -->
+                {{-- Begin: User menu --}}
                 <div class="col-sm-3">
                     @include('front.pages.private-area.partials.user-menu')
                 </div>
-                <!-- End: User menu -->
+                {{-- End: User menu --}}
 
                 <div class="col-sm-9">
                     <div class="user-area__info">

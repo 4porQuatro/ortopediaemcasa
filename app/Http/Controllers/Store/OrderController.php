@@ -36,7 +36,7 @@ class OrderController extends Controller
         $order->user_id = $user->id;
         $order->shipping_method = $shipping_method->name;
         $order->shipping_observations = $shipping_method->final_message;
-        $order->points_spent = $request->points;
+        $order->points_spent = $request->has('points') ? $request->get('points') : 0;
 
         // amounts
         $order->items_total = Cart::instance('items')->total();

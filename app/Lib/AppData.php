@@ -16,10 +16,10 @@ class AppData
                 'href' => 'user-orders',
                 'title' => trans('app.orders')
             ],
-            [
-                'href' => 'user-favourites',
-                'title' => trans('app.favorites')
-            ],
+//            [
+//                'href' => 'user-favourites',
+//                'title' => trans('app.favorites')
+//            ],
             [
                 'href' => 'user-profile',
                 'title' => trans('app.edit-profile')

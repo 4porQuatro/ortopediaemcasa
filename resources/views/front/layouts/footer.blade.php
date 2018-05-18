@@ -1,15 +1,15 @@
 <div class="container">
 <div class="section">
-    <!-- Begin: Newsletter Form -->
+    {{-- Begin: Newsletter Form --}}
         @include('front.components.newsletter')
-    <!-- End: Newsletter Form -->
+    {{-- End: Newsletter Form --}}
 </div>
 
-<!-- Begin: Footer -->
+{{-- Begin: Footer --}}
 
     <footer class="footer">
 
-        <!-- Begin: Footer Top Nav -->
+        {{-- Begin: Footer Top Nav --}}
         <div class="footer__top-nav">
             <h2 class="footer__top-header">{{ config('app.name') }}</h2>
             <ul class="footer__top-list">
@@ -25,11 +25,11 @@
                 </li>
             </ul>
         </div>
-        <!-- End: Footer Top Nav -->
+        {{-- End: Footer Top Nav --}}
 
-        <!-- Begin: Footer Bottom Nav -->
+        {{-- Begin: Footer Bottom Nav --}}
         <div class="footer__bottom-nav">
-            <!-- Begin: Footer Menu List -->
+            {{-- Begin: Footer Menu List --}}
             <ul class="footer__menu-list">
                 <li class="footer__menu-item">
                     <a class="footer__menu-link" href="{{ urli18n('products') }}">@lang('app.products')</a>
@@ -47,9 +47,9 @@
                     <a class="footer__menu-link" href="{{ urli18n('privacy-policy') }}">@lang('app.privacy-policy')</a>
                 </li>
             </ul>
-            <!-- End: Footer Menu List -->
+            {{-- End: Footer Menu List --}}
 
-            <!-- Begin: Footer Partners -->
+            {{-- Begin: Footer Partners --}}
             <div class="footer__partners">
                 <div class="row">
                     @if(!empty($payment_methods))
@@ -87,16 +87,16 @@
                     @endif
                 </div>
             </div>
-            <!-- End: Footer Partners -->
+            {{-- End: Footer Partners --}}
 
-        <!-- End: Footer Bottom Nav -->
+        {{-- End: Footer Bottom Nav --}}
 
     </footer>
 </div>
-    <!-- Begin: Footer Credits -->
+    {{-- Begin: Footer Credits --}}
     <div class="footer__credits">
         <p class="footer__credits-text">© 2017-{{ date('Y') }} Ortopediaemcasa.pt. @lang('app.all-rights'). @lang('app.developed-by') <a href="http://www.4por4.pt ">4por4</a></p>
     </div>
-    <!-- End: Footer Credits -->
+    {{-- End: Footer Credits --}}
 </div>
-<!-- End: Footer -->
+{{-- End: Footer --}}

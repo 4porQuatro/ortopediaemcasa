@@ -34,7 +34,7 @@
             @endif
 
             <div class="row">
-                <!-- Begin: Side Menu -->
+                {{-- Begin: Side Menu --}}
                 <div class="col-xs-12 col-md-3 col-xlg-2">
                     @include(
                         'front.partials.multiLevelMenu',
@@ -43,9 +43,9 @@
                         ]
                     )
                 </div>
-                <!-- End: Side Menu -->
+                {{-- End: Side Menu --}}
 
-                <!-- Begin: Product List -->
+                {{-- Begin: Product List --}}
                 <div class="col-xs-12 col-md-9 col-xlg-10" id="updatable">
                     @if(!$products->count())
                         @include('front.partials.no-records-found')
@@ -71,7 +71,7 @@
                         {{ $products->appends(['search' => request('search'), 'category' => request('category'), 'brand' => request('brand')])->links() }}
                     @endif
                 </div>
-                <!-- End: Product List -->
+                {{-- End: Product List --}}
             </div>
 
             @include('front.partials.brands-section')
@@ -79,12 +79,12 @@
         </div>
     </div>
 
-    <!-- Begin: Hidden filters form -->
+    {{-- Begin: Hidden filters form --}}
     {!! Form::open(['action' => "ProductsController@index", 'method' => "GET", 'class' => "hidden", 'id' => "products_filters_form"]) !!}
         {!! Form::hidden('brand') !!}
         {!! Form::hidden('category') !!}
     {!! Form::close() !!}
-    <!-- End: Hidden filters form -->
+    {{-- End: Hidden filters form --}}
 @endsection
 
 @push('scripts')

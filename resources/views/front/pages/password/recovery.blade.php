@@ -27,11 +27,11 @@
                 )
             @endif
 
-            <!-- Begin: Recover password form -->
+            {{-- Begin: Recover password form --}}
             {!! Form::open(['route' => 'password.email', 'autocomplete' => 'off']) !!}
                 @include('front.forms.recover-password')
             {!! Form::close() !!}
-            <!-- End: Recover password form -->
+            {{-- End: Recover password form --}}
         </div>
     </div>
 @endsection

@@ -102,7 +102,7 @@
                     </tr>
                 	<tr>
                     	<th>Utilizador:</th>
-                        <td><a href="../../private-area/users/edit.php?edit_hash=<?= md5($rec_order->user_id); ?>" target="_blank"><?= $rec_order->username; ?> &rarr;</a></td>
+                        <td><a href="../../private-area/users/edit.php?edit_hash=<?= md5($rec_order->user_id); ?>" target="_blank"><?= $rec_order->username; ?> &nearr;</a></td>
                     </tr>
                 	<tr>
                     	<th>Pontos:</th>
@@ -122,8 +122,7 @@
                 	<thead>
                         <tr>
                             <th>Descrição</th>
-                            <th>Cor</th>
-                            <th>Tamanho</th>
+                            <th>Atributos</th>
                             <th style="width:10%;text-align:center">Qt.</th>
                             <th style="width:10%;text-align:center">Preço (Un)</th>
                             <th style="width:1%;text-align:right">Sub-total</th>
@@ -136,12 +135,24 @@
                                 $items_sub_total = $order_item->price * $order_item->quantity;
                                 $items_total += $items_sub_total;
 
-                                $attributes = json_decode($order_item->attributes)
+                                $item_data = json_decode($order_item->attributes);
                         ?>
                         <tr style="cursor:pointer;">
-                            <td><?= $order_item->name ?></td>
-                            <td><?= $attributes->color->name ?></td>
-                            <td><?= $attributes->size->name ?></td>
+                            <td>
+                                <a href="../../products/items/edit.php?edit_hash=<?= md5($order_item->item_id) ?>"><?= $order_item->name ?> &nearr;</a><br>
+                                <i><?= $item_data->category->name ?></i>
+                            </td>
+                            <td>
+                                <?php
+                                    if(!empty($item_data->attributes)){
+                                        foreach($item_data->attributes as $attribute){
+                                ?>
+                                <b><?= $attribute->name ?>:</b> <?= $attribute->value ?><br>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                            </td>
                             <td style="text-align:center;"><?= $order_item->quantity ?></td>
                             <td style="text-align:center;"><?= Price::output($order_item->price) ?></td>
                             <td style="text-align:right;"><?= Price::output($items_sub_total) ?></td>
@@ -152,7 +163,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="4">
                                 <b>Total Items:</b><br>
                                 <b>Envio (<?= $rec_order->shipping_method ?>):</b><br>
                                 <b>Desconto voucher:</b><br>

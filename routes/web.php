@@ -94,7 +94,7 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
      */
     Route::get(trans('routes.user-welcome'), 'PrivateArea\UserWelcomeController@index');
     Route::get(trans('routes.user-orders'), 'PrivateArea\UserOrdersController@index');
-    Route::get(trans('routes.user-favourites'), 'PrivateArea\UserFavouritesController@index');
+//    Route::get(trans('routes.user-favourites'), 'PrivateArea\UserFavouritesController@index');
     Route::get(trans('routes.user-profile'), 'PrivateArea\UserProfileController@edit');
     Route::get(trans('routes.user-password'), 'PrivateArea\UserPasswordController@edit');
 
@@ -156,18 +156,18 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
     /*
      * Voucher
      */
-    Route::prefix('voucher')->group(function () {
-        Route::post('add', 'Store\VoucherController@add');
-        Route::post('remove', 'Store\VoucherController@remove');
-    });
+//    Route::prefix('voucher')->group(function () {
+//        Route::post('add', 'Store\VoucherController@add');
+//        Route::post('remove', 'Store\VoucherController@remove');
+//    });
 
     /*
      * Points
      */
-    Route::prefix('points')->group(function () {
-        Route::post('add', 'Store\PointsController@add');
-        Route::post('remove', 'Store\PointsController@remove');
-    });
+//    Route::prefix('points')->group(function () {
+//        Route::post('add', 'Store\PointsController@add');
+//        Route::post('remove', 'Store\PointsController@remove');
+//    });
 
     /*
      * Order

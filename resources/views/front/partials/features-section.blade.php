@@ -8,14 +8,14 @@
         @if(!empty($features))
             <div class="row">
                 @foreach($features as $feature)
-                <!-- Begin: Features Icon -->
+                {{-- Begin: Features Icon --}}
                     <div class="col-xs-12 col-md-4">
                         @include('front.components.feature-icon', [
                             'icon' => $feature->getFirstImagePath(),
                             'name' => $feature->title
                         ])
                     </div>
-                    <!-- End: Features Icon -->
+                    {{-- End: Features Icon --}}
                 @endforeach
             </div>
         @endif

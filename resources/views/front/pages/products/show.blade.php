@@ -19,7 +19,7 @@
     <div class="section first">
         <div class="container">
             <div class="row">
-                <!-- Begin: Product Slide -->
+                {{-- Begin: Product Slide --}}
                 <div class="col-xs-12 col-md-6">
                     @include(
                         'front.components.product-slide',
@@ -29,9 +29,9 @@
                         ]
                     )
                 </div>
-                <!-- End: Product Slide -->
+                {{-- End: Product Slide --}}
 
-                <!-- Begin: Product Description -->
+                {{-- Begin: Product Description --}}
                 <div class="col-xs-12 col-md-6">
                     @include('front.components.product-description', [
                         'category' => $product->itemCategory->title,
@@ -40,7 +40,7 @@
                         'description' => $product->content
                     ])
                 </div>
-                <!-- End: Product Description -->
+                {{-- End: Product Description --}}
 
             </div>
 
@@ -56,13 +56,13 @@
                 @endif
 
                 <div class="row">
-                    <!-- Begin: Product Options -->
+                    {{-- Begin: Product Options --}}
                     <div class="col-xs-12 col-md-6">
                         @include('front.components.product-options')
                     </div>
-                    <!-- End: Product Options -->
+                    {{-- End: Product Options --}}
 
-                    <!-- Begin: Product Purchase -->
+                    {{-- Begin: Product Purchase --}}
                     <div class="col-xs-12 col-md-6">
                         @include(
                             'front.components.product-purchase',
@@ -72,11 +72,11 @@
                             ]
                         )
                     </div>
-                    <!-- End: Product Purchase -->
+                    {{-- End: Product Purchase --}}
                 </div>
             {!! Form::close() !!}
 
-            <!-- Begin: Product Bottom Nav -->
+            {{-- Begin: Product Bottom Nav --}}
             @include(
                 'front.components.product-bottom-nav',
                 [
@@ -84,9 +84,9 @@
                     'facebook_link' => \App\Lib\SocialMedia::shareFacebookUrl(Request::url())
                 ]
             )
-            <!-- End: Product Bottom Nav -->
+            {{-- End: Product Bottom Nav --}}
 
-            <!-- Begin: Product Advise Slideshow -->
+            {{-- Begin: Product Advise Slideshow --}}
             @if($product->relatedItems->count())
                 <div class="advise-container">
                     <h2 class="slideshow-title">@lang('app.see-also')</h2>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             @endif
-            <!-- End: Product Advise Slideshow -->
+            {{-- End: Product Advise Slideshow --}}
         </div>
     </div>
 @endsection
