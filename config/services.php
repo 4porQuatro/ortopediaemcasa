@@ -29,10 +29,16 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
-    'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+//    'stripe' => [
+//        'model' => App\User::class,
+//        'key' => env('STRIPE_KEY'),
+//        'secret' => env('STRIPE_SECRET'),
+//    ],
+
+    'ifthen' => [
+        'antiphishing-key' => env('IFTHEN_ANTIPHISHING_KEY'),
+        'entity-id' => env('IFTHEN_ENTITY_ID'),
+        'sub-entity-id' => env('IFTHEN_SUBENTITY_ID'),
     ],
 
 ];
