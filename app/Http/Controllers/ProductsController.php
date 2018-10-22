@@ -9,8 +9,8 @@ use App\Models\Pages\Page;
 use Illuminate\Http\Request;
 
 
-class ProductsController extends Controller
-{
+class ProductsController extends Controller {
+
     public function index(Request $request)
     {
         $page = Page::find(2);
@@ -21,9 +21,8 @@ class ProductsController extends Controller
             $categories,
             'ul',
             'li',
-            function($menu_item)
-            {
-                $item_attrs = (!$menu_item->children->count()) ? ' class="products_filters_option" href="' . urli18n('products') . '?category=' . $menu_item->id . '"' : '';
+            function ($menu_item) {
+                $item_attrs = ( ! $menu_item->children->count()) ? ' class="products_filters_option" href="' . urli18n('products') . '?category=' . $menu_item->id . '"' : '';
 
                 $active_class = (request()->get('cat') == $menu_item->id) ? ' class="active"' : '';
 
@@ -32,29 +31,42 @@ class ProductsController extends Controller
         );
 
 
-        $needle = $category_filter = $brand_filter = '%';
-        if(request()->has('search'))
+        $needle = $brand_filter = '%';
+        $category_filter = [];
+        if (request()->has('search'))
         {
             $needle = filter_var($request->get('search'), FILTER_SANITIZE_STRING);
         }
-        if(request()->has('category'))
+        if (request()->has('category'))
         {
-            $category_filter = filter_var($request->get('category'), FILTER_SANITIZE_STRING);
+            $category_filter[] = filter_var($request->get('category'), FILTER_SANITIZE_NUMBER_INT);
         }
-        if(request()->has('brand'))
+        if (request()->has('cat'))
+        {
+            $category_filter[] = filter_var($request->get('cat'), FILTER_SANITIZE_NUMBER_INT);
+            $categories = ItemCategory::find($category_filter[0]);
+            $category_filter = array_merge($category_filter, $categories->children()->get()->pluck('id')->toArray());
+        }
+        if (request()->has('brand'))
         {
             $brand_filter = filter_var($request->get('brand'), FILTER_SANITIZE_STRING);
         }
 
-        $products = Item::with('itemCategory')
-            ->where('item_category_id', 'LIKE', $category_filter)
-            ->where('item_brand_id', 'LIKE', $brand_filter)
-            ->where(function($query) use($needle){
+
+        $products = Item::with('itemCategory');
+
+        if ( ! empty($category_filter))
+        {
+            $products = $products->whereIn('item_category_id', $category_filter);
+        }
+
+        $products = $products->where('item_brand_id', 'LIKE', $brand_filter)
+            ->where(function ($query) use ($needle) {
                 $query->where('title', 'LIKE', '%' . $needle . '%')
-                    ->orWhereHas('itemCategory', function($query) use($needle){
+                    ->orWhereHas('itemCategory', function ($query) use ($needle) {
                         $query->where('title', 'LIKE', '%' . $needle . '%');
                     })
-                    ->orWhereHas('itemBrand', function($query) use($needle){
+                    ->orWhereHas('itemBrand', function ($query) use ($needle) {
                         $query->where('title', 'LIKE', '%' . $needle . '%');
                     });
             })
@@ -84,7 +96,7 @@ class ProductsController extends Controller
             )
             ->first();
 
-        if(!$product)
+        if ( ! $product)
         {
             abort(404);
         }

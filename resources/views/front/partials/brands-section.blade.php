@@ -8,13 +8,16 @@
     @if(!empty($brands))
         <div class="partners">
             <div class="partners__slideshow">
+
                 @foreach($brands as $brand)
+
                     @include(
                         'front.components.partner-image',
                         [
                             'image' => $brand->getFirstImagePath()
                         ]
                     )
+
                 @endforeach
             </div>
         </div>
