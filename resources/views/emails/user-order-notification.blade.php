@@ -14,23 +14,38 @@
     <thead>
         <tr>
             <th align="left">@lang('app.items')</th>
-            <th>@lang('app.color')</th>
-            <th>@lang('app.size')</th>
-            <th>@lang('app.qt')</th>
+            <th align="center">@lang('app.attributes')</th>
+            <th align="center">@lang('app.quantity')</th>
             <th align="right">@lang('app.price')</th>
         </tr>
     </thead>
 
     <tbody>
+        @php
+        $items_total = 0;
+        @endphp
         @foreach($order->items as $item)
-            @php
-                $attributes = json_decode($item->attributes);
-            @endphp
             <tr>
-                <td>{{ $item->name }}</td>
-                <td>{{ $attributes->color->name }}</td>
-                <td align="center">{{ $attributes->size->name }}</td>
-                <td align="center">{{ $item->quantity }}</td>
+                @php
+                    $item_data = json_decode($item->attributes);
+                    $items_sub_total = $item->price * $item->quantity;
+                    $items_total += $items_sub_total;
+                @endphp
+                <td>
+                    {{ $item->name }}
+                    <i>{{$item_data->category->name}}</i>
+                </td>
+
+                <td align="center">
+                @if(!empty($item_data->attributes))
+                    @foreach($item_data->attributes as $attribute)
+                            <strong>{{$attribute->name}}: </strong>{{$attribute->value}}<br>
+                        @endforeach
+                    @endif
+                </td>
+                <td>
+                    {{$item->quantity}}
+                </td>
                 <td align="right">{{ \App\Lib\Store\Price::output($item->price) }}</td>
             </tr>
         @endforeach
@@ -44,10 +59,6 @@
         <tr>
             <th colspan="4" align="right">@lang('app.shipping')</th>
             <th align="right">{{ \App\Lib\Store\Price::output($order->shipping_cost) }}</th>
-        </tr>
-        <tr>
-            <th colspan="4" align="right">@lang('app.vat-number')</th>
-            <th align="right">{{ \App\Lib\Store\Price::output($order->taxes) }}</th>
         </tr>
         <tr>
             <th colspan="4" align="right">@lang('app.voucher-discount')</th>

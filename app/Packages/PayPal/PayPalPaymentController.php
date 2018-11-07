@@ -120,7 +120,6 @@ class PayPalPaymentController extends Controller
 
         // Profile
         $profile = $this->getCreateProfileResponse();
-
         // Payment
         $payment = Paypalpayment::payment();
         $payment->setExperienceProfileId($profile->id)
@@ -128,6 +127,7 @@ class PayPalPaymentController extends Controller
             ->setPayer($payer)
             ->setRedirectUrls($redirectUrls)
             ->setTransactions([$transaction]);
+
 
         try
         {
@@ -160,7 +160,7 @@ class PayPalPaymentController extends Controller
 
         // Create Presentation
         $presentation = new Presentation();
-        $presentation->setLogoImage('https://static.e-junkie.com/sslpic/179899.8a938594dda35ee0f2d195f4ee2b8fd3.jpg')
+        $presentation->setLogoImage('http://ortopediaemcasa.projetos-4por4.com/front/images/logo/logo.png')
             ->setBrandName(config('app.name'))
             ->setLocaleCode($locale);
 

@@ -34,7 +34,7 @@
                         @foreach($payment_methods as $method)
                             <div class="payment-cards-list-item">
                                 @include(
-                                    'components.payment-card',
+                                    'front.components.payment-card',
                                     [
                                         'card_modifier' => 'vertical',
                                         'id' => $method->id,

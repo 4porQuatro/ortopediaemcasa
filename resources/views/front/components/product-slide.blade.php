@@ -1,4 +1,5 @@
 {{-- Begin: Product Slide Main Window --}}
+@if(!empty($images))
 <div class="product__slide--main">
     @foreach($images as $image)
         <div class="product__slide--main-placeholder full-slider-thumb">
@@ -16,4 +17,5 @@
     </div>
     @endforeach
 </div>
+@endif
 {{-- End: Product Slide Nav Window --}}
