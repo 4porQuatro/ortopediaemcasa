@@ -40,6 +40,7 @@ return [
     'name' => "Nome",
     'no-orders-placed' => "Ainda não efetuou nenhuma encomenda",
     'no-records-found' => "Não foram encontrados registos",
+    'nr'=>'Encomenda nº',
     'order' => "Encomenda",
     'orders' => "Encomendas",
     'password' => "Password",

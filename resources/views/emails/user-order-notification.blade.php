@@ -60,6 +60,7 @@
             <th colspan="4" align="right">@lang('app.shipping')</th>
             <th align="right">{{ \App\Lib\Store\Price::output($order->shipping_cost) }}</th>
         </tr>
+        <!--
         <tr>
             <th colspan="4" align="right">@lang('app.voucher-discount')</th>
             <th align="right">{{ \App\Lib\Store\Price::output($order->voucher_discount) }}</th>
@@ -68,6 +69,7 @@
             <th colspan="4" align="right">@lang('app.points-discount')</th>
             <th align="right">{{ \App\Lib\Store\Price::output($order->points_discount) }}</th>
         </tr>
+        -->
     </tfooter>
 </table>
 @endcomponent

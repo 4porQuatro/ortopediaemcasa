@@ -93,7 +93,8 @@ class PayPalPaymentController extends Controller
 
         // Details
         $details = Paypalpayment::details();
-        $details->setSubtotal(number_format($order->items_total, 2))
+        $sub_total = str_replace(',', '', number_format($order->items_total, 2));
+        $details->setSubtotal($sub_total)
             ->setTax(0)
             ->setShipping($order->shipping_cost);
 
