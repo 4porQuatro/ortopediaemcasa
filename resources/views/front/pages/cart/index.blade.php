@@ -41,7 +41,9 @@
 				{{-- End: Errors --}}
 
 				@if($cart_items->count())
+            <div class="white-box">
 					<div id="cart-items-displayer"></div>
+            </div>
 				@else
 					<div class="alert alert-info text-center">
 						@lang('app.add-item')
@@ -63,13 +65,15 @@
 						@endphp
 
 						@if($article)
-							<h2 class="title text-center">{!! $article->title !!}</h2>
+							<h2 class="subsection__title text-center">{!! $article->title !!}</h2>
 						@endif
 					</div>
 
 					<div class="section__content">
 						{{-- Begin: Shipping options --}}
-						<div id="checkout-shipping-displayer"></div>
+                  <div class="white-box">
+   						<div id="checkout-shipping-displayer"></div>
+                  </div>
 						{{-- End: Shipping options --}}
 					</div>
 				</div>
@@ -86,7 +90,7 @@
 							@endphp
 
 							@if($article)
-								<h2 class="title text-center">{!! $article->title !!}</h2>
+								<h2 class="subsection__title text-center">{!! $article->title !!}</h2>
 							@endif
 						</div>
 
@@ -94,33 +98,38 @@
 							<div class="row">
 								{{-- Begin: User billing info --}}
 								<div class="col-sm-6">
-									<h3>@lang('app.billing-info')</h3>
+   								<div class="white-box">
+   									<h3>@lang('app.billing-info')</h3>
 
-									<br>
+   									<br>
 
-									<p class="text">
-										{{ $user->billing_name }}<br>
-										{{ $user->billing_address }}<br>
-										{{ $user->billing_zip_code }} {{ $user->billing_city }} - {{ $user->billingCountry->name }}
-									</p>
+   									<p class="text">
+   										{{ $user->billing_name }}<br>
+   										{{ $user->billing_address }}<br>
+   										{{ $user->billing_zip_code }} {{ $user->billing_city }} - {{ $user->billingCountry->name }}
+   									</p>
 
-									<p class="text">
-										<b>@lang('app.vat-number'):</b> {{ $user->vat_number }}
-									</p>
+   									<p class="text">
+   										<b>@lang('app.vat-number'):</b> {{ $user->vat_number }}
+   									</p>
+   								</div>
 								</div>
 								{{-- End: User billing info --}}
 
 								{{-- Begin: User shipping info --}}
 								<div class="col-sm-6">
-									<h3>@lang('app.shipping-info')</h3>
+                           <div class="white-box">
 
-									<br>
+   									<h3>@lang('app.shipping-info')</h3>
 
-									<p class="text">
-										{{ $user->shipping_name }}<br>
-										{{ $user->shipping_address }}<br>
-										{{ $user->shipping_zip_code }} {{ $user->shipping_city }} - {{ $user->shippingCountry->name }}
-									</p>
+   									<br>
+
+   									<p class="text">
+   										{{ $user->shipping_name }}<br>
+   										{{ $user->shipping_address }}<br>
+   										{{ $user->shipping_zip_code }} {{ $user->shipping_city }} - {{ $user->shippingCountry->name }}
+   									</p>
+   								</div>
 								</div>
 								{{-- End: User shipping info --}}
 							</div>
@@ -144,7 +153,7 @@
 
 			<section class="section">
 				<div class="container">
-					<div class="text-center">
+					<div class="pull-right">
 						@if(auth()->check())
 							<button type="submit" class="btn btn-default btn-lg"><i class="zmdi zmdi-shopping-basket"></i> @lang('app.conclude-purchase')</button>
 						@else

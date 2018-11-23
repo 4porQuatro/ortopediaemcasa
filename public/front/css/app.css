@@ -14563,6 +14563,39 @@ a:focus {
   text-decoration: none;
 }
 
+.white-box {
+  padding: 15px 25px;
+  background-color: white;
+  border-color: #ccc;
+  border-radius: 6px;
+}
+
+.payment-card-title {
+  margin-bottom: 15px;
+}
+
+.payment-card-description {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.payment-card-btn {
+  margin: 15px auto 0;
+}
+
+.payment-card-note {
+  margin-top: 15px;
+}
+
+.payment-card-note p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+#checkout-shipping-displayer p {
+  margin: 0;
+}
+
 .primary-color {
   color: #48a99e;
 }
@@ -14581,6 +14614,11 @@ a:focus {
 
 .first--top {
   margin-top: 60px !important;
+}
+
+.container--shrink {
+  max-width: 600px;
+  margin: auto;
 }
 
 .container-small {
@@ -14604,6 +14642,10 @@ a:focus {
   .section {
     margin-top: 40px;
   }
+}
+
+.section__content {
+  margin-top: 30px;
 }
 
 .section__container {
