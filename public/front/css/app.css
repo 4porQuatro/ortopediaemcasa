@@ -14570,6 +14570,10 @@ a:focus {
   border-radius: 6px;
 }
 
+.white-box > .text-wrapper {
+  min-height: 90px;
+}
+
 .payment-card-title {
   margin-bottom: 15px;
 }

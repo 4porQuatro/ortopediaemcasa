@@ -102,16 +102,19 @@
    									<h3>@lang('app.billing-info')</h3>
 
    									<br>
+                              <div class="text-wrapper">
 
-   									<p class="text">
-   										{{ $user->billing_name }}<br>
-   										{{ $user->billing_address }}<br>
-   										{{ $user->billing_zip_code }} {{ $user->billing_city }} - {{ $user->billingCountry->name }}
-   									</p>
+      									<p class="text">
+      										{{ $user->billing_name }}<br>
+      										{{ $user->billing_address }}<br>
+      										{{ $user->billing_zip_code }} {{ $user->billing_city }} - {{ $user->billingCountry->name }}
+      									</p>
 
-   									<p class="text">
-   										<b>@lang('app.vat-number'):</b> {{ $user->vat_number }}
-   									</p>
+      									<p class="text">
+      										<b>@lang('app.vat-number'):</b> {{ $user->vat_number }}
+      									</p>
+                              </div>
+
    								</div>
 								</div>
 								{{-- End: User billing info --}}
@@ -124,7 +127,7 @@
 
    									<br>
 
-   									<p class="text">
+   									<p class="text text-wrapper">
    										{{ $user->shipping_name }}<br>
    										{{ $user->shipping_address }}<br>
    										{{ $user->shipping_zip_code }} {{ $user->shipping_city }} - {{ $user->shippingCountry->name }}

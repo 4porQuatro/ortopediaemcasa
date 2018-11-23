@@ -51,6 +51,9 @@ a:hover, a:focus{
    background-color: white;
    border-color: #ccc;
    border-radius: 6px;
+   > .text-wrapper{
+      min-height:90px;
+   }
 }
 .payment-card-title{
    margin-bottom: 15px;
