@@ -41,13 +41,18 @@
                                         'name' => $method->name,
                                         'description' => $method->description,
                                         'note' => $method->final_message,
-                                        'order' => $order
+                                        'order' => $order,
+                                        'image'=>$method->getFirstImagePath()
                                     ]
                                 )
                             </div>
                         @endforeach
                     </div>
                 @endif
+            </div>
+            <div class="section_content" style="text-align: center; margin-top:50px">
+
+                <a href="{{url('/')}}" class="product__purchase--button" style="float: none;">Home<i class="zmdi zmdi-home"></i></a>
             </div>
         </div>
     </section>
