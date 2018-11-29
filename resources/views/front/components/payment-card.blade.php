@@ -1,5 +1,6 @@
+<div class="container container--shrink">
 
-<div class="payment-card {{ $card_modifier or '' }}">
+<div class="white-box payment-card {{ $card_modifier or '' }}">
     <!-- Begin: Title -->
     <h3 class="payment-card-title">{{ strip_tags($name) }}
         @if(!empty($image))
@@ -41,4 +42,5 @@
         @endif
     </div>
     <!-- End: Button -->
+</div>
 </div>

@@ -1,0 +1,10 @@
+.table{
+   tbody > tr {
+      display: flex;
+      justify-content: space-between;
+   }
+   tbody > td {
+      display: inline-flex;
+      align-self: center;
+   }
+}

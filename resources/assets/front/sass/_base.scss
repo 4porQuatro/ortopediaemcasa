@@ -46,6 +46,41 @@ a:hover, a:focus{
     text-decoration: none;
 }
 
+.white-box{
+   padding: 15px 25px;
+   background-color: white;
+   border-color: #ccc;
+   border-radius: 6px;
+   > .text-wrapper{
+      min-height:90px;
+   }
+}
+.payment-card-title{
+   margin-bottom: 15px;
+}
+
+.payment-card-description{
+   font-size: 18px;
+   line-height: 30px;
+}
+.payment-card-btn{
+   margin: 15px auto 0;
+}
+.payment-card-note{
+   margin-top: 15px;
+
+   p{
+      font-size: 16px;
+      line-height: 26px;
+   }
+}
+
+#checkout-shipping-displayer{
+   p{
+      margin: 0;
+   }
+}
+
 .primary-color{
     color: $primary-color;
 }
@@ -67,6 +102,10 @@ a:hover, a:focus{
     margin-top: 60px !important;
 }
 
+.container--shrink{
+   max-width: 600px;
+   margin: auto;
+}
 .container-small{
     width: 100%;
     max-width: 1000px;
@@ -87,6 +126,9 @@ a:hover, a:focus{
         margin-top: 40px;
     }
 
+    &__content{
+      margin-top:30px;
+    }
     &__container{
         width: 100%;
 
@@ -95,7 +137,7 @@ a:hover, a:focus{
             display: block;
             clear: both;
         }
-    
+
     }
 
     &__title{
@@ -129,7 +171,7 @@ a:hover, a:focus{
                 display: block;
             }
         }
-        
+
     }
 
     &__link{
@@ -196,7 +238,7 @@ a:hover, a:focus{
         max-width: 100%;
         text-align: left;
         margin-bottom: 40px;
-        
+
         p{
             color: $text-color;
             margin-top: 20px;
@@ -208,7 +250,7 @@ a:hover, a:focus{
     margin: 0 auto;
     margin-top: 30px;
     max-width: 600px;
-    
+
 
     p{
         width: 100%;

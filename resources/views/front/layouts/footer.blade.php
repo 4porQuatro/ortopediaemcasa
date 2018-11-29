@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container"> -->
 <div class="section">
     {{-- Begin: Newsletter Form --}}
         @include('front.components.newsletter')
@@ -92,7 +92,7 @@
         {{-- End: Footer Bottom Nav --}}
 
     </footer>
-</div>
+<!-- </div> -->
     {{-- Begin: Footer Credits --}}
     <div class="footer__credits">
         <p class="footer__credits-text">© 2017-{{ date('Y') }} Ortopediaemcasa.pt. @lang('app.all-rights'). @lang('app.developed-by') <a href="http://www.4por4.pt ">4por4</a></p>
