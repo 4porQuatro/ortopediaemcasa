@@ -26,6 +26,7 @@
                 )
             @endif
 
+
 			{{-- Begin: Items list --}}
 			<div class="section__content">
 				{{-- Begin: Errors --}}

@@ -1,5 +1,6 @@
 <div class="container container--shrink">
 
+
 <div class="white-box payment-card {{ $card_modifier or '' }}">
     <!-- Begin: Title -->
     <h3 class="payment-card-title">{{ strip_tags($name) }}
@@ -32,7 +33,7 @@
     <!-- End: Note -->
 
     <!-- Begin: Button -->
-    <div class="payment-card-btn">
+    <div class="payment-card-btn" style="text-align: center">
         @if($id == 1)
             <a class="btn-square btn-square-dark" href="{{ action('\App\Packages\PayPal\PayPalPaymentController@expressCheckout', ['order_id' => $order->id]) }}">
                 <img height="30" src="{{url('/images/paypal.png')}}">
