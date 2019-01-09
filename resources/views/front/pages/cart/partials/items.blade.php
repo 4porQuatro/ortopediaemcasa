@@ -37,8 +37,7 @@
                             <i>{{ $cart_item->options->category['name'] }}</i><br>
                             {{ $cart_item->name }}
                         </p>
-
-                        @if(count($cart_item->options->attributes))
+                        @if(!empty($cart_item->options->attributes[0]) && count($cart_item->options->attributes))
                             <p>
                                 @foreach($cart_item->options->attributes as $attribute)
                                     <b>{{ $attribute['name'] }}:</b> {{ $attribute['value'] }}<br>

@@ -50,6 +50,7 @@ class CheckoutController extends Controller
         // cart items
         $cart_items = Cart::instance('items')->content();
 
+
         return view(
             'front.pages.cart.index',
             compact(
