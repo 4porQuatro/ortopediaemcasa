@@ -20,11 +20,15 @@
                 <div class="clearfix">
                     <div class="dropdown pull-right" style="margin-bottom: 15px;">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @if(! request()->has('brand'))
                             @lang('app.brands')
+                                @else
+                                {{$brands->where('id', request()->input('brand'))->first()->title}}
+                            @endif
                         </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item products_filters_option" data-filter="brand" data-id="%" href="{{ urli18n('products') }}" style="padding: 1px 12px; display: block;">@lang('app.see-all')</a>
+                            <a class="dropdown-item products_filters_option" data-filter="brand" data-id="" href="{{ urli18n('products') }}" style="padding: 1px 12px; display: block;">@lang('app.see-all')</a>
                             @foreach($brands as $brand)
                                 <a class="dropdown-item products_filters_option" data-filter="brand" data-id="{{ $brand->id }}" href="{{ urli18n('products') }}?brand={{ $brand->id }}" style="padding: 1px 12px; display: block;">{{ $brand->title }}</a>
                             @endforeach

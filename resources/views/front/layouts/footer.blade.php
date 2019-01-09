@@ -53,7 +53,7 @@
             <div class="footer__partners">
                 <div class="row">
                     @if(!empty($payment_methods))
-                        <div class="col-sm-6">
+                        <div class="col-sm-offset-6 col-sm-6">
                             <h4 class="footer__partners-title">@lang('app.payment-methods')</h4>
 
                             @foreach($payment_methods as $payment_method)
@@ -70,6 +70,7 @@
                     @endif
 
                     @if(!empty($shipping_methods))
+                        <!--
                         <div class="col-sm-6">
                             <h4 class="footer__partners-title">@lang('app.shipping-methods')</h4>
 
@@ -84,6 +85,7 @@
                                 @endif
                             @endforeach
                         </div>
+                        -->
                     @endif
                 </div>
             </div>

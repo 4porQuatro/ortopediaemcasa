@@ -16,7 +16,7 @@ class ProductsController extends Controller {
         $page = Page::find(2);
 
         $categories = ItemCategory::all();
-        $brands = ItemBrand::all();
+        $brands = ItemBrand::orderBy('title', 'asc')->get();
         $menu_html = ItemCategory::render(
             $categories,
             'ul',
@@ -45,7 +45,15 @@ class ProductsController extends Controller {
         {
             $category_filter[] = filter_var($request->get('cat'), FILTER_SANITIZE_NUMBER_INT);
             $categories = ItemCategory::find($category_filter[0]);
-            $category_filter = array_merge($category_filter, $categories->children()->get()->pluck('id')->toArray());
+            $childrens_level_1 =  $categories->children()->get();
+            $category_filter = array_merge($category_filter, $childrens_level_1->pluck('id')->toArray());
+            $childrens_level_2 = [];
+            foreach($childrens_level_1 as $child)
+            {
+
+                $childrens_level_2 = array_merge($childrens_level_2, $child->children()->get()->pluck('id')->toArray());
+            }
+            $category_filter = array_merge($category_filter, $childrens_level_2);
         }
         if (request()->has('brand'))
         {
@@ -70,7 +78,7 @@ class ProductsController extends Controller {
                         $query->where('title', 'LIKE', '%' . $needle . '%');
                     });
             })
-            ->paginate(18);
+            ->paginate(12);
 
         return view(
             'front.pages.products.index',
