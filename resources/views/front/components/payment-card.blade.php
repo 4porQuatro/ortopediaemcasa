@@ -2,12 +2,12 @@
 
 
 <div class="white-box payment-card {{ $card_modifier or '' }}">
+
     <!-- Begin: Title -->
-    <h3 class="payment-card-title">{{ strip_tags($name) }}
+    <h3 class="payment-card-title subsection__subtitle">{{ strip_tags($name) }}
         @if(!empty($image))
             <img height="30" src="{{$image}}">
         @endif</h3>
-
     <!-- End: Title -->
 
     <!-- Begin: Description -->

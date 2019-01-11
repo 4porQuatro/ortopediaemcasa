@@ -24,11 +24,11 @@
             {!! Form::label('quantity', trans('app.quantity'), ['class' => "product__label"]) !!}
 
             <div class="minusplusnumber">
-               <div class="mpbtn minus"></div>
+               <div class="mpbtn minus">-</div>
                   <div id="field_container">
                      {!! Form::input('number', 'quantity', null, ['class' => "product__input", 'min' => 1]) !!}
                   </div>
-               <div class="mpbtn plus"></div>
+               <div class="mpbtn plus">+</div>
             </div>
 
         </div>

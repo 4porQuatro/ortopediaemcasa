@@ -100,7 +100,7 @@
 								{{-- Begin: User billing info --}}
 								<div class="col-sm-6">
    								<div class="white-box">
-   									<h3>@lang('app.billing-info')</h3>
+   									<h3 class="subsection__subtitle">@lang('app.billing-info')</h3>
 
    									<br>
                               <div class="text-wrapper">
@@ -124,7 +124,7 @@
 								<div class="col-sm-6">
                            <div class="white-box">
 
-   									<h3>@lang('app.shipping-info')</h3>
+   									<h3  class="subsection__subtitle">@lang('app.shipping-info')</h3>
 
    									<br>
 

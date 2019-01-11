@@ -93,7 +93,7 @@ textarea{
     padding: 10px 25px;
     cursor: pointer;
     color: $primary-color;
-    transition: all .2s ease-in-out; 
+    transition: all .2s ease-in-out;
     float: right;
     background-color: #fff;
     transition: all .2s ease-in-out;
@@ -136,7 +136,7 @@ textarea{
 .form-bottom-text{
     font-style: italic;
     float: left;
-    
+
     @media screen and (max-width: 768px){
         float: none;
         display: block;
@@ -190,4 +190,41 @@ CheckBox Styling
     float: left;
     color: $primary-color;
     font-weight: 700;
+}
+
+.minusplusnumber{
+    min-width: 100px;
+   width: 80%;
+    border: none;
+    background-color: #FFF;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    @media screen and (max-width: 768px){
+      width: 100%;
+   }
+    div {
+       display: inline-block;
+   }
+   #field_container{
+      width: 50%;
+      text-align: center;
+
+      input{
+         width: 100%;
+         padding: 0;
+         text-align: center;
+      }
+   }
+    .mpbtn {
+      line-height: 50px;
+      width: 20%;
+      padding: 0 10px 0 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+   }
 }

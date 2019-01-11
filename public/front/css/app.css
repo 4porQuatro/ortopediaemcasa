@@ -14652,6 +14652,12 @@ a:focus {
   margin-top: 30px;
 }
 
+@media screen and (max-width: 768px) {
+  .section__content {
+    margin-top: 20px;
+  }
+}
+
 .section__container {
   width: 100%;
 }
@@ -14756,11 +14762,23 @@ a:focus {
   line-height: 1.1em;
 }
 
+@media screen and (max-width: 768px) {
+  .subsection__title {
+    font-size: 26px;
+  }
+}
+
 .subsection__subtitle {
   margin-top: 0px;
   color: #48a99e;
   font-size: 35px;
   line-height: 1.1em;
+}
+
+@media screen and (max-width: 768px) {
+  .subsection__subtitle {
+    font-size: 20px;
+  }
 }
 
 .subsection__description.editable {
@@ -15455,6 +15473,48 @@ CheckBox Styling
   float: left;
   color: #48a99e;
   font-weight: 700;
+}
+
+.minusplusnumber {
+  min-width: 100px;
+  width: 80%;
+  border: none;
+  background-color: #FFF;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  .minusplusnumber {
+    width: 100%;
+  }
+}
+
+.minusplusnumber div {
+  display: inline-block;
+}
+
+.minusplusnumber #field_container {
+  width: 50%;
+  text-align: center;
+}
+
+.minusplusnumber #field_container input {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.minusplusnumber .mpbtn {
+  line-height: 50px;
+  width: 20%;
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 
 /*=======================================
@@ -16562,6 +16622,14 @@ Banner Styling
 Mosaic Styling
 ======================================================*/
 
+.payment-cards-list-item:nth-of-type(n+2) {
+  margin-top: 20px;
+}
+
+.payment-cards-list-item img {
+  margin-top: 10px;
+}
+
 .product-logo {
   width: 80px;
 }
@@ -17203,6 +17271,12 @@ Product Description Styling
   padding-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .product__form {
+    margin-top: 30px;
+  }
+}
+
 .product__category {
   color: #48a99e;
   margin-top: 0px;
@@ -17258,12 +17332,49 @@ Product Purchase Styling
   width: 80%;
 }
 
+@media screen and (max-width: 768px) {
+  .product__select {
+    width: 100%;
+  }
+}
+
 .product__input {
   display: block;
   color: #7c869a;
   border: 0px;
   padding: 15px;
   width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .product__table thead {
+    display: none;
+  }
+}
+
+.product__table tr {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__table tr {
+    border-bottom: 1px solid #ddd;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product__table tr td {
+    border-top: none !important;
+    vertical-align: middle !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product__table-name {
+    border-top: none !important;
+    display: block;
+  }
 }
 
 .product__purchase {
@@ -17296,10 +17407,11 @@ Product Purchase Styling
 
 @media screen and (max-width: 768px) {
   .product__purchase--price {
-    float: none;
+    text-align: center;
     display: block;
     margin-left: 0px;
     margin-top: 40px;
+    width: 100%;
   }
 }
 
@@ -17308,10 +17420,11 @@ Product Purchase Styling
   background-color: #fff;
   color: #48a99e;
   border-radius: 3px;
-  padding: 10px 25px;
+  padding: 0 25px;
   float: right;
   margin-top: 5px;
   font-weight: 700;
+  line-height: 44px;
 }
 
 .product__purchase--button .zmdi {
@@ -17320,9 +17433,9 @@ Product Purchase Styling
 
 @media screen and (max-width: 768px) {
   .product__purchase--button {
-    float: none;
+    margin: 25px auto 0;
     display: block;
-    margin-left: 0px;
+    width: 100%;
   }
 }
 
@@ -17358,11 +17471,21 @@ Product Bottom Nav
   vertical-align: middle;
 }
 
+@media screen and (max-width: 768px) {
+  .product__bottom-nav-cell p {
+    font-size: 12px;
+  }
+}
+
 .product__bottom-nav-cell .zmdi {
   color: #457a7c;
   margin-left: 10px;
   display: inline-block;
   vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  font-size: 22px;
+  text-align: center;
 }
 
 .product__bottom-nav-cell:first-child {

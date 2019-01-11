@@ -3,7 +3,7 @@
         @lang('app.empty-cart')
     </div>
 @else
-    <table class="table">
+    <table class="table product__table">
         <thead>
             <tr>
                 <th class="hidden-xs">
@@ -32,7 +32,7 @@
                     <td class="min-width-cell hidden-xs">
                         <div class="thumb" style="background-image:url({{ $cart_item->options->image_path }})"></div>
                     </td>
-                    <td>
+                    <td class="product__table-name">
                         <p>
                             <i>{{ $cart_item->options->category['name'] }}</i><br>
                             {{ $cart_item->name }}
@@ -48,7 +48,15 @@
                     <td class="text-center">
                         {!! Form::open(['action' => 'Store\CartController@update', 'class' => 'cart-qt-form']) !!}
                             {!! Form::hidden('row_id', $cart_item->rowId) !!}
-                            {!! Form::input('number', 'quantity', $cart_item->qty, ['min' => 1, 'max' => $cart_item->options->stock, 'class' => 'qt-input']) !!}
+
+                             <div class="minusplusnumber">
+                                <div class="mpbtn minus">-</div>
+                                   <div id="field_container">
+                                      {!! Form::input('number', 'quantity', $cart_item->qty, ['min' => 1, 'max' => $cart_item->options->stock, 'class' => 'product__input qt-input']) !!}
+                                   </div>
+                                <div class="mpbtn plus">+</div>
+                             </div>
+
                         {!! Form::close() !!}
                     </td>
                     <td class="text-center hidden-xs">

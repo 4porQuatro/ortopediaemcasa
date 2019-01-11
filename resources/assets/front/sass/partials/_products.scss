@@ -1,6 +1,15 @@
 /*====================================================
 Mosaic Styling
 ======================================================*/
+.payment-cards-list-item{
+   &:nth-of-type(n+2){
+      margin-top:20px;
+   }
+
+   img{
+      margin-top: 10px;
+   }
+}
 .product__list{
     @extend .row;
 }
@@ -16,7 +25,7 @@ Mosaic Styling
 .product__collumn{
     @extend .col-xs-12, .col-md-4;
     margin-top: 30px;
-    
+
 
 
     &-list{
@@ -244,7 +253,7 @@ Mosaic Styling
         width: 90%;
         height: 50px;
         margin: 0 auto;
-     
+
 
         &--label{
             color: #ccc;
@@ -612,7 +621,11 @@ Product Description Styling
     width: 100%;
     border-top: 1px solid #fff;
     padding-top: 50px;
-    padding-bottom: 50px;    
+    padding-bottom: 50px;
+
+    @media screen and (max-width: 768px){
+      margin-top: 30px;
+   }
 }
 
 .product__category{
@@ -626,7 +639,7 @@ Product Description Styling
 .product__description.editable{
     margin-top: 20px;
     text-align: left;
-    
+
     h1{
         color: $text-color;
         text-align: left;
@@ -669,6 +682,10 @@ Product Purchase Styling
     border: 0px;
     padding: 15px;
     width: 80%;
+
+     @media screen and (max-width: 768px){
+       width: 100%;
+    }
 }
 
 .product__input{
@@ -679,6 +696,35 @@ Product Purchase Styling
     width: 80%;
 }
 
+.product__table{
+
+   thead{
+
+      @media screen and (max-width: 768px){
+         display: none;
+      }
+   }
+   tr{
+      margin-bottom: 15px;
+      @media screen and (max-width: 768px){
+         border-bottom: 1px solid #ddd;
+         display: block;
+      }
+      td{
+         @media screen and (max-width: 768px){
+            border-top: none !important;
+            vertical-align: middle !important;
+         }
+      }
+   }
+
+   &-name{
+      @media screen and (max-width: 768px){
+         border-top: none !important;
+         display: block;
+      }
+   }
+}
 .product__purchase{
     width: 100%;
     @extend .clearfix;
@@ -705,31 +751,35 @@ Product Purchase Styling
         float: right;
 
         @media screen and (max-width: 768px){
-            float: none;
+           text-align: center;
+            // float: none;
             display: block;
             margin-left: 0px;
             margin-top: 40px;
+            width: 100%;
         }
     }
 
     &--button{
-        margin-left: 50px;
-        background-color: #fff;
-        color: $primary-color;
-        border-radius: 3px;
-        padding: 10px 25px;
-        float: right;
-        margin-top: 5px;
-        font-weight: 700;
+     margin-left: 50px;
+     background-color: #fff;
+     color: $primary-color;
+     border-radius: 3px;
+     padding: 0 25px;
+     float: right;
+     margin-top: 5px;
+     font-weight: 700;
+     line-height: 44px;
 
         .zmdi{
             margin-left: 20px;
         }
 
         @media screen and (max-width: 768px){
-            float: none;
+           margin: 25px auto 0;
+            // float: none;
             display: block;
-            margin-left: 0px;
+            width: 100%;
         }
     }
 }
@@ -762,6 +812,9 @@ Product Bottom Nav
             margin-bottom: 0px;
             display: inline-block;
             vertical-align: middle;
+            @media screen and (max-width: 768px){
+               font-size: 12px;
+            }
         }
 
         .zmdi{
@@ -769,6 +822,10 @@ Product Bottom Nav
             margin-left: 10px;
             display: inline-block;
             vertical-align: middle;
+            width: 35px;
+            height: 35px;
+            font-size: 22px;
+            text-align: center;
         }
 
         &:first-child{
@@ -787,4 +844,3 @@ Product Bottom Nav
     }
 
 }
-
