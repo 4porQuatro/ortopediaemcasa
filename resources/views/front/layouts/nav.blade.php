@@ -1,4 +1,8 @@
 {{-- Begin: Navigation-Bar --}}
+@inject('menu', 'App\Classes\Output\Menu')
+@php
+    $menu_html = $menu->getProductsMenuResponsive();
+@endphp
 <nav class="navbar">
     <div class="container">
 
