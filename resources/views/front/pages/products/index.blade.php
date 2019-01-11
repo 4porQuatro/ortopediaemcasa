@@ -40,10 +40,13 @@
             <div class="row">
                 {{-- Begin: Side Menu --}}
                 <div class="col-xs-12 col-md-3 col-xlg-2">
+                   
                     @include(
                         'front.partials.multiLevelMenu',
                         [
-                            'html' => $menu_html
+                            'html' => $menu_html,
+                            'class' => 'page',
+
                         ]
                     )
                 </div>

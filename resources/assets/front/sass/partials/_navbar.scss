@@ -12,7 +12,7 @@ Navbar Stylings
         width: 160px;
         display: inline-block;
         vertical-align: middle;
-        
+
         img{
             width: 100%;
         }
@@ -101,7 +101,7 @@ Navbar Stylings
            display: none;
        }
 
-       
+
 
        &:after{
            content:"";
@@ -162,10 +162,22 @@ Navbar Stylings
             text-align: center;
         }
     }
-
+    &__submenu{
+      ul{
+         margin-top:5px;
+      }
+      .toggler{
+         color: #7c869a;
+         background-color: white;
+         border-bottom:1px solid rgba(124, 134, 154, 0.3);
+         border-top:none;
+         border-left:none;
+         border-right:none;
+      }
+    }
     &__item{
         display: inline-block;
-        
+
         @media screen and (max-width: 768px){
             display:block;
             padding-left: 0px;
@@ -181,17 +193,34 @@ Navbar Stylings
             }
         }
 
+
+        &.dropdown{
+
+        .navbar__link.mobile{
+          display: block;
+             @media screen and (min-width: 768px){
+                display: none;
+             }
+          }
+          .navbar__link.desk{
+             display: none;
+             @media screen and (min-width: 768px){
+                display: block;
+             }
+          }
+        }
+
         &--responsive{
             margin-top: 20px;
             display: block;
             a{
-                color: $primary-color;  
+                color: $primary-color;
             }
             @media screen and (min-width: 768px){
                 display: none;
             }
 
-            
+
         }
     }
 
@@ -206,7 +235,7 @@ Menu Styling
 =======================================*/
 
 @media (max-width: 768px) {
-    
+
     .navbar-header {
         float: none;
     }
@@ -263,13 +292,13 @@ Menu Styling
         background-color: #fff;
         padding-top: 80px;
         padding-bottom: 80px;
-    
+
     }
 
     .navbar-collapse.collapse.in{
         height: auto;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top:30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -299,7 +328,7 @@ Menu Button Bootrap Reset
     right: 0px;
     z-index: 2;
     margin-top: 0px !important;
-    
+
     .icon-bar{
         background-color: $primary-color !important;
     }

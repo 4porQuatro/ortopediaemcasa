@@ -1,3 +1,14 @@
+.multi-level-menu {
+   display: none;
+
+   @media screen and (min-width: 768px){
+      display: block;
+   }
+
+   &.menu{
+      display: block;   
+   }
+}
 .multi-level-menu ul
 {
   list-style: none;
@@ -61,4 +72,3 @@
 .products_filters_option{
   color: #8c8c8c;
 }
-

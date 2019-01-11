@@ -22,7 +22,15 @@
     <div class="col-xs-12 col-md-6">
         <div class="form-group">
             {!! Form::label('quantity', trans('app.quantity'), ['class' => "product__label"]) !!}
-            {!! Form::input('number', 'quantity', null, ['class' => "product__input", 'min' => 1]) !!}
+
+            <div class="minusplusnumber">
+               <div class="mpbtn minus"></div>
+                  <div id="field_container">
+                     {!! Form::input('number', 'quantity', null, ['class' => "product__input", 'min' => 1]) !!}
+                  </div>
+               <div class="mpbtn plus"></div>
+            </div>
+
         </div>
     </div>
 </div>

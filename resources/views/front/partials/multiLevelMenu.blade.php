@@ -1,4 +1,4 @@
-<div class="multi-level-menu">
+<div class="multi-level-menu {{$class}}">
     {!! $html !!}
 </div>
 

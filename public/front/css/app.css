@@ -15919,6 +15919,19 @@ Navbar Stylings
   }
 }
 
+.navbar__submenu ul {
+  margin-top: 5px;
+}
+
+.navbar__submenu .toggler {
+  color: #7c869a;
+  background-color: white;
+  border-bottom: 1px solid rgba(124, 134, 154, 0.3);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
 .navbar__item {
   display: inline-block;
 }
@@ -15939,6 +15952,26 @@ Navbar Stylings
   .navbar__item + .navbar__item {
     margin-left: 0px;
     margin-top: 20px;
+  }
+}
+
+.navbar__item.dropdown .navbar__link.mobile {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar__item.dropdown .navbar__link.mobile {
+    display: none;
+  }
+}
+
+.navbar__item.dropdown .navbar__link.desk {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar__item.dropdown .navbar__link.desk {
+    display: block;
   }
 }
 
@@ -16032,8 +16065,8 @@ Menu Styling
 
   .navbar-collapse.collapse.in {
     height: auto;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -16444,6 +16477,20 @@ Banner Styling
   .category-select {
     display: none;
   }
+}
+
+.multi-level-menu {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .multi-level-menu {
+    display: block;
+  }
+}
+
+.multi-level-menu.menu {
+  display: block;
 }
 
 .multi-level-menu ul {
