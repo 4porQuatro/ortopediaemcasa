@@ -94,16 +94,7 @@ class ProductsController extends Controller {
     public function show(Request $request)
     {
         $product = Item::where('slug', $request->slug)
-            ->with(
-                [
-                    'relatedItems',
-                    'itemBrand',
-                    'itemCategory.itemAttributeTypes',
-                    'itemAttributeValues'
-                ]
-            )
             ->first();
-
         if ( ! $product)
         {
             abort(404);
