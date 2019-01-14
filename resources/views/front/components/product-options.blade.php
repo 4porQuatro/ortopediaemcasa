@@ -24,14 +24,32 @@
             {!! Form::label('quantity', trans('app.quantity'), ['class' => "product__label"]) !!}
 
             <div class="minusplusnumber">
-               <div class="mpbtn minus">-</div>
+               <div class="mpbtn minus" id="rem_item">-</div>
                   <div id="field_container">
-                     {!! Form::input('number', 'quantity', null, ['class' => "product__input", 'min' => 1]) !!}
+                     {!! Form::input('number', 'quantity', 1, ['class' => "product__input", 'min' => 1, 'id'=>'qty']) !!}
                   </div>
-               <div class="mpbtn plus">+</div>
+               <div class="mpbtn plus" id="add_item">+</div>
             </div>
 
         </div>
+        @push('scripts')
+            <script>
+                $('#rem_item').click(function() {
+                    var total = $('#qty').val();
+                    if(total > 1)
+                    {
+                        total--;
+                    }
+                    $('#qty').val(total);
+                })
+
+                $('#add_item').click(function() {
+                    var total = $('#qty').val();
+                    total++;
+                    $('#qty').val(total);
+                })
+            </script>
+        @endpush
     </div>
 </div>
 

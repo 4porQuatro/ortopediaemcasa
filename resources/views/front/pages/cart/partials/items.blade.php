@@ -50,11 +50,9 @@
                             {!! Form::hidden('row_id', $cart_item->rowId) !!}
 
                              <div class="minusplusnumber">
-                                <div class="mpbtn minus">-</div>
                                    <div id="field_container">
                                       {!! Form::input('number', 'quantity', $cart_item->qty, ['min' => 1, 'max' => $cart_item->options->stock, 'class' => 'product__input qt-input']) !!}
                                    </div>
-                                <div class="mpbtn plus">+</div>
                              </div>
 
                         {!! Form::close() !!}
