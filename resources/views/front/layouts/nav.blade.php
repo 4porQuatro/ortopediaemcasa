@@ -50,13 +50,13 @@
                        </div>
                        <!-- products list -->
                     </li>
-                    <li class="navbar__item--responsive">
+                    <li class="navbar__item">
                         <a class="navbar__link" href="{{ urli18n("about") }}">@lang('app.about')</a>
                     </li>
-                    <li class="navbar__item--responsive">
+                    <li class="navbar__item">
                         <a class="navbar__link" href="{{ urli18n("faqs") }}">@lang('app.faqs')</a>
                     </li>
-                    <li class="navbar__item--responsive">
+                    <li class="navbar__item">
                         <a class="navbar__link" href="{{ urli18n("contacts") }}">@lang('app.contacts')</a>
                     </li>
                     @if(auth()->check())

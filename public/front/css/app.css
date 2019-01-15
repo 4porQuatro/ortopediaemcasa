@@ -16001,6 +16001,7 @@ Navbar Stylings
     display: block;
     padding-left: 0px;
     text-align: center;
+    line-height: 35px;
   }
 }
 
@@ -16128,7 +16129,7 @@ Menu Styling
   .navbar-collapse.collapse.in {
     height: auto;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 }
 
