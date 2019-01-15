@@ -17301,7 +17301,8 @@ Product Description Styling
 
 @media screen and (max-width: 768px) {
   .product__form {
-    margin-top: 30px;
+    margin-top: 25px;
+    padding-bottom: 25px;
   }
 }
 
@@ -17476,6 +17477,13 @@ Product Bottom Nav
 .product__bottom-nav {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__bottom-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 .product__bottom-nav-table {
