@@ -28,12 +28,16 @@ Footer Stylings
         font-size: 35px;
         display: inline-block;
 
+        @media screen and (max-width: 768px){
+          font-size: 26px;
+          line-height: 36px;
+      }
         @media screen and (max-width: 992px){
             display: block;
             text-align: center;
             line-height: 1.2em;
         }
-        
+
     }
 
     &__top-list{
@@ -43,7 +47,7 @@ Footer Stylings
 
         @media screen and (max-width: 992px){
             margin: 0 auto;
-            margin-top: 30px;
+            margin-top: 15px;
             float: none;
             display: block;
             padding-left: 0px;
@@ -71,7 +75,7 @@ Footer Stylings
     }
 
     &__top-link{
-        color: $primary-color; 
+        color: $primary-color;
     }
 
     &__bottom-nav{
@@ -117,12 +121,11 @@ Footer Stylings
         float: left;
         width: 50%;
 
-
         @media screen and (max-width: 992px){
             float: none;
             width: 100%;
             margin: 0 auto;
-            margin-top: 80px;
+            margin-top: 40px;
         }
 
         &:after{
@@ -131,10 +134,13 @@ Footer Stylings
             clear: both;
         }
 
+         img{
+         }
+
         &-lower{
             width: 50%;
             float: left;
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
 
             @media screen and (max-width: 992px){
                 width: 100%;
@@ -145,7 +151,7 @@ Footer Stylings
 
         &-upper{
             width: 100%;
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
 
             @media screen and (max-width: 992px){
                 text-align: center;
@@ -154,6 +160,7 @@ Footer Stylings
 
         &-title{
             color: $text-color;
+            margin-bottom: 15px;
 
             @media screen and (max-width: 768px){
                 text-align: center;
@@ -166,16 +173,28 @@ Footer Stylings
 
             & + &{
                 margin-left: 20px;
+                @media screen and (max-width: 768px){
+                   margin-left: auto;
+               }
             }
+            @media screen and (max-width: 768px){
+               width: auto;
+               max-width: 80%;
+               max-height: 60px;
+               display: block;
+               margin: 15px auto;
+          }
         }
     }
 
     &__credits{
         width: 100%;
         text-align: center;
+         padding: 10px 0;
 
         &-text{
             color: $text-color;
+            margin: 0;
         }
 
         a{

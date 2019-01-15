@@ -211,9 +211,11 @@ Navbar Stylings
         }
 
         &--responsive{
-            margin-top: 20px;
+            margin-top: 10px;
             display: block;
             a{
+               display: block;
+               line-height: 35px;
                 color: $primary-color;
             }
             @media screen and (min-width: 768px){

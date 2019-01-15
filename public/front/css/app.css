@@ -16036,11 +16036,13 @@ Navbar Stylings
 }
 
 .navbar__item--responsive {
-  margin-top: 20px;
+  margin-top: 10px;
   display: block;
 }
 
 .navbar__item--responsive a {
+  display: block;
+  line-height: 35px;
   color: #48a99e;
 }
 
@@ -16202,6 +16204,13 @@ Footer Stylings
   display: inline-block;
 }
 
+@media screen and (max-width: 768px) {
+  .footer__top-header {
+    font-size: 26px;
+    line-height: 36px;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .footer__top-header {
     display: block;
@@ -16219,7 +16228,7 @@ Footer Stylings
 @media screen and (max-width: 992px) {
   .footer__top-list {
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 15px;
     float: none;
     display: block;
     padding-left: 0px;
@@ -16305,7 +16314,7 @@ Footer Stylings
     float: none;
     width: 100%;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }
 
@@ -16342,6 +16351,7 @@ Footer Stylings
 
 .footer__partners-title {
   color: #7c869a;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -16359,13 +16369,31 @@ Footer Stylings
   margin-left: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .footer__partners-image + .footer__partners-image {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__partners-image {
+    width: auto;
+    max-width: 80%;
+    max-height: 60px;
+    display: block;
+    margin: 15px auto;
+  }
+}
+
 .footer__credits {
   width: 100%;
   text-align: center;
+  padding: 10px 0;
 }
 
 .footer__credits-text {
   color: #7c869a;
+  margin: 0;
 }
 
 .footer__credits a {
@@ -16627,7 +16655,7 @@ Mosaic Styling
 }
 
 .payment-cards-list-item img {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .product-logo {
@@ -17416,15 +17444,16 @@ Product Purchase Styling
 }
 
 .product__purchase--button {
-  margin-left: 50px;
+  margin: 5px auto 0;
   background-color: #fff;
   color: #48a99e;
   border-radius: 3px;
   padding: 0 25px;
   float: right;
-  margin-top: 5px;
   font-weight: 700;
   line-height: 44px;
+  display: block;
+  max-width: 150px;
 }
 
 .product__purchase--button .zmdi {
@@ -17700,7 +17729,15 @@ Newsletter Styling
   text-transform: uppercase;
   margin: 0px;
   font-size: 35px;
+  line-height: 45px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .newsletter__title {
+    font-size: 26px;
+    line-height: 36px;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -17714,6 +17751,13 @@ Newsletter Styling
   text-transform: uppercase;
   margin-top: 10px;
   font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .newsletter__subtitle {
+    font-size: 22px;
+    line-height: 30px;
+  }
 }
 
 @media screen and (max-width: 992px) {
