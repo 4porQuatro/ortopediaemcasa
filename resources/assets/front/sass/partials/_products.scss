@@ -761,7 +761,7 @@ Product Purchase Styling
     }
 
     &--button{
-      margin: 5px auto 0;
+      margin-left: 15px;
      background-color: #fff;
      color: $primary-color;
      border-radius: 3px;
@@ -776,6 +776,7 @@ Product Purchase Styling
         }
 
         @media screen and (max-width: 768px){
+           max-width: 100%;
            margin: 25px auto 0;
             // float: none;
             display: block;
