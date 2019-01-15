@@ -117,7 +117,7 @@ class PayPalPaymentController extends Controller
         // Redirect URLs
         $redirectUrls = Paypalpayment::redirectUrls();
         $redirectUrls->setReturnUrl(action('\\' . get_class($this) . "@success"))
-            ->setCancelUrl(action('\\' . get_class($this) . "@fail"));
+            ->setCancelUrl(url()->previous());
 
         // Profile
         $profile = $this->getCreateProfileResponse();
@@ -146,7 +146,6 @@ class PayPalPaymentController extends Controller
                 'order_id' => $order->id
             ]
         );
-
         return redirect($payment->getApprovalLink());
     }
 
@@ -214,6 +213,6 @@ class PayPalPaymentController extends Controller
      */
     public function fail()
     {
-        return redirect()->action('HomepageController@index');
+        return redirect()->back();
     }
 }

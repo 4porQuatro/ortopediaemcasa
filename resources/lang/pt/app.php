@@ -93,4 +93,5 @@ return [
     'entity'                        => 'Entidade',
     'reference'                     => 'Referência',
     'amount'                        => 'Montante',
+    'pay-with-paypal'               => 'Pagar com paypal'
 ];
