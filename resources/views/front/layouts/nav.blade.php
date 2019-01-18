@@ -59,11 +59,17 @@
                     <li class="navbar__item">
                         <a class="navbar__link" href="{{ urli18n("contacts") }}">@lang('app.contacts')</a>
                     </li>
+                    @if(auth()->check())
+                     <li class="navbar__item--responsive">
+                        <a class="navbar__account" href="{{ urli18n('user-welcome') }}"><i class="zmdi zmdi-account"></i> @lang('app.my-account')</a>
+                     </li>
+                    @else
+                     <li class="navbar__item--responsive">
+                        <a class="navbar__account" href="{{ urli18n('login') }}"><i class="zmdi zmdi-account"></i> @lang('app.login')</a>
+                     </li>
+                    @endif
                     <li class="navbar__item--responsive">
-                        <a class="navbar__link" href="#"><i class="zmdi zmdi-account"></i>@lang('app.my-account')</a>
-                    </li>
-                    <li class="navbar__item--responsive">
-                        <a class="navbar__link" href="#"><i class="zmdi zmdi-shopping-cart"></i>[ 0 ]</a>
+                        <a class="navbar__link" href="{{ urli18n('checkout') }}"><i class="zmdi zmdi-shopping-cart"></i>[ {{ Cart::instance('items')->count() }} ]</a>
                     </li>
                 </ul>
             </div>
