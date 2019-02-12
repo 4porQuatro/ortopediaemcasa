@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-md-4">
+<div class="col-xs-12 col-sm-6">
 
 			<div class="contact-icon">
 				{{-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --}}
