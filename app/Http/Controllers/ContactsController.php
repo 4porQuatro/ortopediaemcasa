@@ -1,6 +1,7 @@
 <?php
   namespace App\Http\Controllers;
 
+  use App\Models\App\Contact;
   use App\Models\Pages\Page;
   use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@
     {
         $page = Page::find(5);
 
-        $contacts_info = $this->getInfo();
+        $contacts_info = Contact::first();
 
         return view(
             'front.pages.contacts.index',
@@ -19,22 +20,6 @@
                 'contacts_info'
             )
         );
-    }
-
-    public function getInfo(){
-      $contact_info = new \stdClass;
-
-      $contact_info->icon = '';
-      $contact_info->title = 'o nosso email';
-      $contact_info->text = 'info@ortopediaemcasa.pt';
-
-      $contacts_info = [];
-
-      for($i = 0; $i < 3; $i++){
-        $contacts_info[] = $contact_info;
-      }
-
-      return $contacts_info;
     }
 
   }

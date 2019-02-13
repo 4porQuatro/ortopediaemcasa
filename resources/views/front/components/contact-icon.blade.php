@@ -32,6 +32,6 @@
 				</g>
 				</svg>
 			</div>
-    <h3 class="contact-icons__title">titulo</h3>
-    <p class="contact-icons__text">texto</p>
+    <h3 class="contact-icons__title">{{$title}}</h3>
+    <p class="contact-icons__text">{{$text}}</p>
 </div>

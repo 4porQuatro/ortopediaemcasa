@@ -111,14 +111,9 @@
                         <td>
                         	<select name="category_id">
                             	<option value="">Selecione...</option>
-                                <?php
-									$rs_types = $mysqli->query("SELECT id, title FROm items_types WHERE language_id = " . $language_id . " ORDER BY priority ASC") or die($mysqli->error);
-									if($rs_types->num_rows){
-										while($rec_type = $rs_types->fetch_object()){
-								?>
-								<optgroup label="<?= $rec_type->title ?>">
+
 									<?php
-                                        $result = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " AND type_id = " . $rec_type->id . " ORDER BY priority ASC") or die($mysqli->error);
+                                        $result = $mysqli->query("SELECT * FROM item_categories WHERE language_id = " . $language_id . " ORDER BY priority ASC") or die($mysqli->error);
                                         while($rec = $result->fetch_object()){
                                             $selected = ($rec->id == $entity->getScopeValue("category_id")) ? ' selected' : '';
                                     ?>
@@ -126,11 +121,7 @@
                                     <?php
                                         }
                                     ?>
-                                </optgroup>
-                                <?php
-										}
-									}
-								?>
+
                             </select>
                         </td>
                     </tr>
