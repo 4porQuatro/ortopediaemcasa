@@ -113,14 +113,14 @@
                                                         <td class="text-right" colspan="2">
                                                             Items:<br>
                                                             Envio:<br>
-                                                            {{--@lang('app.voucher-discount'):<br>--}}
+                                                            @lang('app.voucher-discount'):<br>
                                                             {{--@lang('app.points-discount'):<br>--}}
                                                             <b>Total:</b>
                                                         </td>
                                                         <td class="min-width-cell text-right">
                                                             {{ $order->items_total }} €<br>
                                                             {{ $order->shipping_cost }} €<br>
-                                                            {{--{{ ($order->voucher_discount > 0) ? '-' : '' }}{{ $order->voucher_discount }} €<br>--}}
+                                                            {{ ($order->voucher_discount > 0) ? '-' : '' }}{{ $order->voucher_discount }} €<br>
                                                             {{--{{ ($order->points_discount > 0) ? '-' : '' }}{{ $order->points_discount }} €<br>--}}
                                                             <b>{{ $order->total }} €</b>
                                                         </td>
