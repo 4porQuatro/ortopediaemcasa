@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
     {
         date_default_timezone_set("Europe/Lisbon");
         setlocale(LC_ALL, config('app.locale') . '_' . strtoupper(config('app.locale')));
+        Validator::extend('validVoucher', '\App\Http\Requests\Validators\VoucherValidator@valid');
+
     }
 
     /**

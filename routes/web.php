@@ -137,6 +137,14 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
         Route::post('add-shipping-method', 'Store\CartController@addShippingMethod');
     });
 
+    /*
+ * Voucher
+ */
+    Route::prefix('voucher')->group(function () {
+        Route::post('add', 'Store\VoucherController@add');
+        Route::post('remove', 'Store\VoucherController@remove');
+    });
+
 
     /*
      * Checkout
