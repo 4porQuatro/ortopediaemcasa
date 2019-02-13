@@ -49,11 +49,23 @@
             </ul>
             {{-- End: Footer Menu List --}}
 
+            <!-- social list -->
+            <ul class="footer__menu-social">
+               <h4 class="footer__partners-title">Siga-nos</h4>
+               <li>
+                  <a href="#" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+               </li>
+               <li>
+                  <a href="#" target="_blank"><i class="zmdi zmdi-instagram"></i></a>
+               </li>
+            </ul>
+            <!-- social list -->
+
             {{-- Begin: Footer Partners --}}
             <div class="footer__partners">
-                <div class="row">
+                <div class="">
                     @if(!empty($payment_methods))
-                        <div class="col-sm-offset-6 col-sm-6 col-xs-12">
+                        <div class="">
                             <h4 class="footer__partners-title">@lang('app.payment-methods')</h4>
 
                             @foreach($payment_methods as $payment_method)

@@ -15979,6 +15979,16 @@ Navbar Stylings
   }
 }
 
+.navbar__submenu.show {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__submenu.show {
+    display: block !important;
+  }
+}
+
 .navbar__submenu ul {
   margin-top: 5px;
 }
@@ -16273,11 +16283,43 @@ Footer Stylings
   clear: both;
 }
 
+.footer__menu-social {
+  list-style: none;
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .footer__menu-social {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin: 20px auto;
+  }
+}
+
+.footer__menu-social li {
+  border: 2px solid #48a99e;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer__menu-social li a {
+  color: #48a99e;
+  font-size: 24px;
+  display: block;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+}
+
 .footer__menu-list {
   list-style: none;
   padding-left: 0px;
   float: left;
-  width: 50%;
+  width: 33.33%;
 }
 
 @media screen and (max-width: 992px) {
@@ -16306,16 +16348,17 @@ Footer Stylings
 }
 
 .footer__partners {
-  float: left;
-  width: 50%;
+  float: right;
+  width: 33.33%;
+  text-align: right;
 }
 
 @media screen and (max-width: 992px) {
   .footer__partners {
+    text-align: center;
     float: none;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 30px auto 0;
   }
 }
 
@@ -16514,11 +16557,14 @@ Banner Styling
   color: #fff;
   font-size: 60px;
   margin-bottom: 0px;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
   .banner__title {
-    line-height: 1.2em;
+    font-size: 36px;
+    line-height: 46px;
+    max-height: calc(4*46px);
   }
 }
 

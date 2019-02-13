@@ -163,6 +163,13 @@ Navbar Stylings
         }
     }
     &__submenu{
+      &.show{
+         display: none !important;
+
+         @media screen and (max-width: 768px){
+            display: block !important;
+         }
+      }
       ul{
          margin-top:5px;
       }
