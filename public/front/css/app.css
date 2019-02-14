@@ -15517,6 +15517,38 @@ CheckBox Styling
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .cart-form {
+    margin-bottom: 30px;
+  }
+}
+
+.cart-form .form-control {
+  background-color: white !important;
+}
+
+.cart-form .form-group {
+  max-width: 290px;
+}
+
+.cart-form .form-group * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cart-form .form-group input {
+  max-width: calc(100% - 44px);
+}
+
+.cart-form .form-group .btn {
+  height: 50px;
+  width: 40px;
+}
+
+.cart-form .cart-form-results-displayer {
+  margin-top: 10px;
+}
+
 /*=======================================
 EDITABLE CLASSES
 =======================================*/
@@ -15817,20 +15849,33 @@ Navbar Stylings
 .navbar__search {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10%;
   width: 55%;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 768px) {
   .navbar__search {
-    width: 50%;
+    margin-left: 6%;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar__search {
+    margin-left: 16%;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .navbar__search {
+    margin-left: 20%;
+    width: 40%;
   }
 }
 
 @media screen and (max-width: 992px) {
   .navbar__search {
     width: 45%;
-    margin-left: 5%;
   }
 }
 
@@ -15839,7 +15884,6 @@ Navbar Stylings
     display: block;
     width: 100%;
     margin-top: 10px;
-    margin-left: 0px;
   }
 }
 
@@ -15926,6 +15970,19 @@ Navbar Stylings
 
 .navbar__account {
   color: #7c869a;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar__account {
+    padding-left: 3%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .navbar__account {
+    padding-left: 30%;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -15969,13 +16026,25 @@ Navbar Stylings
 .navbar__list {
   list-style: none;
   display: inline-block;
+  padding-left: 0px;
 }
 
 @media screen and (max-width: 768px) {
   .navbar__list {
     display: block;
-    padding-left: 0px;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar__list {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar__list {
+    width: 50%;
   }
 }
 
@@ -16023,6 +16092,24 @@ Navbar Stylings
   .navbar__item + .navbar__item {
     margin-left: 0px;
     margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar__item + .navbar__item {
+    margin-left: 10%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar__item + .navbar__item {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .navbar__item + .navbar__item {
+    margin-left: 70px;
   }
 }
 
@@ -17725,18 +17812,18 @@ Features Styling
 }
 
 .feature__icon {
-  width: 60%;
+  width: 20%;
 }
 
 @media screen and (max-width: 992px) {
   .feature__icon {
-    width: 30%;
+    width: 15%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .feature__icon {
-    width: 50%;
+    width: 25%;
   }
 }
 
@@ -17948,6 +18035,8 @@ About Styling
 
 .about__description p {
   color: #7c869a;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 /*======================================
@@ -17970,6 +18059,13 @@ Contacts icon
   margin-bottom: 100px;
 }
 
+@media screen and (min-width: 992px) {
+  .contact-icons {
+    width: 60%;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .contact-icons {
     padding-top: 30px;
@@ -17977,13 +18073,32 @@ Contacts icon
 }
 
 .contact-icons .contact-icon {
+  position: relative;
   width: 130px;
   height: 130px;
   border-radius: 50%;
   background-color: #fff;
-  margin: 0 auto;
+  margin: 15px auto;
   position: relative;
-  padding-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-icons .contact-icon {
+    margin: 0 auto;
+  }
+}
+
+.contact-icons .contact-icon .zmdi {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 36px;
+  height: 35px;
+  text-align: center;
+  color: #48a99e;
 }
 
 .contact-icons svg {
@@ -18005,7 +18120,7 @@ Contacts icon
 .contact-icons__text {
   text-align: center;
   margin-top: 0px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   color: #7c869a;
 }

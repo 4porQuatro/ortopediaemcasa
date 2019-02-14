@@ -228,3 +228,28 @@ CheckBox Styling
       text-align: center;
    }
 }
+.cart-form{
+   @media screen and (max-width: 768px){
+      margin-bottom: 30px;
+   }
+   .form-control{
+      background-color: white !important;
+   }
+   .form-group{
+      max-width: 290px;
+      *{
+         display: inline-block;
+         vertical-align: top;
+      }
+      input{
+         max-width: calc(100% - 44px);
+      }
+      .btn{
+         height: 50px;
+         width: 40px;
+      }
+   }
+   .cart-form-results-displayer{
+      margin-top: 10px;
+   }
+}

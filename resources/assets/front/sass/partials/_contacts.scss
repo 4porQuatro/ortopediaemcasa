@@ -12,18 +12,40 @@ Contacts icon
     width: 100%;
     margin-bottom: 100px;
 
+    @media screen and (min-width: 992px){
+      width: 60%;
+      margin: auto;
+    }
     @media screen and (max-width: 768px){
         padding-top: 30px;
     }
 
     .contact-icon{
+      position: relative;
         width: 130px;
         height: 130px;
         border-radius: 50%;
         background-color: #fff;
-        margin: 0 auto;
+        margin: 15px auto;
         position: relative;
-        padding-top: 40px;
+        // padding-top: 40px;
+
+        @media screen and (min-width: 768px){
+           margin: 0 auto;
+        }
+
+        .zmdi{
+           position: absolute;
+           top: 0;
+           bottom: 0;
+           left: 0;
+           right: 0;
+           margin: auto;
+           font-size: 36px;
+           height: 35px;
+           text-align: center;
+           color: #48a99e;
+        }
     }
 
     svg{
@@ -45,7 +67,7 @@ Contacts icon
     &__text{
         text-align: center;
         margin-top: 0px;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 700;
         color: $text-color;
     }

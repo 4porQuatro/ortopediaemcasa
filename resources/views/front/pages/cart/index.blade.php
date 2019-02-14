@@ -146,28 +146,33 @@
 			<section class="section">
 				<div class="container">
 					<div class="payment-info">
-						<!-- Begin: Voucher Input -->
-						<div class="cart-form">
-							<div class="cart-form-table">
-								<div class="form-group">
-									<label for="voucher">@lang('app.voucher')</label>
-									{!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'placeholder' => trans('app.insert-promo-code')]) !!}
-								</div>
+                  <div class="cart-summary row">
+                     <div class="col-sm-6">
+                        <!-- Begin: Voucher Input -->
+                        <div class="cart-form">
+                           <div class="cart-form-table">
+                              <div class="form-group">
+                                 <label for="voucher">@lang('app.voucher')</label>
+                                 {!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'placeholder' => trans('app.insert-promo-code')]) !!}
+                                 {!! Form::button('', ['class' => "btn btn-default zmdi zmdi-check", 'id' => "add-voucher-btn"]) !!}
+                              </div>
 
-								<div class="cart-form-btns">
-									{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-plus", 'id' => "add-voucher-btn"]) !!}
-									{!! Form::button('', ['class' => "btn-circle btn-circle-default zmdi zmdi-minus", 'id' => "remove-voucher-btn"]) !!}
-								</div>
-							</div>
+                              <div class="cart-form-btns">
+                                 {!! Form::button('Limpar', ['class' => "btn btn-default", 'id' => "remove-voucher-btn"]) !!}
+                              </div>
+                           </div>
 
-							<div class="cart-form-results-displayer" id="voucher-results-displayer"></div>
-						</div>
-						<!-- End: Voucher Input -->
+                           <div class="cart-form-results-displayer" id="voucher-results-displayer"></div>
+                        </div>
+                        <!-- End: Voucher Input -->
+                     </div>
 
-						<div class="cart-summary">
-							{{-- Begin: Cart summary --}}
-							<div id="cart-summary-displayer"></div>
-							{{-- End: Cart summary --}}
+                     <div class="col-sm-6">
+                        {{-- Begin: Cart summary --}}
+                        <div id="cart-summary-displayer"></div>
+                        {{-- End: Cart summary --}}
+                     </div>
+
 						</div>
 					</div>
 				</div>

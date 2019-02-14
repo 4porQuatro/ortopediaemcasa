@@ -35,13 +35,13 @@
                 <div class="row">
 
                         @include('front.components.contact-icon', [
-                            'icon' => '',
+                            'icon' => 'zmdi zmdi-phone',
                             'title' => 'Telefone',
                             'text' => $contacts_info->phone
                         ])
 
                     @include('front.components.contact-icon', [
-                        'icon' => '',
+                        'icon' => 'zmdi zmdi-email',
                         'title' => 'Email',
                         'text' => $contacts_info->email
                     ])

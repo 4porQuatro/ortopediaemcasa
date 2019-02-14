@@ -13,7 +13,7 @@ $(document).ready( () => {
     let links = document.querySelectorAll('.banner__item')
 
     links.forEach( (link, index) => {
-        link.addEventListener('click', function(event){
+        link.addEventListener('mouseover', function(event){
             event.preventDefault
             $('.banner__slideshow').slick('goTo', index)
         })
@@ -60,7 +60,7 @@ $(document).ready( () => {
 
                 }
             }
-            
+
         ]
     });
 
@@ -151,4 +151,3 @@ function multiLevelMenu() {
         });
     });
 }
-

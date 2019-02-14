@@ -3,7 +3,7 @@
         <ul class="banner__list">
             @foreach($slides as $slide)
                 <li class="banner__item">
-                    <a class="banner__link" href="#">{{ $slide->title }}</a>
+                    <a class="banner__link" href="{{ urli18n('products') . '?cat=' . $slide->id }}">{{ $slide->title }}</a>
                 </li>
             @endforeach
         </ul>
