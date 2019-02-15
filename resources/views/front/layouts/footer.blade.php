@@ -53,10 +53,10 @@
             <ul class="footer__menu-social">
                <h4 class="footer__partners-title">Siga-nos</h4>
                <li>
-                  <a href="#" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+                  <a href="https://www.facebook.com/ortopediaemcasa/" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
                </li>
                <li>
-                  <a href="#" target="_blank"><i class="zmdi zmdi-instagram"></i></a>
+                  <a href="https://www.instagram.com/ortopediaemcasa/" target="_blank"><i class="zmdi zmdi-instagram"></i></a>
                </li>
             </ul>
             <!-- social list -->
