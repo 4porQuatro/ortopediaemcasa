@@ -151,15 +151,24 @@
                         <!-- Begin: Voucher Input -->
                         <div class="cart-form">
                            <div class="cart-form-table">
-                              <div class="form-group">
-                                 <label for="voucher">@lang('app.voucher')</label>
-                                 {!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'placeholder' => trans('app.insert-promo-code')]) !!}
-                                 {!! Form::button('', ['class' => "btn btn-default zmdi zmdi-check", 'id' => "add-voucher-btn"]) !!}
-                              </div>
+                              <div class="form-group" style="max-width: 100%; width: 100%">
+								  <label style="display:block" for="voucher">@lang('app.voucher')</label>
 
-                              <div class="cart-form-btns">
-                                 {!! Form::button('Limpar', ['class' => "btn btn-default", 'id' => "remove-voucher-btn"]) !!}
-                              </div>
+								  <div class="row" style="display: block">
+									  <div class="col-xs-7">
+										  {!! Form::text('voucher', $voucher_code, ['id' => "voucher", 'class' => 'form-control', 'style'=>'max-width:100%', 'placeholder' => trans('app.insert-promo-code')]) !!}
+									  </div>
+									  <div class="col-xs-5" style="padding-left:0px">
+										  <div class="btn-group" style="display: inline-block">
+											  {!! Form::button('', ['class' => "btn btn-default zmdi zmdi-check" , 'style'=>'display:inline-block', 'id' => "add-voucher-btn"]) !!}
+											  {!! Form::button('', ['class' => "btn btn-default zmdi zmdi-close", 'id' => "remove-voucher-btn"]) !!}
+										  </div>
+									  </div>
+								  </div>
+
+
+							  </div>
+
                            </div>
 
                            <div class="cart-form-results-displayer" id="voucher-results-displayer"></div>
