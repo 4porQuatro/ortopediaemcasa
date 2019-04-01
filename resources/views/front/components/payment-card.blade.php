@@ -29,6 +29,7 @@
                 @lang('app.amount'): {{  \App\Lib\Store\Price::output($order->paymentReference->amount) }}
             </p>
         @endif
+
     </div>
     <!-- End: Note -->
 
@@ -40,6 +41,22 @@
             </a>
         @elseif($id == 4)
             <a class="btn-square btn-square-dark" href="{{ urli18n('contacts') }}">@lang('app.more-info')</a>
+
+        @elseif($id == 5)
+            <form action="{{route('payment.stripe')}}" method="POST">
+                {{csrf_field()}}
+                <input type="hidden" name="order" value="{{$order->id}}">
+                <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="{{config('services.stripe.key')}}"
+                        data-amount="{{$order->total*100}}"
+                        data-name="Ortopedia em casa"
+                        data-currency="eur"
+                        data-description="Pagamento"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto">
+                </script>
+            </form>
         @endif
     </div>
     <!-- End: Button -->

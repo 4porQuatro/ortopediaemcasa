@@ -26,7 +26,7 @@ class NotifyOrder
      */
     public function handle(OrderPlaced $event)
     {
-        \Mail::queue(new OrderPlacedAdminMail($event->order));
+        \Mail::send(new OrderPlacedAdminMail($event->order));
         \Mail::to($event->order->user->email)->queue(new OrderPlacedUserMail($event->order));
     }
 }

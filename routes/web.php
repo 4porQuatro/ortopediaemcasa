@@ -17,6 +17,8 @@ Route::prefix('products')->group(function(){
 });
 Route::get('/search', 'SearchController@index');
 
+Route::get('test_stripe', 'Store\StripeController@test');
+
 
 
 
@@ -155,6 +157,7 @@ Route::group(['prefix' => config('app.locale_prefix')], function() {
         Route::get('shipping-methods', 'CheckoutController@shippingMethods');
         Route::get('summary', 'CheckoutController@summary');
         Route::get('conclude/{order_id}', 'CheckoutController@conclude');
+        Route::post('payment_stripe', 'Store\StripeController@store')->name('payment.stripe');
     });
 
     Route::prefix('store')->group(function () {

@@ -18,10 +18,10 @@ class StoreController extends Controller
      */
     public function paymentReceived()
     {
-        $page = Page::find(20);
+        $page = Page::find(19);
 
         return view(
-            'pages.store.payment-received',
+            'front.pages.store.payment-received',
             compact(
                 'page'
             )

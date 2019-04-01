@@ -44,7 +44,7 @@ class Voucher extends Model
 
             foreach($items as $item)
             {
-                if($voucher->category_id == $item->options->category['id'])
+                if($voucher->category_id == $item->options->category['id'] || empty($voucher->category_id))
                 {
                     $incidence_value += $item->total;
                 }

@@ -165,6 +165,7 @@
                         <tr>
                             <td colspan="4">
                                 <b>Total Items:</b><br>
+                                <b>Total IVA:</b><br>
                                 <b>Envio (<?= $rec_order->shipping_method ?>):</b><br>
                                 <b>Desconto voucher:</b><br>
                                 <b>Desconto pontos:</b><br>
@@ -172,6 +173,7 @@
                             </td>
                             <td style="text-align:right">
                                 <?= Price::output($items_total) ?><br>
+                                <?= Price::output($rec_order->taxes) ?><br>
                                 <?= Price::output($rec_order->shipping_cost) ?><br>
                                 <?= ($rec_order->voucher_discount > 0) ? '-' . Price::output($rec_order->voucher_discount) : 0 ?><br>
                                 <?= ($rec_order->points_discount > 0) ? '-' . Price::output($rec_order->points_discount) : 0 ?><br>

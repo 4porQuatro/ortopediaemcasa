@@ -145,9 +145,11 @@
                                             <hr>
 
                                             @if($order->state_id != 2 && $payment_methods->count())
+                                                <!--
                                                 <p class="text-center">
                                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#order-modal-{{ $order->id }}">@lang('app.see-available-payment-methods')</button>
                                                 </p>
+                                                -->
                                             @endif
                                         </div>
                                         {{-- End: Panel body --}}

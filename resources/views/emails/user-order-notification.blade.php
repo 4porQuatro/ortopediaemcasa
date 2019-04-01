@@ -54,8 +54,14 @@
     <tfooter>
         <tr>
             <th colspan="4" align="right">@lang('app.items')</th>
-            <th align="right">{{ \App\Lib\Store\Price::output($order->items_total) }}</th>
+            <th align="right">{{ \App\Lib\Store\Price::output($items_total) }}</th>
         </tr>
+
+        <tr>
+            <th colspan="4" align="right">IVA</th>
+            <th align="right">{{ \App\Lib\Store\Price::output($order->taxes) }}</th>
+        </tr>
+
         <tr>
             <th colspan="4" align="right">@lang('app.shipping')</th>
             <th align="right">{{ \App\Lib\Store\Price::output($order->shipping_cost) }}</th>
@@ -71,6 +77,10 @@
             <th align="right">{{ \App\Lib\Store\Price::output($order->points_discount) }}</th>
         </tr>
         -->
+        <tr>
+            <th colspan="4" align="right"><b>Total</b></th></th>
+            <th align="right">{{ \App\Lib\Store\Price::output($order->total) }}</th>
+        </tr>
     </tfooter>
 </table>
 @endcomponent

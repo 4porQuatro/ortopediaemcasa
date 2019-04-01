@@ -1,4 +1,4 @@
-@extends('front.layouts.app')
+@extends('front.layouts.app-alt')
 
 @section('meta')
     @include('front.layouts.meta', ['record' => $page, 'image_type' => ''])
